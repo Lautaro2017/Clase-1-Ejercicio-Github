@@ -48,6 +48,18 @@
     <Compile Include="AcercaDePlanilla.Designer.cs">
       <DependentUpon>AcercaDePlanilla.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearEquipo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CrearEquipo.Designer.cs">
+      <DependentUpon>CrearEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearUsuario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CrearUsuario.Designer.cs">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="IniciarSesion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -59,6 +71,12 @@
   <ItemGroup>
     <EmbeddedResource Include="AcercaDePlanilla.resx">
       <DependentUpon>AcercaDePlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearEquipo.resx">
+      <DependentUpon>CrearEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearUsuario.resx">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IniciarSesion.resx">
       <DependentUpon>IniciarSesion.cs</DependentUpon>
