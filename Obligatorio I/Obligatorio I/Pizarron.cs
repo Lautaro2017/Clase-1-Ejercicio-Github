@@ -13,6 +13,7 @@ namespace Obligatorio_I
         public string Descripcion { set; get; }
         public int Alto { set; get; }
         public int Ancho { set; get; }
+
         public Usuario Creador { set; get; }
         public List<Elemento> Elementos { set; get; }
         public DateTime FechaDeCreacion { set; get; }
@@ -35,6 +36,11 @@ namespace Obligatorio_I
             this.Elementos = new List<Elemento>();
             this.FechaDeCreacion = DateTime.Now;
             this.UltimaModificacion = DateTime.Now;
+        }
+
+        public void AgregarElemento(Elemento e)
+        {
+            this.Elementos.Add(e);
         }
     }
 }
