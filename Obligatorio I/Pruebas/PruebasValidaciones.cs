@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Obligatorio_I;
 
 namespace Pruebas
 {
@@ -19,7 +20,7 @@ namespace Pruebas
         [TestMethod]
         public void LargoContraseñaNotOK()
         {
-            string contraseña = "hola20";
+            string contraseña = "hola201";
             Assert.IsFalse(validador.EsContraseñaValida(contraseña));
         }
 
@@ -33,7 +34,7 @@ namespace Pruebas
         [TestMethod]
         public void SoloNumerosEnContraseñaNotOK()
         {
-            string contraseña = "1234567";
+            string contraseña = "12345678";
             Assert.IsFalse(validador.EsContraseñaValida(contraseña));
         }
 
