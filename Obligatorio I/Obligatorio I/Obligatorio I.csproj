@@ -44,6 +44,7 @@
     <Compile Include="Elemento.cs" />
     <Compile Include="Equipo.cs" />
     <Compile Include="Pizarron.cs" />
+    <Compile Include="Sistema.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Utilidades.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
