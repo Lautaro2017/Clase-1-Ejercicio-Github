@@ -53,5 +53,59 @@ namespace Pruebas
             nuevoSistema.AgregarPizarron(p);
             Assert.IsTrue(nuevoSistema.Pizarrones.contains(p));
         }
+
+        [TestMethod]
+        public void FiltrarPizarronPorFechaModOK()
+        {
+            Pizarron p1 = utilidad.NuevoPizarron();
+            Pizarron p2 = utilidad.NuevoPizarron();
+            Pizarron p3 = utilidad.NuevoPizarron();
+            p1.FechaDeCreacion = new DateTime(2017, 30, 4);
+            p2.FechaDeCreacion = new DateTime(2017, 30, 4);
+            p3.FechaDeCreacion = new DateTime(2017, 29, 4);
+            nuevoSistema.AgregarPizarron(p1);
+            nuevoSistema.AgregarPizarron(p2);
+            nuevoSistema.AgregarPizarron(p3);
+            List<Pizarron> pizarrones = nuevoSistema.FiltroPizarronesPorFechaMod(new DateTime(2017,30,4));
+            bool filtroCorrecto = pizarrones.contains(p1) && pizarrones.contains(p2) && !pizarrones.contains(p3);
+            Assert.IsTrue(filtroCorrecto);
+        }
+
+        [TestMethod]
+        public void FiltrarPizarronPorEquipoOK()
+        {
+            Equipo e1 = utilidad.NuevoEquipo();
+            Equipo e2 = utilidad.NuevoEquipo();
+            Pizarron p1 = utilidad.NuevoPizarron();
+            Pizarron p2 = utilidad.NuevoPizarron();
+            Pizarron p3 = utilidad.NuevoPizarron();
+            e1.Nombre = "Equipo 1";
+            e1.Nombre = "Equipo 2";
+            p1.EquipoPerteneciente = e1;
+            p2.EquipoPerteneciente = e1;
+            p3.EquipoPerteneciente = e2;
+            nuevoSistema.AgregarEquipo(e1);
+            nuevoSistema.AgregarEquipo(e2);
+            nuevoSistema.AgregarPizarron(p1);
+            nuevoSistema.AgregarPizarron(p2);
+            nuevoSistema.AgregarPizarron(p3);
+            List<Pizarron> pizarrones = nuevoSistema.FiltroDePizarronesPorEquipo(e1);
+            bool filtroCorrecto = pizarrones.contains(p1) && pizarrones.contains(p2) && !pizarrones.contains(p3);
+            Assert.IsTrue(filtroCorrecto);
+        }
+
+        [TestMethod]
+        public void EliminarPizarronOK()
+        {
+            Pizarron p1 = utilidad.NuevoPizarron();
+            Pizarron p2 = utilidad.NuevoPizarron();
+            Pizarron p3 = utilidad.NuevoPizarron();
+            nuevoSistema.AgregarPizarron(p1);
+            nuevoSistema.AgregarPizarron(p2);
+            nuevoSistema.AgregarPizarron(p3);
+            List<Pizarron> pizarrones = nuevoSistema.EliminarPizarron(p1);
+            bool filtroCorrecto = !pizarrones.contains(p1) && pizarrones.contains(p2) && pizarrones.contains(p3);
+            Assert.IsTrue(filtroCorrecto);
+        }
     }
 }
