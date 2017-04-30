@@ -32,5 +32,10 @@ namespace Obligatorio_I
             this.Contraseña = nuevaContraseña;
             this.EsAdministrador = nuevoEsAdministrador;
         }
+
+        public override bool Equals(object obj)
+        {
+            return ((Usuario)obj).Email.Equals(this.Email);
+        }
     }
 }

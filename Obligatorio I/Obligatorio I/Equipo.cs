@@ -23,5 +23,13 @@ namespace Obligatorio_I
             this.CantMaxUsuarios = nuevaCantMaxUsuarios;
             this.usuarios = nuevosUsuarios;
         }
+
+        public void AgregarUsuario(Usuario u)
+        {
+            if (!this.usuarios.Contains(u))
+            {
+                this.usuarios.Add(u);
+            }
+        }
     }
 }
