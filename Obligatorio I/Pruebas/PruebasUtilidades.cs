@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Obligatorio_I;
+using System.Collections.Generic;
 
 namespace Pruebas
 {
@@ -38,7 +40,7 @@ namespace Pruebas
             Equipo e1 = utilidad.NuevoEquipo();
             Usuario u1 = utilidad.NuevoUsuario();
             List<Usuario> usuarios = new List<Usuario>();
-            usuarios.add(u1);
+            usuarios.Add(u1);
             Equipo e2 = new Equipo("Equipo Rocket", "Gestión de gastos", 3, usuarios);
             Assert.AreSame(e1, e2);
         }
@@ -64,7 +66,7 @@ namespace Pruebas
         {
             Pizarron p1 = utilidad.NuevoPizarron();
             Equipo e = utilidad.NuevoEquipo();
-            Usuario u = utilidad.NuevoUsuario;
+            Usuario u = utilidad.NuevoUsuario();
             Pizarron p2 = new Pizarron("Gastos varios", e, "Gestión de gastos varios", 120, 240, u);
             Assert.AreSame(p1, p2);
         }
@@ -82,9 +84,11 @@ namespace Pruebas
         {
             Elemento e1 = utilidad.NuevoElemento();
             Comentario c1 = utilidad.NuevoComentario();
-            List<Comentario> comentarios = new List<Comentario>();
-            comentarios.add(c1);
-            Elemento e2 = new Elemento('T', 100, 240, comentarios, (100, 120));
+            List <Comentario> comentarios = new List<Comentario>();
+            comentarios.Add(c1);
+            Pizarron p = utilidad.NuevoPizarron();
+            Elemento.Point origen = new Elemento.Point(23, 33);
+            Elemento e2 = new Elemento('T', 100, 240, comentarios, origen, p);
             Assert.AreSame(e1, e2);
         }
 
@@ -102,7 +106,8 @@ namespace Pruebas
             Comentario c1 = utilidad.NuevoComentario();
             Usuario u1 = utilidad.NuevoUsuario();
             Usuario u2 = utilidad.OtroUsuario();
-            Comentario c2 =  new Comentario(new DateTime(2017,4,29), u1, u2);
+            Pizarron p = utilidad.NuevoPizarron();
+            Comentario c2 =  new Comentario(new DateTime(2017,4,29), u1, u2, p);
             Assert.AreSame(c1, c2);
         }
 

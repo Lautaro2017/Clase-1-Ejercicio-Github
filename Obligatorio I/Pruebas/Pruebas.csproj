@@ -58,6 +58,12 @@
     <Compile Include="PruebasEquipo.cs" />
     <Compile Include="PruebasSistema.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Obligatorio I\Obligatorio I.csproj">
+      <Project>{1DBB0C63-189C-4AA6-B317-57550DD3DCF2}</Project>
+      <Name>Obligatorio I</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
