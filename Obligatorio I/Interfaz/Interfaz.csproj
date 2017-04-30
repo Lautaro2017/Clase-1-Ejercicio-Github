@@ -42,13 +42,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuPpal.cs">
-      <SubType>Form</SubType>
+    <Compile Include="AcercaDePlanilla.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MenuPpal.Designer.cs">
-      <DependentUpon>MenuPpal.cs</DependentUpon>
+    <Compile Include="AcercaDePlanilla.Designer.cs">
+      <DependentUpon>AcercaDePlanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IniciarSesion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IniciarSesion.Designer.cs">
+      <DependentUpon>IniciarSesion.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AcercaDePlanilla.resx">
+      <DependentUpon>AcercaDePlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IniciarSesion.resx">
+      <DependentUpon>IniciarSesion.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
