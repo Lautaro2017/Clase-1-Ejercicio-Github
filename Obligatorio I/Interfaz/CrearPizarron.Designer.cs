@@ -104,6 +104,7 @@
             this.cmbEquipo.Name = "cmbEquipo";
             this.cmbEquipo.Size = new System.Drawing.Size(134, 21);
             this.cmbEquipo.TabIndex = 82;
+            this.cmbEquipo.SelectedIndexChanged += new System.EventHandler(this.cmbEquipo_SelectedIndexChanged);
             // 
             // lblEquipo
             // 
@@ -179,6 +180,7 @@
             this.Controls.Add(this.lblCrearPizarron);
             this.Name = "CrearPizarron";
             this.Size = new System.Drawing.Size(582, 347);
+            this.Load += new System.EventHandler(this.CrearPizarron_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

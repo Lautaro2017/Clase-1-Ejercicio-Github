@@ -66,6 +66,18 @@
     <Compile Include="CrearUsuario.Designer.cs">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformeComentariosPorUsuario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InformeComentariosPorUsuario.Designer.cs">
+      <DependentUpon>InformeComentariosPorUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InformePizarronesPorEquipo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InformePizarronesPorEquipo.Designer.cs">
+      <DependentUpon>InformePizarronesPorEquipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="IniciarSesion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearUsuario.resx">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformeComentariosPorUsuario.resx">
+      <DependentUpon>InformeComentariosPorUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformePizarronesPorEquipo.resx">
+      <DependentUpon>InformePizarronesPorEquipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IniciarSesion.resx">
       <DependentUpon>IniciarSesion.cs</DependentUpon>

@@ -10,21 +10,17 @@ using System.Windows.Forms;
 
 namespace Interfaz
 {
-    public partial class CrearPizarron : UserControl
+    public partial class InformePizarronesPorEquipo : UserControl
     {
-        public CrearPizarron()
+        public InformePizarronesPorEquipo()
         {
             InitializeComponent();
         }
 
-        private void cmbEquipo_SelectedIndexChanged(object sender, EventArgs e)
+        private void InformePizarronesPorEquipo_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void CrearPizarron_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
