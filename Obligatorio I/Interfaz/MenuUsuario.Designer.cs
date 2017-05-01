@@ -54,6 +54,7 @@
             this.btnVerPizarrón.TabIndex = 103;
             this.btnVerPizarrón.Text = "Ver Pizarrón";
             this.btnVerPizarrón.UseVisualStyleBackColor = true;
+            this.btnVerPizarrón.Click += new System.EventHandler(this.btnVerPizarrón_Click);
             // 
             // btnCrearPizarron
             // 
@@ -63,6 +64,7 @@
             this.btnCrearPizarron.TabIndex = 102;
             this.btnCrearPizarron.Text = "Crear Pizarrón";
             this.btnCrearPizarron.UseVisualStyleBackColor = true;
+            this.btnCrearPizarron.Click += new System.EventHandler(this.btnCrearPizarron_Click);
             // 
             // btnSalir
             // 
@@ -72,6 +74,7 @@
             this.btnSalir.TabIndex = 104;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // MenuUsuario
             // 
