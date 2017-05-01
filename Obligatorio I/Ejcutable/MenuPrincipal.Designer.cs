@@ -71,14 +71,14 @@
             // menuOpcionIniciarSesion
             // 
             this.menuOpcionIniciarSesion.Name = "menuOpcionIniciarSesion";
-            this.menuOpcionIniciarSesion.Size = new System.Drawing.Size(152, 22);
+            this.menuOpcionIniciarSesion.Size = new System.Drawing.Size(143, 22);
             this.menuOpcionIniciarSesion.Text = "Iniciar Sesión";
             this.menuOpcionIniciarSesion.Click += new System.EventHandler(this.menuOpcionIniciarSesion_Click);
             // 
             // menuOpcionSalir
             // 
             this.menuOpcionSalir.Name = "menuOpcionSalir";
-            this.menuOpcionSalir.Size = new System.Drawing.Size(152, 22);
+            this.menuOpcionSalir.Size = new System.Drawing.Size(143, 22);
             this.menuOpcionSalir.Text = "Salir";
             // 
             // ayudaMenu
@@ -97,6 +97,7 @@
             this.menuOpcionAcercaDePlanilla.Name = "menuOpcionAcercaDePlanilla";
             this.menuOpcionAcercaDePlanilla.Size = new System.Drawing.Size(167, 22);
             this.menuOpcionAcercaDePlanilla.Text = "Acerca de Planilla";
+            this.menuOpcionAcercaDePlanilla.Click += new System.EventHandler(this.menuOpcionAcercaDePlanilla_Click);
             // 
             // MenuPrincipal
             // 

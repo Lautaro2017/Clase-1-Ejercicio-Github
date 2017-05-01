@@ -23,5 +23,10 @@ namespace Ejecutable
             panel1.Controls.Clear();
             panel1.Controls.Add(new IniciarSesion());
         }
+
+        private void menuOpcionAcercaDePlanilla_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
