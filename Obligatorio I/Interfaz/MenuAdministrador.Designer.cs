@@ -58,6 +58,7 @@
             this.btnInformeComentario.TabIndex = 104;
             this.btnInformeComentario.Text = "Informe Comentario por Usuario";
             this.btnInformeComentario.UseVisualStyleBackColor = true;
+            this.btnInformeComentario.Click += new System.EventHandler(this.btnInformeComentario_Click);
             // 
             // btnInformePizarron
             // 
@@ -67,6 +68,7 @@
             this.btnInformePizarron.TabIndex = 103;
             this.btnInformePizarron.Text = "Informe Pizarron por Equipo";
             this.btnInformePizarron.UseVisualStyleBackColor = true;
+            this.btnInformePizarron.Click += new System.EventHandler(this.btnInformePizarron_Click);
             // 
             // btnSalir
             // 
@@ -76,6 +78,7 @@
             this.btnSalir.TabIndex = 102;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnVerPizarrón
             // 
@@ -85,6 +88,7 @@
             this.btnVerPizarrón.TabIndex = 101;
             this.btnVerPizarrón.Text = "Ver Pizarrón";
             this.btnVerPizarrón.UseVisualStyleBackColor = true;
+            this.btnVerPizarrón.Click += new System.EventHandler(this.btnVerPizarrón_Click);
             // 
             // btnCrearPizarron
             // 
@@ -94,6 +98,7 @@
             this.btnCrearPizarron.TabIndex = 100;
             this.btnCrearPizarron.Text = "Crear Pizarrón";
             this.btnCrearPizarron.UseVisualStyleBackColor = true;
+            this.btnCrearPizarron.Click += new System.EventHandler(this.btnCrearPizarron_Click);
             // 
             // btnCrearEquipo
             // 
@@ -103,6 +108,7 @@
             this.btnCrearEquipo.TabIndex = 99;
             this.btnCrearEquipo.Text = "Crear Equipo";
             this.btnCrearEquipo.UseVisualStyleBackColor = true;
+            this.btnCrearEquipo.Click += new System.EventHandler(this.btnCrearEquipo_Click);
             // 
             // btnCrearUsuario
             // 
@@ -112,6 +118,7 @@
             this.btnCrearUsuario.TabIndex = 98;
             this.btnCrearUsuario.Text = "Crear Usuario";
             this.btnCrearUsuario.UseVisualStyleBackColor = true;
+            this.btnCrearUsuario.Click += new System.EventHandler(this.btnCrearUsuario_Click);
             // 
             // MenuAdministrador
             // 
