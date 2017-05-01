@@ -123,7 +123,7 @@ namespace Pruebas
         {
             Pizarron p = utilidad.NuevoPizarron();
             nuevoSistema.AgregarPizarron(p);
-            Assert.IsTrue(utilidad.PizarronValido(p,nuevoSistema.Pizarrones()));
+            Assert.IsTrue(nuevoSistema.Pizarrones.Contains(p));
         }
 
         [TestMethod]
@@ -132,7 +132,7 @@ namespace Pruebas
             Pizarron p1 = utilidad.NuevoPizarron();
             Pizarron p2 = utilidad.NuevoPizarron();
             nuevoSistema.AgregarPizarron(p1);
-            Assert.IsFalse(utilidad.PizarronValido(p2, nuevoSistema.Pizarrones()));
+            Assert.IsFalse(utilidad.PizarronValido(p2, nuevoSistema.Pizarrones));
         }
     }
 }

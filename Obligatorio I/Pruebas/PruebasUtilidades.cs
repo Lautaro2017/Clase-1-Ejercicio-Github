@@ -9,6 +9,7 @@ namespace Pruebas
     public class PruebasUtilidades
     {
         Utilidades utilidad = new Utilidades();
+        Validaciones validar = new Validaciones();
 
         [TestMethod]
         public void NuevoUsuarioVacioOK()
@@ -100,6 +101,13 @@ namespace Pruebas
         {
             string contraseña = utilidad.GenerarContraseña();
             Assert.IsNotNull(contraseña);
+        }
+
+        [TestMethod]
+        public void FormatoContraseñaOK()
+        {
+            string contraseña = utilidad.GenerarContraseña();
+            Assert.IsTrue(validar.EsContraseñaValida(contraseña));
         }
     }
 }

@@ -103,5 +103,10 @@ namespace Obligatorio_I
             }
             return contraseña;
         }
+
+        public bool PizarronValido(Pizarron p, List<Pizarron> pizarrones)
+        {
+            return !pizarrones.Contains(p);
+        }
     }
 }
