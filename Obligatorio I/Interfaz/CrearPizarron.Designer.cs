@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCrearEquipo = new System.Windows.Forms.Label();
+            this.lblCrearPizarron = new System.Windows.Forms.Label();
             this.txtAncho = new System.Windows.Forms.TextBox();
             this.lblAncho = new System.Windows.Forms.Label();
             this.txtAlto = new System.Windows.Forms.TextBox();
@@ -43,17 +43,17 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblCrearEquipo
+            // lblCrearPizarron
             // 
-            this.lblCrearEquipo.AutoSize = true;
-            this.lblCrearEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrearEquipo.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblCrearEquipo.Location = new System.Drawing.Point(213, 38);
-            this.lblCrearEquipo.Name = "lblCrearEquipo";
-            this.lblCrearEquipo.Size = new System.Drawing.Size(152, 25);
-            this.lblCrearEquipo.TabIndex = 63;
-            this.lblCrearEquipo.Text = "Crear Pizarron";
-            this.lblCrearEquipo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblCrearPizarron.AutoSize = true;
+            this.lblCrearPizarron.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCrearPizarron.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblCrearPizarron.Location = new System.Drawing.Point(213, 38);
+            this.lblCrearPizarron.Name = "lblCrearPizarron";
+            this.lblCrearPizarron.Size = new System.Drawing.Size(152, 25);
+            this.lblCrearPizarron.TabIndex = 63;
+            this.lblCrearPizarron.Text = "Crear Pizarrón";
+            this.lblCrearPizarron.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtAncho
             // 
@@ -176,7 +176,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblDescripcion);
-            this.Controls.Add(this.lblCrearEquipo);
+            this.Controls.Add(this.lblCrearPizarron);
             this.Name = "CrearPizarron";
             this.Size = new System.Drawing.Size(582, 347);
             this.ResumeLayout(false);
@@ -185,7 +185,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblCrearEquipo;
+        private System.Windows.Forms.Label lblCrearPizarron;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.RichTextBox rtxtDescripcion;
