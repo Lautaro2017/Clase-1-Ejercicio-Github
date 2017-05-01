@@ -134,5 +134,58 @@ namespace Pruebas
             nuevoSistema.AgregarPizarron(p1);
             Assert.IsFalse(utilidad.PizarronValido(p2, nuevoSistema.Pizarrones));
         }
+
+        [TestMethod]
+        public void FiltroComentariosPorFechaCreacion()
+        {
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            c1.FechaCreacion = new DateTime(2017, 5, 1);
+            c2.FechaCreacion = new DateTime(2017, 4, 30);
+            List<Comentario> comentarios = nuevoSistema.OrdenarComentariosPorFechaCreacion();
+            bool condicion = nuevoSistema.Comentarios.Contains(c1) && nuevoSistema.Comentarios.Contains(c2)
+                && nuevoSistema.Comentarios[0].Equals(c2);
+        }
+
+        [TestMethod]
+        public void FiltroComentariosPorFechaResolucion()
+        {
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            c1.FechaResolucion = new DateTime(2017, 5, 1);
+            c2.FechaResolucion = new DateTime(2017, 4, 30);
+            List<Comentario> comentarios = nuevoSistema.OrdenarComentariosPorFechaResolucion();
+            bool condicion = nuevoSistema.Comentarios.Contains(c1) && nuevoSistema.Comentarios.Contains(c2)
+                && nuevoSistema.Comentarios[0].Equals(c2);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltroComentariosPorCreador()
+        {
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            Usuario u1 = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            c1.Creador = u1;
+            c2.Creador = u2;
+            List<Comentario> comentarios = nuevoSistema.FiltrarComentariosPorCreador(u1);
+            bool condicion = comentarios.Contains(u1) && !comentarios.Contains(u2);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltroComentariosPorResolutor()
+        {
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            Usuario u1 = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            c1.Resolutivo = u1;
+            c2.Resolutivo = u2;
+            List<Comentario> comentarios = nuevoSistema.FiltrarComentariosPorResolutor(u1);
+            bool condicion = comentarios.Contains(u1) && !comentarios.Contains(u2);
+            Assert.IsTrue(condicion);
+        }
     }
 }
