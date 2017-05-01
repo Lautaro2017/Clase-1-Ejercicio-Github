@@ -20,18 +20,14 @@ namespace Ejecutable
 
         private void menuOpcionIniciarSesion_Click(object sender, EventArgs e)
         {
-            Panel parent = this.Parent as Panel;
-            IniciarSesion nuevaSesion = new IniciarSesion();
-            parent.Controls.Clear();
-            parent.Controls.Add(nuevaSesion);
+            this.panel1.Controls.Clear();
+            this.panel1.Controls.Add(new IniciarSesion());
+      
         }
-
         private void menuOpcionAcercaDePlanilla_Click(object sender, EventArgs e)
         {
-            Panel parent = this.Parent as Panel;
-            AcercaDePlanilla nuevaAcercaDePlanilla = new AcercaDePlanilla();
-            parent.Controls.Clear();
-            parent.Controls.Add(nuevaAcercaDePlanilla);
+            this.panel1.Controls.Clear();
+            this.panel1.Controls.Add(new AcercaDePlanilla());
         }
 
         private void menuOpcionSalir_Click(object sender, EventArgs e)
