@@ -26,7 +26,7 @@ namespace Pruebas
             Usuario u2 = utilidad.NuevoUsuario();
             nuevoSistema.AgregarUsuario(u1);
             nuevoSistema.AgregarUsuario(u2);
-            Assert.IsFalse(nuevoSistema.Usuarios.Contains(u2));
+            Assert.IsFalse(utilidad.IngresoDeUsuarioValido(u2,nuevoSistema.Usuarios));
         }
 
         [TestMethod]
@@ -44,7 +44,7 @@ namespace Pruebas
             Equipo e2 = utilidad.NuevoEquipo();
             nuevoSistema.AgregarEquipo(e1);
             nuevoSistema.AgregarEquipo(e2);
-            Assert.IsFalse(nuevoSistema.Equipos.Contains(e2));
+            Assert.IsFalse(utilidad.IngresoDeEquipoValido(e2,nuevoSistema.Equipos));
         }
 
         [TestMethod]

@@ -35,7 +35,19 @@ namespace Obligatorio_I
 
         public override bool Equals(object obj)
         {
-            return ((Usuario)obj).Email.Equals(this.Email);
+            var item = obj as Usuario;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            if (item.Email == null)
+            {
+                return this.Email == null;
+            }
+
+            return this.Email.Equals(item.Email);
         }
     }
 }

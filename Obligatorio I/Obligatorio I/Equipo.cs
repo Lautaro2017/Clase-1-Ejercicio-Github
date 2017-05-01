@@ -31,5 +31,22 @@ namespace Obligatorio_I
                 this.usuarios.Add(u);
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as Equipo;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            if (item.Nombre == null && this.Nombre == null)
+            {
+                return true;
+            }
+
+            return this.Nombre.Equals(item.Nombre);
+        }
     }
 }

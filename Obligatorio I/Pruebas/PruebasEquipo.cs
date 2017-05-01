@@ -26,7 +26,7 @@ namespace Pruebas
             Equipo e = utilidad.NuevoEquipoSinUsuarios();
             e.AgregarUsuario(u);
             e.AgregarUsuario(u2);
-            Assert.IsFalse(e.usuarios.Contains(u2));
+            Assert.IsFalse(utilidad.IngresoDeUsuarioValido(u2,e.usuarios));
         }
 
         [TestMethod]

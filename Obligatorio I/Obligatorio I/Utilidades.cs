@@ -51,7 +51,7 @@ namespace Obligatorio_I
         {
             Equipo e = this.NuevoEquipo();
             Usuario u = this.NuevoUsuario();
-            Pizarron p = new Obligatorio_I.Pizarron("Gastos varios", e, "Gestión de gastos varios", 120, 240, u);
+            Pizarron p = new Pizarron("Gastos varios", e, "Gestión de gastos varios", 120, 240, u);
             return p;
         }
 
