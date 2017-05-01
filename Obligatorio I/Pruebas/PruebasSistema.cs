@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Obligatorio_I;
+using System.Collections.Generic;
 
 namespace Pruebas
 {
@@ -15,7 +16,7 @@ namespace Pruebas
         {
             Usuario u = utilidad.NuevoUsuario();
             nuevoSistema.AgregarUsuario(u);
-            Assert.IsTrue(nuevoSistema.Usuarios.contains(u));
+            Assert.IsTrue(nuevoSistema.Usuarios.Contains(u));
         }
 
         [TestMethod]
@@ -25,7 +26,7 @@ namespace Pruebas
             Usuario u2 = utilidad.NuevoUsuario();
             nuevoSistema.AgregarUsuario(u1);
             nuevoSistema.AgregarUsuario(u2);
-            Assert.IsFalse(nuevoSistema.Usuarios.contains(u2));
+            Assert.IsFalse(nuevoSistema.Usuarios.Contains(u2));
         }
 
         [TestMethod]
@@ -33,7 +34,7 @@ namespace Pruebas
         {
             Equipo e = utilidad.NuevoEquipo();
             nuevoSistema.AgregarEquipo(e);
-            Assert.IsTrue(nuevoSistema.Equipos.contains(e));
+            Assert.IsTrue(nuevoSistema.Equipos.Contains(e));
         }
 
         [TestMethod]
@@ -43,7 +44,7 @@ namespace Pruebas
             Equipo e2 = utilidad.NuevoEquipo();
             nuevoSistema.AgregarEquipo(e1);
             nuevoSistema.AgregarEquipo(e2);
-            Assert.IsFalse(nuevoSistema.Equipos.contains(e2));
+            Assert.IsFalse(nuevoSistema.Equipos.Contains(e2));
         }
 
         [TestMethod]
@@ -51,7 +52,7 @@ namespace Pruebas
         {
             Pizarron p = utilidad.NuevoPizarron();
             nuevoSistema.AgregarPizarron(p);
-            Assert.IsTrue(nuevoSistema.Pizarrones.contains(p));
+            Assert.IsTrue(nuevoSistema.Pizarrones.Contains(p));
         }
 
         [TestMethod]
@@ -67,7 +68,7 @@ namespace Pruebas
             nuevoSistema.AgregarPizarron(p2);
             nuevoSistema.AgregarPizarron(p3);
             List<Pizarron> pizarrones = nuevoSistema.FiltroPizarronesPorFechaMod(new DateTime(2017,30,4));
-            bool filtroCorrecto = pizarrones.contains(p1) && pizarrones.contains(p2) && !pizarrones.contains(p3);
+            bool filtroCorrecto = pizarrones.Contains(p1) && pizarrones.Contains(p2) && !pizarrones.Contains(p3);
             Assert.IsTrue(filtroCorrecto);
         }
 
@@ -90,7 +91,7 @@ namespace Pruebas
             nuevoSistema.AgregarPizarron(p2);
             nuevoSistema.AgregarPizarron(p3);
             List<Pizarron> pizarrones = nuevoSistema.FiltroDePizarronesPorEquipo(e1);
-            bool filtroCorrecto = pizarrones.contains(p1) && pizarrones.contains(p2) && !pizarrones.contains(p3);
+            bool filtroCorrecto = pizarrones.Contains(p1) && pizarrones.Contains(p2) && !pizarrones.Contains(p3);
             Assert.IsTrue(filtroCorrecto);
         }
 
@@ -103,8 +104,8 @@ namespace Pruebas
             nuevoSistema.AgregarPizarron(p1);
             nuevoSistema.AgregarPizarron(p2);
             nuevoSistema.AgregarPizarron(p3);
-            List<Pizarron> pizarrones = nuevoSistema.EliminarPizarron(p1);
-            bool filtroCorrecto = !pizarrones.contains(p1) && pizarrones.contains(p2) && pizarrones.contains(p3);
+            nuevoSistema.EliminarPizarron(p1);
+            bool filtroCorrecto = !nuevoSistema.Pizarrones.Contains(p1) && nuevoSistema.Pizarrones.Contains(p2) && nuevoSistema.Pizarrones.Contains(p3);
             Assert.IsTrue(filtroCorrecto);
         }
     }
