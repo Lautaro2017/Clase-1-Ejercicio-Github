@@ -140,11 +140,15 @@ namespace Pruebas
         {
             Comentario c1 = utilidad.NuevoComentario();
             Comentario c2 = utilidad.NuevoComentario();
+            Comentario c3 = utilidad.NuevoComentario();
             c1.FechaCreacion = new DateTime(2017, 5, 1);
             c2.FechaCreacion = new DateTime(2017, 4, 30);
-            List<Comentario> comentarios = nuevoSistema.OrdenarComentariosPorFechaCreacion();
-            bool condicion = nuevoSistema.Comentarios.Contains(c1) && nuevoSistema.Comentarios.Contains(c2)
-                && nuevoSistema.Comentarios[0].Equals(c2);
+            c3.FechaCreacion = new DateTime(2017, 5, 2);
+            nuevoSistema.AgregarComentario(c1);
+            nuevoSistema.AgregarComentario(c2);
+            nuevoSistema.AgregarComentario(c3);
+            List<Comentario> comentarios = nuevoSistema.FiltrarComentariosPorFechaCreacion(new DateTime(2017, 5, 1));
+            bool condicion = nuevoSistema.Comentarios.Contains(c1) && !nuevoSistema.Comentarios.Contains(c2) && !nuevoSistema.Comentarios.Contains(c3);
         }
 
         [TestMethod]
@@ -152,11 +156,21 @@ namespace Pruebas
         {
             Comentario c1 = utilidad.NuevoComentario();
             Comentario c2 = utilidad.NuevoComentario();
+            Comentario c3 = utilidad.NuevoComentario();
+
+            c1.FechaCreacion = new DateTime(2017, 5, 2);
+            c2.FechaCreacion = new DateTime(2017, 5, 1);
+            c3.FechaCreacion = new DateTime(2017, 4, 30);
+
             c1.FechaResolucion = new DateTime(2017, 5, 1);
             c2.FechaResolucion = new DateTime(2017, 4, 30);
-            List<Comentario> comentarios = nuevoSistema.OrdenarComentariosPorFechaResolucion();
-            bool condicion = nuevoSistema.Comentarios.Contains(c1) && nuevoSistema.Comentarios.Contains(c2)
-                && nuevoSistema.Comentarios[0].Equals(c2);
+            c3.FechaResolucion = new DateTime(2017, 5, 2);
+
+            nuevoSistema.AgregarComentario(c1);
+            nuevoSistema.AgregarComentario(c2);
+            nuevoSistema.AgregarComentario(c3);
+            List<Comentario> comentarios = nuevoSistema.FlitrarComentariosPorFechaResolucion(new DateTime(2017, 4, 30));
+            bool condicion = !comentarios.Contains(c1) && comentarios.Contains(c2) && !comentarios.Contains(c3);
             Assert.IsTrue(condicion);
         }
 
@@ -169,8 +183,10 @@ namespace Pruebas
             Usuario u2 = utilidad.OtroUsuario();
             c1.Creador = u1;
             c2.Creador = u2;
+            nuevoSistema.AgregarComentario(c1);
+            nuevoSistema.AgregarComentario(c2);
             List<Comentario> comentarios = nuevoSistema.FiltrarComentariosPorCreador(u1);
-            bool condicion = comentarios.Contains(u1) && !comentarios.Contains(u2);
+            bool condicion = comentarios.Contains(c1) && !comentarios.Contains(c2);
             Assert.IsTrue(condicion);
         }
 
@@ -181,10 +197,14 @@ namespace Pruebas
             Comentario c2 = utilidad.NuevoComentario();
             Usuario u1 = utilidad.NuevoUsuario();
             Usuario u2 = utilidad.OtroUsuario();
+            c1.Creador = u2;
+            c2.Creador = u1;
             c1.Resolutivo = u1;
             c2.Resolutivo = u2;
+            nuevoSistema.AgregarComentario(c1);
+            nuevoSistema.AgregarComentario(c2);
             List<Comentario> comentarios = nuevoSistema.FiltrarComentariosPorResolutor(u1);
-            bool condicion = comentarios.Contains(u1) && !comentarios.Contains(u2);
+            bool condicion = comentarios.Contains(c1) && !comentarios.Contains(c2);
             Assert.IsTrue(condicion);
         }
     }
