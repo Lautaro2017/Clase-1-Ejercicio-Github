@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaz;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Ejcutable
+namespace Ejecutable
 {
     public partial class MenuPrincipal : Form
     {
@@ -17,5 +18,10 @@ namespace Ejcutable
             InitializeComponent();
         }
 
+        private void menuOpcionIniciarSesion_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new IniciarSesion());
+        }
     }
 }

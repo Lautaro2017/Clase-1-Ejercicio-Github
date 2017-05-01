@@ -1,4 +1,4 @@
-﻿namespace Ejcutable
+﻿namespace Ejecutable
 {
     partial class MenuPrincipal
     {
@@ -73,6 +73,7 @@
             this.menuOpcionIniciarSesion.Name = "menuOpcionIniciarSesion";
             this.menuOpcionIniciarSesion.Size = new System.Drawing.Size(152, 22);
             this.menuOpcionIniciarSesion.Text = "Iniciar Sesión";
+            this.menuOpcionIniciarSesion.Click += new System.EventHandler(this.menuOpcionIniciarSesion_Click);
             // 
             // menuOpcionSalir
             // 
