@@ -61,14 +61,20 @@ namespace Pruebas
             Pizarron p1 = utilidad.NuevoPizarron();
             Pizarron p2 = utilidad.NuevoPizarron();
             Pizarron p3 = utilidad.NuevoPizarron();
-            p1.FechaDeCreacion = new DateTime(2017, 30, 4);
-            p2.FechaDeCreacion = new DateTime(2017, 30, 4);
-            p3.FechaDeCreacion = new DateTime(2017, 29, 4);
+            p1.Nombre = "Equipo Rocket";
+            p2.Nombre = "Griffyndor";
+            p3.Nombre = "Targaryen";
+            p1.FechaDeCreacion = new DateTime(2017, 4, 30);
+            p2.FechaDeCreacion = new DateTime(2017, 4, 30);
+            p3.FechaDeCreacion = new DateTime(2017, 4, 29);
             nuevoSistema.AgregarPizarron(p1);
             nuevoSistema.AgregarPizarron(p2);
             nuevoSistema.AgregarPizarron(p3);
-            List<Pizarron> pizarrones = nuevoSistema.FiltroPizarronesPorFechaMod(new DateTime(2017,30,4));
-            bool filtroCorrecto = pizarrones.Contains(p1) && pizarrones.Contains(p2) && !pizarrones.Contains(p3);
+            List<Pizarron> pizarrones = nuevoSistema.FiltroPizarronesPorFechaMod(new DateTime(2017,4,30));            
+            bool aux1 = pizarrones.Contains(p1);
+            bool aux2 = pizarrones.Contains(p2);
+            bool aux3 = pizarrones.Contains(p3);
+            bool filtroCorrecto = pizarrones.Contains(p1) && pizarrones.Contains(p2) && !(pizarrones.Contains(p3));
             Assert.IsTrue(filtroCorrecto);
         }
 
@@ -101,12 +107,32 @@ namespace Pruebas
             Pizarron p1 = utilidad.NuevoPizarron();
             Pizarron p2 = utilidad.NuevoPizarron();
             Pizarron p3 = utilidad.NuevoPizarron();
+            p1.Nombre = "Slytherin";
+            p2.Nombre = "San Lorenzo";
+            p3.Nombre = "Ferrocarril Oeste";
             nuevoSistema.AgregarPizarron(p1);
             nuevoSistema.AgregarPizarron(p2);
             nuevoSistema.AgregarPizarron(p3);
             nuevoSistema.EliminarPizarron(p1);
             bool filtroCorrecto = !nuevoSistema.Pizarrones.Contains(p1) && nuevoSistema.Pizarrones.Contains(p2) && nuevoSistema.Pizarrones.Contains(p3);
             Assert.IsTrue(filtroCorrecto);
+        }
+
+        [TestMethod]
+        public void IngresoDePizarronValidoOK()
+        {
+            Pizarron p = utilidad.NuevoPizarron();
+            nuevoSistema.AgregarPizarron(p);
+            Assert.IsTrue(utilidad.PizarronValido(p,nuevoSistema.Pizarrones()));
+        }
+
+        [TestMethod]
+        public void IngresoDePizarronValidoNotOK()
+        {
+            Pizarron p1 = utilidad.NuevoPizarron();
+            Pizarron p2 = utilidad.NuevoPizarron();
+            nuevoSistema.AgregarPizarron(p1);
+            Assert.IsFalse(utilidad.PizarronValido(p2, nuevoSistema.Pizarrones()));
         }
     }
 }

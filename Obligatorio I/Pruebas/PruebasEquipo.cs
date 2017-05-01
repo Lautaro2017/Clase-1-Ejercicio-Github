@@ -33,7 +33,7 @@ namespace Pruebas
         public void SonElMismoUsuarioOK()
         {
             Usuario u = utilidad.NuevoUsuario();
-            Usuario u2 = new Usuario("Rafael", "Santino", "lautarogutierrez4@gmail.com",new DateTime(1,3,1990), "rafa2017", false);                        
+            Usuario u2 = new Usuario("Rafael", "Santino", "lautarogutierrez4@gmail.com",new DateTime(1990,3,1), "rafa2017", false);                        
             Assert.IsTrue(u.Equals(u2));
         }
 

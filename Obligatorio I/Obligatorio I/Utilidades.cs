@@ -35,6 +35,11 @@ namespace Obligatorio_I
             return e;
         }
 
+        public bool IngresoDeUsuarioValido(Usuario u, List<Usuario> usuarios)
+        {
+            return !usuarios.Contains(u);
+        }
+
         public Equipo NuevoEquipoSinUsuarios()
         {
             Equipo e = new Equipo("Equipo Rocket", "Gestión de gastos", 3, new List<Usuario>());
@@ -47,18 +52,17 @@ namespace Obligatorio_I
             return p;
         }
 
+        public bool IngresoDeEquipoValido(Equipo e, List<Equipo> equipos)
+        {
+            return !equipos.Contains(e);
+        }
+
         public Pizarron NuevoPizarron()
         {
             Equipo e = this.NuevoEquipo();
             Usuario u = this.NuevoUsuario();
             Pizarron p = new Pizarron("Gastos varios", e, "Gestión de gastos varios", 120, 240, u);
             return p;
-        }
-
-        public Elemento NuevoElementoVacio()
-        {
-            Elemento e = new Elemento();
-            return e;
         }
 
         public Elemento NuevoElemento()
@@ -72,12 +76,6 @@ namespace Obligatorio_I
             return e;
         }
 
-        public Comentario NuevoComentarioVacio()
-        {
-            Comentario c = new Comentario();
-            return c;
-        }
-
         public Comentario NuevoComentario()
         {
             Usuario u1 = this.NuevoUsuario();
@@ -86,10 +84,24 @@ namespace Obligatorio_I
             Comentario c = new Comentario(new DateTime(2017, 4, 29), u1, u2, p);
             return c;
         }
-
+        
         public string GenerarContraseña()
         {
-            return "";
+            string guid = Guid.NewGuid().ToString();
+            string contraseña = "";
+            bool ok = true;
+            for (int i = 0; ok && i < guid.ToString().Length; i++)
+            {                
+                if (guid[i] == '-')
+                {
+                    ok = false;
+                }
+                else
+                {
+                    contraseña += guid[i];
+                }
+            }
+            return contraseña;
         }
     }
 }

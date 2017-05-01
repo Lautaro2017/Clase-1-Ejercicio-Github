@@ -72,14 +72,6 @@ namespace Pruebas
         }
 
         [TestMethod]
-        public void NuevoElementoVacioOK()
-        {
-            Elemento e1 = utilidad.NuevoElementoVacio();
-            Elemento e2 = new Elemento();
-            Assert.AreEqual(e1, e2);
-        }
-
-        [TestMethod]
         public void NuevoElementoOK()
         {
             Elemento e1 = utilidad.NuevoElemento();
@@ -90,14 +82,6 @@ namespace Pruebas
             Elemento.Point origen = new Elemento.Point(23, 33);
             Elemento e2 = new Elemento('T', 100, 240, comentarios, origen, p);
             Assert.AreEqual(e1, e2);
-        }
-
-        [TestMethod]
-        public void NuevoComentarioVacioOK()
-        {
-            Comentario c1 = utilidad.NuevoComentarioVacio();
-            Comentario c2 = new Comentario();
-            Assert.AreEqual(c1, c2);
         }
 
         [TestMethod]

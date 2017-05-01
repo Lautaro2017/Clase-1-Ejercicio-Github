@@ -14,12 +14,6 @@ namespace Obligatorio_I
         public Usuario Resolutivo { set; get; }
         public Pizarron PizarronContenedor { set; get; }
 
-        public Comentario()
-        {
-            this.FechaCreacion = DateTime.Now;
-            this.FechaResolucion = DateTime.MinValue;
-        }
-
         public Comentario(DateTime nuevaFechaResolucion, Usuario nuevoCreador, Usuario nuevoResolutivo, Pizarron nuevoPizarron)
         {
             this.FechaCreacion = DateTime.Now;
@@ -27,6 +21,18 @@ namespace Obligatorio_I
             this.Creador = nuevoCreador;
             this.Resolutivo = nuevoResolutivo;
             this.PizarronContenedor = nuevoPizarron;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as Comentario;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            return this.Creador.Equals(item.Creador) && this.FechaCreacion.Equals(item.FechaCreacion);
         }
     }
 }

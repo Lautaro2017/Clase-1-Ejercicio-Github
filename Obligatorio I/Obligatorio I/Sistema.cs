@@ -48,7 +48,7 @@ namespace Obligatorio_I
             List<Pizarron> pizarron = new List<Pizarron>();
             foreach (Pizarron p in this.Pizarrones)
             {
-                if (p.UltimaModificacion == fecha)
+                if (p.FechaDeCreacion == fecha)
                 {
                     pizarron.Add(p);
                 }

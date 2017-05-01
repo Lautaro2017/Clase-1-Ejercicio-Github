@@ -34,14 +34,6 @@ namespace Obligatorio_I
         public string Contenido { set; get; }
         public Pizarron PizarronContenedor { set; get; }
 
-        public Elemento()
-        {
-            this.Alto = 0;
-            this.Ancho = 0;
-            this.Comentarios = new List<Comentario>();
-            this.PuntoOrigen = new Point(0, 0);
-        }
-
         public Elemento(char nuevoTipo, int nuevaAltura, int nuevaAnchura, List<Comentario> nuevosComentarios, Point nuevoPuntoOrigen, Pizarron nuevoPizarron)
         {
 
@@ -51,6 +43,23 @@ namespace Obligatorio_I
             this.Comentarios = nuevosComentarios;
             this.PuntoOrigen = nuevoPuntoOrigen;
             this.PizarronContenedor = nuevoPizarron;
+            this.TamañoFuente = 0;
+            this.TipoFuente = "Arial";
+            this.Contenido = "";
+        }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as Elemento;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            return this.PizarronContenedor.Equals(item.PizarronContenedor) && this.Tipo.Equals(item.Tipo)
+                && this.TamañoFuente.Equals(item.TamañoFuente) && this.TipoFuente.Equals(item.TipoFuente)
+                && this.Contenido.Equals(item.Contenido);
         }
     }
 }
