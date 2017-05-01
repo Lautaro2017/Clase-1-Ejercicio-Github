@@ -54,6 +54,12 @@
     <Compile Include="CrearEquipo.Designer.cs">
       <DependentUpon>CrearEquipo.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearPizarron.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CrearPizarron.Designer.cs">
+      <DependentUpon>CrearPizarron.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearEquipo.resx">
       <DependentUpon>CrearEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearPizarron.resx">
+      <DependentUpon>CrearPizarron.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearUsuario.resx">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
