@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01448140-8692-41A7-B7B8-7F1E69C4E8A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Interfaz</RootNamespace>
+    <AssemblyName>Interfaz</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcercaDePlanilla.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AcercaDePlanilla.Designer.cs">
+      <DependentUpon>AcercaDePlanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearEquipo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CrearEquipo.Designer.cs">
+      <DependentUpon>CrearEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearPizarron.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CrearPizarron.Designer.cs">
+      <DependentUpon>CrearPizarron.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearUsuario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CrearUsuario.Designer.cs">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InformeComentariosPorUsuario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InformeComentariosPorUsuario.Designer.cs">
+      <DependentUpon>InformeComentariosPorUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InformePizarronesPorEquipo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InformePizarronesPorEquipo.Designer.cs">
+      <DependentUpon>InformePizarronesPorEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IniciarSesion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IniciarSesion.Designer.cs">
+      <DependentUpon>IniciarSesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAdministrador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuAdministrador.Designer.cs">
+      <DependentUpon>MenuAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuUsuario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuUsuario.Designer.cs">
+      <DependentUpon>MenuUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizarPizarron.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VisualizarPizarron.Designer.cs">
+      <DependentUpon>VisualizarPizarron.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AcercaDePlanilla.resx">
+      <DependentUpon>AcercaDePlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearEquipo.resx">
+      <DependentUpon>CrearEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearPizarron.resx">
+      <DependentUpon>CrearPizarron.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearUsuario.resx">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformeComentariosPorUsuario.resx">
+      <DependentUpon>InformeComentariosPorUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformePizarronesPorEquipo.resx">
+      <DependentUpon>InformePizarronesPorEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IniciarSesion.resx">
+      <DependentUpon>IniciarSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAdministrador.resx">
+      <DependentUpon>MenuAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuUsuario.resx">
+      <DependentUpon>MenuUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizarPizarron.resx">
+      <DependentUpon>VisualizarPizarron.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
