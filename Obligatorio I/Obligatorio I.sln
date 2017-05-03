@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obligatorio I", "Obligatorio I\Obligatorio I.csproj", "{1DBB0C63-189C-4AA6-B317-57550DD3DCF2}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaz", "Interfaz\Interfaz.csproj", "{01448140-8692-41A7-B7B8-7F1E69C4E8A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejecutable", "Ejcutable\Ejecutable.csproj", "{414BB84E-F550-485E-9C1E-ED272C6C7E68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\Excepciones.csproj", "{3E2C101E-9280-490E-A342-F8483AE4D813}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{414BB84E-F550-485E-9C1E-ED272C6C7E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{414BB84E-F550-485E-9C1E-ED272C6C7E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{414BB84E-F550-485E-9C1E-ED272C6C7E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E2C101E-9280-490E-A342-F8483AE4D813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E2C101E-9280-490E-A342-F8483AE4D813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E2C101E-9280-490E-A342-F8483AE4D813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E2C101E-9280-490E-A342-F8483AE4D813}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -40,8 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcepcionAnchoYAltoPizarron.cs" />
+    <Compile Include="ExcepcionConfirmacionContraseña.cs" />
+    <Compile Include="ExcepcionFormatoContraseña.cs" />
     <Compile Include="ExcepcionDatosVacios.cs" />
     <Compile Include="ExcepcionEmail.cs" />
+    <Compile Include="ExcepcionEquipoRepetido.cs" />
+    <Compile Include="ExcepcionFechaDeNacimiento.cs" />
+    <Compile Include="ExcepcionNombrePizarronVacio.cs" />
+    <Compile Include="ExcepcionPizarronRepetido.cs" />
+    <Compile Include="ExcepcionPizarronSinEquipo.cs" />
+    <Compile Include="ExcepecionEquipoSinUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
