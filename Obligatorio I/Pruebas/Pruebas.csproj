@@ -57,6 +57,7 @@
     <Compile Include="PruebasValidaciones.cs" />
     <Compile Include="PruebasEquipo.cs" />
     <Compile Include="PruebasSistema.cs" />
+    <Compile Include="PruebasPizarron.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Obligatorio I\Obligatorio I.csproj">

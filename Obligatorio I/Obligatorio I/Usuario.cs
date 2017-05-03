@@ -32,5 +32,22 @@ namespace Obligatorio_I
             this.Contraseña = nuevaContraseña;
             this.EsAdministrador = nuevoEsAdministrador;
         }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as Usuario;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            if (item.Email == null)
+            {
+                return this.Email == null;
+            }
+
+            return this.Email.Equals(item.Email);
+        }
     }
 }

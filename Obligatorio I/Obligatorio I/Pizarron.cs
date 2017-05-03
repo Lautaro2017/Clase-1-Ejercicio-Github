@@ -13,6 +13,7 @@ namespace Obligatorio_I
         public string Descripcion { set; get; }
         public int Alto { set; get; }
         public int Ancho { set; get; }
+
         public Usuario Creador { set; get; }
         public List<Elemento> Elementos { set; get; }
         public DateTime FechaDeCreacion { set; get; }
@@ -20,8 +21,9 @@ namespace Obligatorio_I
 
         public Pizarron()
         {
-            this.Nombre = "";
             this.Elementos = new List<Elemento>();
+            this.FechaDeCreacion = DateTime.Now;
+            this.UltimaModificacion = DateTime.Now;
         }
 
         public Pizarron(string nuevoNombre, Equipo unEquipo, string nuevaDescripcion, int nuevaAltura, int nuevaAnchura, Usuario nuevoCreador)
@@ -35,6 +37,34 @@ namespace Obligatorio_I
             this.Elementos = new List<Elemento>();
             this.FechaDeCreacion = DateTime.Now;
             this.UltimaModificacion = DateTime.Now;
+        }
+
+        public void AgregarElemento(Elemento e)
+        {
+            this.Elementos.Add(e);
+        }
+        
+        public override bool Equals(object obj)
+        {
+            var item = obj as Pizarron;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            if (item.EquipoPerteneciente == null && this.EquipoPerteneciente == null)
+            {
+                return (item.Nombre == null && this.Nombre == null);
+            }
+
+            if (item.Nombre == null && this.Nombre == null)
+            {
+                return (item.EquipoPerteneciente == null && this.EquipoPerteneciente == null);
+            }
+
+            return this.EquipoPerteneciente.Equals(item.EquipoPerteneciente)
+                && this.Nombre.Equals(item.Nombre);
         }
     }
 }

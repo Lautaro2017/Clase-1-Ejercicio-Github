@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Obligatorio_I;
 
 namespace Pruebas
 {
@@ -14,33 +15,25 @@ namespace Pruebas
             Usuario u = utilidad.NuevoUsuario();
             Equipo e = utilidad.NuevoEquipoSinUsuarios();
             e.AgregarUsuario(u);
-            Assert.IsTrue(e.contains(u));
-        }
-
-        [TestMethod]
-        public void UsuarioYaExistenteOK()
-        {
-            Usuario u = utilidad.NuevoUsuario();
-            Equipo e = utilidad.NuevoEquipoSinUsuarios();
-            e.AgregarUsuario(u);
-            Assert.IsTrue(UsuarioYaExistente(u));
+            Assert.IsTrue(e.usuarios.Contains(u));
         }
 
         [TestMethod]
         public void UsuarioYaExistenteNotOK()
         {
             Usuario u = utilidad.NuevoUsuario();
-            Usuario u2 = utilidad.OtroUsuario();
+            Usuario u2 = utilidad.NuevoUsuario();
             Equipo e = utilidad.NuevoEquipoSinUsuarios();
             e.AgregarUsuario(u);
-            Assert.IsFalse(UsuarioYaExistente(u2));
+            e.AgregarUsuario(u2);
+            Assert.IsFalse(utilidad.IngresoDeUsuarioValido(u2,e.usuarios));
         }
 
         [TestMethod]
         public void SonElMismoUsuarioOK()
         {
             Usuario u = utilidad.NuevoUsuario();
-            Usuario u2 = new Usuario("Rafael", "Santino", "lautarogutierrez4@gmail.com",new DateTime(1,3,1990), "rafa2017", false);                        
+            Usuario u2 = new Usuario("Rafael", "Santino", "lautarogutierrez4@gmail.com",new DateTime(1990,3,1), "rafa2017", false);                        
             Assert.IsTrue(u.Equals(u2));
         }
 
