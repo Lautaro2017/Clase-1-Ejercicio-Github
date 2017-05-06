@@ -206,9 +206,16 @@ namespace Obligatorio_I
             return false;
         }
 
-        public object BuscarUsuarioPorMail(string v)
+        public Usuario BuscarUsuarioPorMail(string email)
         {
-            throw new NotImplementedException();
+            foreach (Usuario u in this.Usuarios)
+            {
+                if (u.Email == email)
+                {
+                    return u;
+                }
+            }
+            return null;
         }
     }
 }
