@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ControladorContraseñaCorrecta.cs" />
     <Compile Include="ControladorInicioSesion.cs" />
+    <Compile Include="ControladorNombrePizarronVacio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

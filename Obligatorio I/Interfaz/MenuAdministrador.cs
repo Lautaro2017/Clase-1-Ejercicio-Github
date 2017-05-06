@@ -12,8 +12,10 @@ namespace Interfaz
 {
     public partial class MenuAdministrador : UserControl
     {
+        private string loginId;
         public MenuAdministrador(string email)
         {
+            loginId = email;
             InitializeComponent();
         }
 
@@ -25,7 +27,7 @@ namespace Interfaz
         private void btnCrearUsuario_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            CrearUsuario nuevoUsuario = new CrearUsuario();
+            CrearUsuario nuevoUsuario = new CrearUsuario(loginId);
             parent.Controls.Clear();
             parent.Controls.Add(nuevoUsuario);
         }
@@ -33,7 +35,7 @@ namespace Interfaz
         private void btnCrearEquipo_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            CrearEquipo nuevoEquipo = new CrearEquipo();
+            CrearEquipo nuevoEquipo = new CrearEquipo(loginId);
             parent.Controls.Clear();
             parent.Controls.Add(nuevoEquipo);
         }
@@ -41,7 +43,7 @@ namespace Interfaz
         private void btnCrearPizarron_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            CrearPizarron nuevoPizarron = new CrearPizarron();
+            CrearPizarron nuevoPizarron = new CrearPizarron(loginId);
             parent.Controls.Clear();
             parent.Controls.Add(nuevoPizarron);
         }
@@ -49,7 +51,7 @@ namespace Interfaz
         private void btnVerPizarrón_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            VisualizarPizarron verPizarron = new VisualizarPizarron();
+            VisualizarPizarron verPizarron = new VisualizarPizarron(loginId);
             parent.Controls.Clear();
             parent.Controls.Add(verPizarron);
         }
@@ -57,7 +59,7 @@ namespace Interfaz
         private void btnInformePizarron_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            InformePizarronesPorEquipo nuevoInformePizarron = new InformePizarronesPorEquipo();
+            InformePizarronesPorEquipo nuevoInformePizarron = new InformePizarronesPorEquipo(loginId);
             parent.Controls.Clear();
             parent.Controls.Add(nuevoInformePizarron);
         }
@@ -65,7 +67,7 @@ namespace Interfaz
         private void btnInformeComentario_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            InformeComentariosPorUsuario nuevoInformeComentario = new InformeComentariosPorUsuario();
+            InformeComentariosPorUsuario nuevoInformeComentario = new InformeComentariosPorUsuario(loginId);
             parent.Controls.Clear();
             parent.Controls.Add(nuevoInformeComentario);
         }

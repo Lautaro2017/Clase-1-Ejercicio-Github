@@ -13,7 +13,7 @@ namespace Obligatorio_I
         private string email { set; get; }
         private DateTime FechaDeNacimiento { set; get; }
         private string contraseña { set; get; }
-        private bool EsAdministrador { set; get; }
+        private bool esAdministrador { set; get; }
 
         public Usuario()
         {
@@ -42,6 +42,18 @@ namespace Obligatorio_I
             set
             {
                 this.contraseña = value;
+            }
+        }
+
+        public bool EsAdministrador
+        {
+            get
+            {
+                return esAdministrador;
+            }
+            set
+            {
+                this.esAdministrador = value;
             }
         }
 

@@ -34,6 +34,19 @@ namespace Interfaz
                 string contraseña = this.txtContraseña.Text;
                 controlador1.IniciarSesionOK(email, contraseña);
                 controlador2.ContraseñaCorrectaOK(email, contraseña);
+                Panel parent = this.Parent as Panel;
+                if (s.BuscarUsuarioPorMail(email).EsAdministrador)
+                {
+                    MenuAdministrador nuevoMenuAdmin = new MenuAdministrador(email);
+                    parent.Controls.Clear();
+                    parent.Controls.Add(nuevoMenuAdmin);
+                }
+                else
+                {
+                    MenuUsuario nuevoMenuUsuario = new MenuUsuario(email);
+                    parent.Controls.Clear();
+                    parent.Controls.Add(nuevoMenuUsuario);
+                }
             }
             catch(ExcepcionUsuarioIncorrecto e1)
             {

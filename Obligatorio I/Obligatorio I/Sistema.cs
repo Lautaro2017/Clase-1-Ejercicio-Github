@@ -25,14 +25,19 @@ namespace Obligatorio_I
         private static object synclock = new object();
         public static Sistema GetInstance()
         {
+            Utilidades ut = new Utilidades();
+            Usuario u = ut.NuevoUsuario();
+            Usuario u2 = ut.OtroUsuario();
+            u2.EsAdministrador = true;
             if (instance == null)
             {
                 lock (synclock)
                 {
                     if (instance == null)
-                    {
+                    {                        
                         instance = new Sistema();
-
+                        instance.AgregarUsuario(u);
+                        instance.AgregarUsuario(u2);
                     }
                 }
             }
