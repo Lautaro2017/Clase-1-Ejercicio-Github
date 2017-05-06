@@ -358,7 +358,7 @@ namespace Pruebas
             Equipo e1 = utilidad.NuevoEquipo();
             e1.Nombre = "Equipo 2";
             nuevoSistema.AgregarPizarron(p);
-            Assert.IsFalse(nuevoSistema.NombrePizarronRepetido("Gastos varios", e2));
+            Assert.IsFalse(nuevoSistema.NombrePizarronRepetido("Gastos varios", e1));
         }
     }
 }

@@ -223,9 +223,16 @@ namespace Obligatorio_I
             return null;
         }
 
-        public bool NombrePizarronRepetido(string v, Equipo e)
+        public bool NombrePizarronRepetido(string nombre, Equipo e)
         {
-            throw new NotImplementedException();
+            foreach (Pizarron p in this.Pizarrones)
+            {
+                if (p.EquipoPerteneciente == e)
+                {
+                    return p.Nombre == nombre;
+                }
+            }
+            return false;
         }
     }
 }
