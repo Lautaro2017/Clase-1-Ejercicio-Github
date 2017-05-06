@@ -139,6 +139,7 @@ namespace Pruebas
         public void FiltroComentariosPorUsuarioCreadorOK()
         {
             Elemento e = utilidad.NuevoElemento();
+            e.Comentarios = new List<Comentario>();
             Comentario c1 = utilidad.NuevoComentario();
             Comentario c2 = utilidad.NuevoComentario();
             Usuario u1 = utilidad.NuevoUsuario();
@@ -157,6 +158,7 @@ namespace Pruebas
         public void FiltroComentariosPorUsuarioCreadorNoAgregadoOK()
         {
             Elemento e = utilidad.NuevoElemento();
+            e.Comentarios = new List<Comentario>();
             Comentario c1 = utilidad.NuevoComentario();
             Comentario c2 = utilidad.NuevoComentario();
             Usuario u1 = utilidad.NuevoUsuario();
@@ -175,6 +177,7 @@ namespace Pruebas
         public void FiltroComentariosPorFechaCreacionOK()
         {
             Elemento e = utilidad.NuevoElemento();
+            e.Comentarios = new List<Comentario>();
             Comentario c1 = utilidad.NuevoComentario();
             Comentario c2 = utilidad.NuevoComentario();
             c1.FechaCreacion = new DateTime(2017, 5, 6);
@@ -191,6 +194,7 @@ namespace Pruebas
         public void FiltroComentariosPorFechaCreacionNoAgregadaOK()
         {
             Elemento e = utilidad.NuevoElemento();
+            e.Comentarios = new List<Comentario>();
             Comentario c1 = utilidad.NuevoComentario();
             Comentario c2 = utilidad.NuevoComentario();
             c1.FechaCreacion = new DateTime(2017, 5, 6);
@@ -207,6 +211,7 @@ namespace Pruebas
         public void FiltroComentariosPorUsuarioResolutorOK()
         {
             Elemento e = utilidad.NuevoElemento();
+            e.Comentarios = new List<Comentario>();         
             Comentario c1 = utilidad.NuevoComentario();
             Comentario c2 = utilidad.NuevoComentario();
             Usuario u1 = utilidad.NuevoUsuario();
@@ -225,6 +230,7 @@ namespace Pruebas
         public void FiltroComentariosPorUsuarioResolutorNoAgregadoOK()
         {
             Elemento e = utilidad.NuevoElemento();
+            e.Comentarios = new List<Comentario>();
             Comentario c1 = utilidad.NuevoComentario();
             Comentario c2 = utilidad.NuevoComentario();
             Usuario u1 = utilidad.NuevoUsuario();
@@ -243,6 +249,7 @@ namespace Pruebas
         public void FiltroComentariosPorFechaResolucionOK()
         {
             Elemento e = utilidad.NuevoElemento();
+            e.Comentarios = new List<Comentario>();
             Comentario c1 = utilidad.NuevoComentario();
             Comentario c2 = utilidad.NuevoComentario();
             c1.FechaCreacion = new DateTime(2017, 5, 6);
@@ -259,6 +266,7 @@ namespace Pruebas
         public void FiltroComentariosPorFechaResolucionNoAgregadaOK()
         {
             Elemento e = utilidad.NuevoElemento();
+            e.Comentarios = new List<Comentario>();
             Comentario c1 = utilidad.NuevoComentario();
             Comentario c2 = utilidad.NuevoComentario();
             c1.FechaResolucion = new DateTime(2017, 5, 6);

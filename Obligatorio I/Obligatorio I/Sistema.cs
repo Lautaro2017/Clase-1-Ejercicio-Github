@@ -11,12 +11,14 @@ namespace Obligatorio_I
         public List<Usuario> Usuarios { set; get; }
         public List<Equipo> Equipos { set; get; }
         public List<Pizarron> Pizarrones { set; get; }
+        public List<Elemento> Elementos { set; get; }
 
         public Sistema()
         {
             this.Usuarios = new List<Usuario>();
             this.Equipos = new List<Equipo>();
             this.Pizarrones = new List<Pizarron>();
+            this.Elementos = new List<Elemento>();
         }
 
         public void AgregarUsuario(Usuario u)
@@ -83,27 +85,71 @@ namespace Obligatorio_I
 
         public void AgregarElemento(Elemento e)
         {
-            throw new NotImplementedException();
+            this.Elementos.Add(e);
         }
 
-        public List<Comentario> FiltroComentarioPorFechaCreacion(DateTime dateTime)
+        public List<Comentario> FiltroComentarioPorFechaCreacion(DateTime fecha)
         {
-            throw new NotImplementedException();
+            List<Comentario> comentarios = new List<Comentario>();
+            foreach (Elemento e in this.Elementos)
+            {
+                foreach (Comentario c in e.Comentarios)
+                {
+                    if (c.FechaCreacion == fecha)
+                    {
+                        comentarios.Add(c);
+                    }
+                }
+            }
+            return comentarios;
         }
 
-        public List<Comentario> FiltroComentarioPorFechaResolucion(DateTime dateTime)
+        public List<Comentario> FiltroComentarioPorFechaResolucion(DateTime fecha)
         {
-            throw new NotImplementedException();
+            List<Comentario> comentarios = new List<Comentario>();
+            foreach (Elemento e in this.Elementos)
+            {
+                foreach (Comentario c in e.Comentarios)
+                {
+                    if (c.FechaResolucion == fecha)
+                    {
+                        comentarios.Add(c);
+                    }
+                }
+            }
+            return comentarios;
         }
 
-        public List<Comentario> FiltrarComentarioPorUsuarioResolutor(Usuario u2)
+        public List<Comentario> FiltrarComentarioPorUsuarioResolutor(Usuario u)
         {
-            throw new NotImplementedException();
+            List<Comentario> comentarios = new List<Comentario>();
+            foreach (Elemento e in this.Elementos)
+            {
+                foreach (Comentario c in e.Comentarios)
+                {
+                    if (c.Resolutivo == u)
+                    {
+                        comentarios.Add(c);
+                    }
+                }
+            }
+            return comentarios;
         }
 
-        public List<Comentario> FiltrarComentarioPorUsuarioCreador(Usuario u2)
+        public List<Comentario> FiltrarComentarioPorUsuarioCreador(Usuario u)
         {
-            throw new NotImplementedException();
+            List<Comentario> comentarios = new List<Comentario>();
+            foreach (Elemento e in this.Elementos)
+            {
+                foreach (Comentario c in e.Comentarios)
+                {
+                    if (c.Creador == u)
+                    {
+                        comentarios.Add(c);
+                    }
+                }
+            }
+            return comentarios;
         }
     }
 }

@@ -62,9 +62,9 @@ namespace Obligatorio_I
                 && this.Contenido.Equals(item.Contenido);
         }
 
-        public void AgregarComentario(Comentario c1)
+        public void AgregarComentario(Comentario c)
         {
-            throw new NotImplementedException();
+            this.Comentarios.Add(c);
         }
     }
 }
