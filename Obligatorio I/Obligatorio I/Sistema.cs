@@ -222,5 +222,10 @@ namespace Obligatorio_I
             }
             return null;
         }
+
+        public bool NombrePizarronRepetido(string v, Equipo e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
