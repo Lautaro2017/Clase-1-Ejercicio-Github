@@ -194,9 +194,16 @@ namespace Obligatorio_I
             return false;
         }
 
-        public bool ContraseñaIncorrecta(string v1, string v2)
+        public bool ContraseñaIncorrecta(string email, string contraseña)
         {
-            throw new NotImplementedException();
+            foreach (Usuario u in this.Usuarios)
+            {
+                if (u.Contraseña == contraseña)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
