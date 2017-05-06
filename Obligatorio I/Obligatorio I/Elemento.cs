@@ -61,5 +61,10 @@ namespace Obligatorio_I
                 && this.TamañoFuente.Equals(item.TamañoFuente) && this.TipoFuente.Equals(item.TipoFuente)
                 && this.Contenido.Equals(item.Contenido);
         }
+
+        public void AgregarComentario(Comentario c1)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

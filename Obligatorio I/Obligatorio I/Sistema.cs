@@ -80,5 +80,30 @@ namespace Obligatorio_I
                 }
             }
         }
+
+        public void AgregarElemento(Elemento e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Comentario> FiltroComentarioPorFechaCreacion(DateTime dateTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Comentario> FiltroComentarioPorFechaResolucion(DateTime dateTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Comentario> FiltrarComentarioPorUsuarioResolutor(Usuario u2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Comentario> FiltrarComentarioPorUsuarioCreador(Usuario u2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
