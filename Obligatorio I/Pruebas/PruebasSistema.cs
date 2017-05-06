@@ -306,5 +306,19 @@ namespace Pruebas
             Usuario u = utilidad.NuevoUsuario();
             Assert.IsFalse(nuevoSistema.DatosDeUsuarioCorrectos("lautarogutierrez4@gmail.com.uy", "lautaro94"));
         }
+
+        [TestMethod]
+        public void ContraseñaIncorrectOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            Assert.IsTrue(nuevoSistema.ContraseñaIncorrecta("lautarogutierrez4@gmail.com.uy", "lautaro94"));
+        }
+
+        [TestMethod]
+        public void ContraseñaIncorrectNotOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            Assert.IsFalse(nuevoSistema.ContraseñaIncorrecta("lautarogutierrez4@gmail.com.uy", "lautaro1994"));
+        }
     }
 }
