@@ -21,6 +21,24 @@ namespace Obligatorio_I
             this.Elementos = new List<Elemento>();
         }
 
+        private static Sistema instance;
+        private static object synclock = new object();
+        public static Sistema GetInstance()
+        {
+            if (instance == null)
+            {
+                lock (synclock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new Sistema();
+
+                    }
+                }
+            }
+            return instance;
+        }
+
         public void AgregarUsuario(Usuario u)
         {
             bool yaExiste = this.Usuarios.Contains(u);
@@ -152,14 +170,28 @@ namespace Obligatorio_I
             return comentarios;
         }
 
-        public bool EmailCorrecto(string v)
+        public bool EmailCorrecto(string email)
         {
-            throw new NotImplementedException();
+            foreach (Usuario u in this.Usuarios)
+            {
+                if (u.Email == email)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
-        public bool DatosDeUsuarioCorrectos(string v1, string v2)
+        public bool DatosDeUsuarioCorrectos(string email, string contraseña)
         {
-            throw new NotImplementedException();
+            foreach (Usuario u in this.Usuarios)
+            {
+                if (u.Email == email)
+                {
+                    return u.Contraseña == contraseña;
+                }
+            }
+            return false;
         }
     }
 }

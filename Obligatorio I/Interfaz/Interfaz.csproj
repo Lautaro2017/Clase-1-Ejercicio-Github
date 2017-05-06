@@ -136,6 +136,12 @@
       <DependentUpon>VisualizarPizarron.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Obligatorio I\Obligatorio I.csproj">
+      <Project>{1DBB0C63-189C-4AA6-B317-57550DD3DCF2}</Project>
+      <Name>Obligatorio I</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

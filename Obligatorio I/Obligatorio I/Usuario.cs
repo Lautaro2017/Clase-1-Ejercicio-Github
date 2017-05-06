@@ -10,15 +10,39 @@ namespace Obligatorio_I
     {
         private string Nombre { set; get; }
         private string Apellido { set; get; }
-        private string Email { set; get; }
+        private string email { set; get; }
         private DateTime FechaDeNacimiento { set; get; }
-        private string Contraseña { set; get; }
+        private string contraseña { set; get; }
         private bool EsAdministrador { set; get; }
 
         public Usuario()
         {
             this.Nombre = "";
             this.Apellido = "";
+        }
+
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                this.email = value;
+            }
+        }
+
+        public string Contraseña
+        {
+            get
+            {
+                return contraseña;
+            }
+            set
+            {
+                this.contraseña = value;
+            }
         }
 
         public Usuario(string nuevoNombre, string nuevoApellido, string nuevoEmail, DateTime nuevaFechaNac, string nuevaContraseña, bool nuevoEsAdministrador)
