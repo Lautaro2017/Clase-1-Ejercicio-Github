@@ -12,7 +12,7 @@ namespace Interfaz
 {
     public partial class CrearPizarron : UserControl
     {
-        public CrearPizarron()
+        public CrearPizarron(string email)
         {
             InitializeComponent();
         }

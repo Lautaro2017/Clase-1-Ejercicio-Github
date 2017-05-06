@@ -12,7 +12,7 @@ namespace Interfaz
 {
     public partial class InformeComentariosPorUsuario : UserControl
     {
-        public InformeComentariosPorUsuario()
+        public InformeComentariosPorUsuario(string email)
         {
             InitializeComponent();
         }

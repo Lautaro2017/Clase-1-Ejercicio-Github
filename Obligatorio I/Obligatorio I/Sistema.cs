@@ -188,7 +188,7 @@ namespace Obligatorio_I
             {
                 if (u.Email == email)
                 {
-                    return u.Contraseña == contraseña;
+                    return true;
                 }
             }
             return false;

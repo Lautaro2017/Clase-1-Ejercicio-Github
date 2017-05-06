@@ -12,7 +12,7 @@ namespace Interfaz
 {
     public partial class CrearUsuario : UserControl
     {
-        public CrearUsuario()
+        public CrearUsuario(string email)
         {
             InitializeComponent();
         }

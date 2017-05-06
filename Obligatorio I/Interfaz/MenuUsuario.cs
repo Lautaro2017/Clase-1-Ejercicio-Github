@@ -12,7 +12,7 @@ namespace Interfaz
 {
     public partial class MenuUsuario : UserControl
     {
-        public MenuUsuario()
+        public MenuUsuario(string email)
         {
             InitializeComponent();
         }

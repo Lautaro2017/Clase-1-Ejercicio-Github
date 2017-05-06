@@ -12,7 +12,7 @@ namespace Interfaz
 {
     public partial class CrearEquipo : UserControl
     {
-        public CrearEquipo()
+        public CrearEquipo(string email)
         {
             InitializeComponent();
         }

@@ -12,7 +12,7 @@ namespace Interfaz
 {
     public partial class VisualizarPizarron : UserControl
     {
-        public VisualizarPizarron()
+        public VisualizarPizarron(string email)
         {
             InitializeComponent();
         }
