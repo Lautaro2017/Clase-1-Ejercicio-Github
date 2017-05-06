@@ -151,5 +151,15 @@ namespace Obligatorio_I
             }
             return comentarios;
         }
+
+        public bool EmailCorrecto(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DatosDeUsuarioCorrectos(string v1, string v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
