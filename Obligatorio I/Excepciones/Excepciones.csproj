@@ -48,6 +48,7 @@
     <Compile Include="ExcepcionEmail.cs" />
     <Compile Include="ExcepcionEquipoRepetido.cs" />
     <Compile Include="ExcepcionFechaDeNacimiento.cs" />
+    <Compile Include="ExcepcionNombreEquipoVacio.cs" />
     <Compile Include="ExcepcionNombrePizarronVacio.cs" />
     <Compile Include="ExcepcionPizarronRepetido.cs" />
     <Compile Include="ExcepcionPizarronSinEquipo.cs" />

@@ -134,5 +134,141 @@ namespace Pruebas
             nuevoSistema.AgregarPizarron(p1);
             Assert.IsFalse(utilidad.PizarronValido(p2, nuevoSistema.Pizarrones));
         }
+
+        [TestMethod]
+        public void FiltroComentariosPorUsuarioCreadorOK()
+        {
+            Elemento e = utilidad.NuevoElemento();
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            Usuario u1 = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            c1.Creador = u1;
+            c2.Creador = u2;
+            e.AgregarComentario(c1);
+            e.AgregarComentario(c2);
+            nuevoSistema.AgregarElemento(e);
+            List<Comentario> comentarios = nuevoSistema.FiltrarComentarioPorUsuarioCreador(u2);
+            bool condicion = comentarios.Contains(c2) && !comentarios.Contains(c1);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltroComentariosPorUsuarioCreadorNoAgregadoOK()
+        {
+            Elemento e = utilidad.NuevoElemento();
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            Usuario u1 = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            c1.Creador = u1;
+            c2.Creador = u1;
+            e.AgregarComentario(c1);
+            e.AgregarComentario(c2);
+            nuevoSistema.AgregarElemento(e);
+            List<Comentario> comentarios = nuevoSistema.FiltrarComentarioPorUsuarioCreador(u2);
+            bool condicion = !comentarios.Contains(c2) && !comentarios.Contains(c1);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltroComentariosPorFechaCreacionOK()
+        {
+            Elemento e = utilidad.NuevoElemento();
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            c1.FechaCreacion = new DateTime(2017, 5, 6);
+            c2.FechaCreacion = new DateTime(2017, 5, 5);
+            e.AgregarComentario(c1);
+            e.AgregarComentario(c2);
+            nuevoSistema.AgregarElemento(e);
+            List<Comentario> comentarios = nuevoSistema.FiltroComentarioPorFechaCreacion(new DateTime(2017, 5, 6));
+            bool condicion = comentarios.Contains(c1) && !comentarios.Contains(c2);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltroComentariosPorFechaCreacionNoAgregadaOK()
+        {
+            Elemento e = utilidad.NuevoElemento();
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            c1.FechaCreacion = new DateTime(2017, 5, 6);
+            c2.FechaCreacion = new DateTime(2017, 5, 5);
+            e.AgregarComentario(c1);
+            e.AgregarComentario(c2);
+            nuevoSistema.AgregarElemento(e);
+            List<Comentario> comentarios = nuevoSistema.FiltroComentarioPorFechaCreacion(new DateTime(2017, 5, 7));
+            bool condicion = !comentarios.Contains(c1) && !comentarios.Contains(c2);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltroComentariosPorUsuarioResolutorOK()
+        {
+            Elemento e = utilidad.NuevoElemento();
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            Usuario u1 = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            c1.Resolutivo = u1;
+            c2.Resolutivo = u2;
+            e.AgregarComentario(c1);
+            e.AgregarComentario(c2);
+            nuevoSistema.AgregarElemento(e);
+            List<Comentario> comentarios = nuevoSistema.FiltrarComentarioPorUsuarioResolutor(u2);
+            bool condicion = comentarios.Contains(c2) && !comentarios.Contains(c1);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltroComentariosPorUsuarioResolutorNoAgregadoOK()
+        {
+            Elemento e = utilidad.NuevoElemento();
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            Usuario u1 = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            c1.Resolutivo = u1;
+            c2.Resolutivo = u1;
+            e.AgregarComentario(c1);
+            e.AgregarComentario(c2);
+            nuevoSistema.AgregarElemento(e);
+            List<Comentario> comentarios = nuevoSistema.FiltrarComentarioPorUsuarioResolutor(u2);
+            bool condicion = !comentarios.Contains(c2) && !comentarios.Contains(c1);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltroComentariosPorFechaResolucionOK()
+        {
+            Elemento e = utilidad.NuevoElemento();
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            c1.FechaCreacion = new DateTime(2017, 5, 6);
+            c2.FechaCreacion = new DateTime(2017, 5, 5);
+            e.AgregarComentario(c1);
+            e.AgregarComentario(c2);
+            nuevoSistema.AgregarElemento(e);
+            List<Comentario> comentarios = nuevoSistema.FiltroComentarioPorFechaCreacion(new DateTime(2017, 5, 6));
+            bool condicion = comentarios.Contains(c1) && !comentarios.Contains(c2);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltroComentariosPorFechaResolucionNoAgregadaOK()
+        {
+            Elemento e = utilidad.NuevoElemento();
+            Comentario c1 = utilidad.NuevoComentario();
+            Comentario c2 = utilidad.NuevoComentario();
+            c1.FechaResolucion = new DateTime(2017, 5, 6);
+            c2.FechaResolucion = new DateTime(2017, 5, 5);
+            e.AgregarComentario(c1);
+            e.AgregarComentario(c2);
+            nuevoSistema.AgregarElemento(e);
+            List<Comentario> comentarios = nuevoSistema.FiltroComentarioPorFechaResolucion(new DateTime(2017, 5, 7));
+            bool condicion = !comentarios.Contains(c1) && !comentarios.Contains(c2);
+            Assert.IsTrue(condicion);
+        }
     }
 }
