@@ -193,5 +193,10 @@ namespace Obligatorio_I
             }
             return false;
         }
+
+        public bool ContraseñaIncorrecta(string v1, string v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
