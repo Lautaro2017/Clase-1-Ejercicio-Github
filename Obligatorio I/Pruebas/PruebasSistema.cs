@@ -297,6 +297,7 @@ namespace Pruebas
         public void DatosDeUsuarioCorrectosOK()
         {
             Usuario u = utilidad.NuevoUsuario();
+            nuevoSistema.AgregarUsuario(u);
             Assert.IsTrue(nuevoSistema.DatosDeUsuarioCorrectos("lautarogutierrez4@gmail.com.uy","lautaro1994"));
         }
 
@@ -304,6 +305,7 @@ namespace Pruebas
         public void DatosDeUsuarioCorrectosNotOK()
         {
             Usuario u = utilidad.NuevoUsuario();
+            nuevoSistema.AgregarUsuario(u);
             Assert.IsFalse(nuevoSistema.DatosDeUsuarioCorrectos("lautarogutierrez4@gmail.com.uy", "lautaro94"));
         }
 
@@ -311,6 +313,7 @@ namespace Pruebas
         public void ContraseñaIncorrectOK()
         {
             Usuario u = utilidad.NuevoUsuario();
+            nuevoSistema.AgregarUsuario(u);
             Assert.IsTrue(nuevoSistema.ContraseñaIncorrecta("lautarogutierrez4@gmail.com.uy", "lautaro94"));
         }
 
@@ -318,7 +321,24 @@ namespace Pruebas
         public void ContraseñaIncorrectNotOK()
         {
             Usuario u = utilidad.NuevoUsuario();
+            nuevoSistema.AgregarUsuario(u);
             Assert.IsFalse(nuevoSistema.ContraseñaIncorrecta("lautarogutierrez4@gmail.com.uy", "lautaro1994"));
+        }
+
+        [TestMethod]
+        public void BuscarUsuarioPorMailOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            bool condicion = nuevoSistema.BuscarUsuarioPorMail("lautarogutierrez4@gmail.com") == u;
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void BuscarUsuarioPorMailNotOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            bool condicion = nuevoSistema.BuscarUsuarioPorMail("lautarogutierrez@gmail.com") == null;
+            Assert.IsFalse(condicion);
         }
     }
 }
