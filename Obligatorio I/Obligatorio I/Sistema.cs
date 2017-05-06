@@ -205,5 +205,10 @@ namespace Obligatorio_I
             }
             return false;
         }
+
+        public object BuscarUsuarioPorMail(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
