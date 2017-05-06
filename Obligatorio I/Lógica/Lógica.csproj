@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
+      <Project>{3E2C101E-9280-490E-A342-F8483AE4D813}</Project>
+      <Name>Excepciones</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Obligatorio I\Obligatorio I.csproj">
       <Project>{1DBB0C63-189C-4AA6-B317-57550DD3DCF2}</Project>
       <Name>Obligatorio I</Name>

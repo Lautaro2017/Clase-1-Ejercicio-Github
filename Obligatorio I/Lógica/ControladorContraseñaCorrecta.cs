@@ -1,4 +1,5 @@
-﻿using Obligatorio_I;
+﻿using Excepciones;
+using Obligatorio_I;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,12 @@ namespace Lógica
     {
         Sistema s = Sistema.GetInstance();
 
-        public bool ContraseñaCorrectaOK(string email, string contraseña)
+        public void ContraseñaCorrectaOK(string email, string contraseña)
         {
             if (!s.ContraseñaIncorrecta(email, contraseña))
             {
-                return true;
+                throw new ExcepcionContraseñaIncorrecta();
             }
-            return false;
         }
     }
 }

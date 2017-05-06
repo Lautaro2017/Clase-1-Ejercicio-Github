@@ -137,6 +137,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
+      <Project>{3E2C101E-9280-490E-A342-F8483AE4D813}</Project>
+      <Name>Excepciones</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lógica\Lógica.csproj">
+      <Project>{8964C169-97D0-473B-A4E6-C0D383AC53DB}</Project>
+      <Name>Lógica</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Obligatorio I\Obligatorio I.csproj">
       <Project>{1DBB0C63-189C-4AA6-B317-57550DD3DCF2}</Project>
       <Name>Obligatorio I</Name>
