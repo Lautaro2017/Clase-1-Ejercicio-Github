@@ -278,5 +278,33 @@ namespace Pruebas
             bool condicion = !comentarios.Contains(c1) && !comentarios.Contains(c2);
             Assert.IsTrue(condicion);
         }
+
+        [TestMethod]
+        public void EmailPerteneceAUsuarioOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            Assert.IsTrue(nuevoSistema.EmailCorrecto("lautarogutierrez4@gmail.com"));
+        }
+
+        [TestMethod]
+        public void EmailPerteneceAUsuarioNotOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            Assert.IsTrue(nuevoSistema.EmailCorrecto("lautarogutierrez4@gmail.com.uy"));
+        }
+
+        [TestMethod]
+        public void DatosDeUsuarioCorrectosOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            Assert.IsTrue(nuevoSistema.DatosDeUsuarioCorrectos("lautarogutierrez4@gmail.com.uy","lautaro1994"));
+        }
+
+        [TestMethod]
+        public void DatosDeUsuarioCorrectosNotOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            Assert.IsFalse(nuevoSistema.DatosDeUsuarioCorrectos("lautarogutierrez4@gmail.com.uy", "lautaro94"));
+        }
     }
 }

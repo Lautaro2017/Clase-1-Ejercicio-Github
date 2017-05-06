@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejecutable", "Ejcutable\Eje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\Excepciones.csproj", "{3E2C101E-9280-490E-A342-F8483AE4D813}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lógica", "Lógica\Lógica.csproj", "{8964C169-97D0-473B-A4E6-C0D383AC53DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3E2C101E-9280-490E-A342-F8483AE4D813}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E2C101E-9280-490E-A342-F8483AE4D813}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E2C101E-9280-490E-A342-F8483AE4D813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8964C169-97D0-473B-A4E6-C0D383AC53DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8964C169-97D0-473B-A4E6-C0D383AC53DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8964C169-97D0-473B-A4E6-C0D383AC53DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8964C169-97D0-473B-A4E6-C0D383AC53DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
