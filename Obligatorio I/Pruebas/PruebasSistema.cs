@@ -340,5 +340,25 @@ namespace Pruebas
             bool condicion = nuevoSistema.BuscarUsuarioPorMail("lautarogutierrez@gmail.com") == null;
             Assert.IsFalse(condicion);
         }
+
+        [TestMethod]
+        public void NombrePizarronRepetidoOK()
+        {
+            Pizarron p = utilidad.NuevoPizarron();
+            Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.AgregarPizarron(p);
+            Assert.IsTrue(nuevoSistema.NombrePizarronRepetido("Gastos varios", e));
+        }
+
+        [TestMethod]
+        public void NombrePizarronRepetidoNotOK()
+        {
+            Pizarron p = utilidad.NuevoPizarron();
+            Equipo e = utilidad.NuevoEquipo();
+            Equipo e1 = utilidad.NuevoEquipo();
+            e1.Nombre = "Equipo 2";
+            nuevoSistema.AgregarPizarron(p);
+            Assert.IsFalse(nuevoSistema.NombrePizarronRepetido("Gastos varios", e2));
+        }
     }
 }
