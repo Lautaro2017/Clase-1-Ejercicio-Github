@@ -41,7 +41,7 @@ namespace Interfaz
             lstComentarios.Columns[2].Name = "Usuario que resuelve";
             lstComentarios.Columns[3].Name = "Pizarron";
             lstComentarios.Columns[4].Name = "Fecha de resuelto";
-            foreach (Pizarron p in pizarrones)
+            /*foreach (Pizarron p in pizarrones)
             {
                 if (p.FechaDeCreacion.Date == fechaCreacion)
                 {
@@ -56,7 +56,7 @@ namespace Interfaz
                     row[3] = cantElementos;
                     lstComentarios.Rows.Add(row);
                 }
-            }
+            }*/
         }
     }
 }
