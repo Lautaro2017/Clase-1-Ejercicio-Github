@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Obligatorio_I;
 
 namespace Interfaz
 {
     public partial class InformePizarronesPorEquipo : UserControl
     {
-        public InformePizarronesPorEquipo(string email)
+        private Usuario usuarioLogueado;
+        public InformePizarronesPorEquipo(Usuario u)
         {
+            usuarioLogueado = u;
             InitializeComponent();
         }
 

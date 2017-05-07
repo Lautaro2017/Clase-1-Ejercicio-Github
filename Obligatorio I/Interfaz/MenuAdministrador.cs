@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Obligatorio_I;
 
 namespace Interfaz
 {
     public partial class MenuAdministrador : UserControl
     {
-        private string loginId;
-        public MenuAdministrador(string email)
+        private Usuario usuarioLogueado;
+        public MenuAdministrador(Usuario u)
         {
-            loginId = email;
+            usuarioLogueado = u;
             InitializeComponent();
         }
 
@@ -27,7 +28,7 @@ namespace Interfaz
         private void btnCrearUsuario_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            CrearUsuario nuevoUsuario = new CrearUsuario(loginId);
+            CrearUsuario nuevoUsuario = new CrearUsuario(usuarioLogueado);
             parent.Controls.Clear();
             parent.Controls.Add(nuevoUsuario);
         }
@@ -35,7 +36,7 @@ namespace Interfaz
         private void btnCrearEquipo_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            CrearEquipo nuevoEquipo = new CrearEquipo(loginId);
+            CrearEquipo nuevoEquipo = new CrearEquipo(usuarioLogueado);
             parent.Controls.Clear();
             parent.Controls.Add(nuevoEquipo);
         }
@@ -43,7 +44,7 @@ namespace Interfaz
         private void btnCrearPizarron_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            CrearPizarron nuevoPizarron = new CrearPizarron(loginId);
+            CrearPizarron nuevoPizarron = new CrearPizarron(usuarioLogueado);
             parent.Controls.Clear();
             parent.Controls.Add(nuevoPizarron);
         }
@@ -51,7 +52,7 @@ namespace Interfaz
         private void btnVerPizarrón_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            VisualizarPizarron verPizarron = new VisualizarPizarron(loginId);
+            VisualizarPizarron verPizarron = new VisualizarPizarron(usuarioLogueado);
             parent.Controls.Clear();
             parent.Controls.Add(verPizarron);
         }
@@ -59,7 +60,7 @@ namespace Interfaz
         private void btnInformePizarron_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            InformePizarronesPorEquipo nuevoInformePizarron = new InformePizarronesPorEquipo(loginId);
+            InformePizarronesPorEquipo nuevoInformePizarron = new InformePizarronesPorEquipo(usuarioLogueado);
             parent.Controls.Clear();
             parent.Controls.Add(nuevoInformePizarron);
         }
@@ -67,7 +68,7 @@ namespace Interfaz
         private void btnInformeComentario_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            InformeComentariosPorUsuario nuevoInformeComentario = new InformeComentariosPorUsuario(loginId);
+            InformeComentariosPorUsuario nuevoInformeComentario = new InformeComentariosPorUsuario(usuarioLogueado);
             parent.Controls.Clear();
             parent.Controls.Add(nuevoInformeComentario);
         }

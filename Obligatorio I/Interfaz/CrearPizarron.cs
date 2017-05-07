@@ -18,9 +18,11 @@ namespace Interfaz
         private ControladorNombrePizarronVacio controlador1;
         private ControladorNombrePizarronRepetido controlador2;
         private ControladorValorNumerico controlador3;
+        private Usuario usuarioLogueado;
 
-        public CrearPizarron(string email)
+        public CrearPizarron(Usuario u)
         {
+            usuarioLogueado = u;
             controlador1 = new ControladorNombrePizarronVacio();
             controlador2 = new ControladorNombrePizarronRepetido();
             controlador3 = new ControladorValorNumerico();
@@ -54,7 +56,7 @@ namespace Interfaz
                 controlador1.NombrePizarronVacio(nombre);
                 controlador2.NombrePizarronRepetido(nombre,equipo);
                 controlador3.EsValorNumerico(alto);
-                controlador3.EsValorNumerico(ancho);
+                controlador3.EsValorNumerico(ancho);                
             }
             catch(ExcepcionNombrePizarronVacio e1)
             {

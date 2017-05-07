@@ -7,13 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Obligatorio_I;
 
 namespace Interfaz
 {
     public partial class CrearEquipo : UserControl
     {
-        public CrearEquipo(string email)
+        private Usuario usuarioLogueado;
+
+        public CrearEquipo(Usuario u)
         {
+            usuarioLogueado = u;
             InitializeComponent();
         }
 

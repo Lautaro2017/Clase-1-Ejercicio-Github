@@ -7,22 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Obligatorio_I;
 
 namespace Interfaz
 {
     public partial class MenuUsuario : UserControl
     {
-        private string loginId;
-        public MenuUsuario(string email)
+        private Usuario usuarioLogueado;
+        public MenuUsuario(Usuario u)
         {
-            loginId = email;
+            usuarioLogueado = u;
             InitializeComponent();
         }
 
         private void btnCrearPizarron_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            CrearPizarron nuevoPizarron = new CrearPizarron(loginId);
+            CrearPizarron nuevoPizarron = new CrearPizarron(usuarioLogueado);
             parent.Controls.Clear();
             parent.Controls.Add(nuevoPizarron);
         }
@@ -30,7 +31,7 @@ namespace Interfaz
         private void btnVerPizarrón_Click(object sender, EventArgs e)
         {
             Panel parent = this.Parent as Panel;
-            VisualizarPizarron verPizarron = new VisualizarPizarron(loginId);
+            VisualizarPizarron verPizarron = new VisualizarPizarron(usuarioLogueado);
             parent.Controls.Clear();
             parent.Controls.Add(verPizarron);
         }

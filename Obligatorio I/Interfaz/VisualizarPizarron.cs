@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Obligatorio_I;
 
 namespace Interfaz
 {
     public partial class VisualizarPizarron : UserControl
     {
-        public VisualizarPizarron(string email)
+        private Usuario usuarioLogueado;
+        public VisualizarPizarron(Usuario u)
         {
+            usuarioLogueado = u;
             InitializeComponent();
         }
 
