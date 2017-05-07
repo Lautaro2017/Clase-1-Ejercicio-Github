@@ -278,7 +278,15 @@ namespace Obligatorio_I
 
         public List<Usuario> UsuariosNoAgregadosEnEquipo(Equipo e)
         {
-            throw new NotImplementedException();
+            List<Usuario> usuarios = new List<Usuario>();
+            foreach(Usuario u in this.Usuarios)
+            {
+                if (!e.usuarios.Contains(u))
+                {
+                    usuarios.Add(u);
+                }
+            }
+            return usuarios;
         }
     }
 }
