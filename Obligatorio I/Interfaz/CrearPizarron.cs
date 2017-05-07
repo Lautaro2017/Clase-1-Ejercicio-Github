@@ -30,6 +30,11 @@ namespace Interfaz
             InitializeComponent();
         }
 
+        private void InicializarCombo()
+        {
+
+        }
+
         private void cmbEquipo_SelectedIndexChanged(object sender, EventArgs e)
         {
 

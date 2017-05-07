@@ -381,5 +381,24 @@ namespace Pruebas
             bool condicion = nuevoSistema.TieneEquipo(u2);
             Assert.IsFalse(condicion);
         }
+
+        [TestMethod]
+        public void EquiposDeUsuarioOK()
+        {
+            Equipo e = utilidad.NuevoEquipo();
+            Usuario u = utilidad.NuevoUsuario();
+            List<Equipo> equipos = nuevoSistema.EquiposDeUsuario(u);
+            Assert.IsTrue(equipos.Contains(e));
+        }
+
+        [TestMethod]
+        public void EquiposDeUsuarioVacioOK()
+        {
+            Equipo e = utilidad.NuevoEquipo();
+            Usuario u = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            List<Equipo> equipos = nuevoSistema.EquiposDeUsuario(u2);
+            Assert.IsTrue(equipos.Count == 0);
+        }
     }
 }

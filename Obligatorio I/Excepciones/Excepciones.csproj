@@ -53,6 +53,7 @@
     <Compile Include="ExcepcionPizarronRepetido.cs" />
     <Compile Include="ExcepcionPizarronSinEquipo.cs" />
     <Compile Include="ExcepcionSeleccionEquipo.cs" />
+    <Compile Include="ExcepcionUsuarioSinEquipo.cs" />
     <Compile Include="ExcepecionEquipoSinUsuarios.cs" />
     <Compile Include="ExcepcionUsuarioIncorrecto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
