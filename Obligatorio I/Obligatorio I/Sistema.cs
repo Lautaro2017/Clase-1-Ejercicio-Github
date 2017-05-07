@@ -275,5 +275,18 @@ namespace Obligatorio_I
             }
             return false;
         }
+
+        public List<Usuario> UsuariosNoAgregadosEnEquipo(Equipo e)
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+            foreach(Usuario u in this.Usuarios)
+            {
+                if (!e.usuarios.Contains(u))
+                {
+                    usuarios.Add(u);
+                }
+            }
+            return usuarios;
+        }
     }
 }
