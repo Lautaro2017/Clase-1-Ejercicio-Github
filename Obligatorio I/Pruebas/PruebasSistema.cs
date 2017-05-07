@@ -416,5 +416,19 @@ namespace Pruebas
             nuevoSistema.AgregarEquipo(e);
             Assert.IsTrue(nuevoSistema.NombreEquipoRepetido("EquipoRocket"));
         }
+
+        [TestMethod]
+        public void UsuariosNoAgregadosEnEquipoOK()
+        {
+            Equipo e = utilidad.NuevoEquipo();
+            Usuario u1 = utilidad.OtroUsuario();
+            Usuario u2 = utilidad.NuevoUsuario();
+            nuevoSistema.AgregarUsuario(u1);
+            nuevoSistema.AgregarUsuario(u1);
+            nuevoSistema.AgregarEquipo(e);
+            List<Usuario> usuarios = nuevoSistema.UsuariosNoAgregadosEnEquipo(e);
+            bool condicion = !usuarios.Contains(u1) && usuarios.Contains(u2);
+            Assert.IsTrue(condicion);
+        }
     }
 }
