@@ -235,9 +235,16 @@ namespace Obligatorio_I
             return false;
         }
 
-        public bool TieneEquipo(Usuario u2)
+        public bool TieneEquipo(Usuario u)
         {
-            throw new NotImplementedException();
+            foreach (Equipo e in this.Equipos)
+            {
+                if (e.usuarios.Contains(u))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
