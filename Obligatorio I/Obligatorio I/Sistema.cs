@@ -28,6 +28,8 @@ namespace Obligatorio_I
             Utilidades ut = new Utilidades();
             Usuario u = ut.NuevoUsuario();
             Usuario u2 = ut.OtroUsuario();
+            u2.Email = "admin";
+            u2.Contraseña = "admin";
             Equipo e = ut.NuevoEquipo();
             u2.EsAdministrador = true;
             if (instance == null)

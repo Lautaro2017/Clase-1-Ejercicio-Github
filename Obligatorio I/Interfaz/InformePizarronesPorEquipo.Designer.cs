@@ -33,9 +33,10 @@
             this.lblFechaCreacion = new System.Windows.Forms.Label();
             this.cmbEquipo = new System.Windows.Forms.ComboBox();
             this.lblEquipo = new System.Windows.Forms.Label();
-            this.lstPizarrones = new System.Windows.Forms.ListBox();
             this.btnAtras = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.lstPizarrones = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.lstPizarrones)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInformePizarrones
@@ -52,8 +53,7 @@
             // 
             // dateTimeFechaCreacion
             // 
-            this.dateTimeFechaCreacion.Enabled = false;
-            this.dateTimeFechaCreacion.Location = new System.Drawing.Point(55, 148);
+            this.dateTimeFechaCreacion.Location = new System.Drawing.Point(14, 148);
             this.dateTimeFechaCreacion.Name = "dateTimeFechaCreacion";
             this.dateTimeFechaCreacion.Size = new System.Drawing.Size(200, 20);
             this.dateTimeFechaCreacion.TabIndex = 88;
@@ -62,7 +62,7 @@
             // 
             this.lblFechaCreacion.AutoSize = true;
             this.lblFechaCreacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaCreacion.Location = new System.Drawing.Point(52, 123);
+            this.lblFechaCreacion.Location = new System.Drawing.Point(11, 123);
             this.lblFechaCreacion.Name = "lblFechaCreacion";
             this.lblFechaCreacion.Size = new System.Drawing.Size(131, 17);
             this.lblFechaCreacion.TabIndex = 87;
@@ -71,7 +71,7 @@
             // cmbEquipo
             // 
             this.cmbEquipo.FormattingEnabled = true;
-            this.cmbEquipo.Location = new System.Drawing.Point(121, 187);
+            this.cmbEquipo.Location = new System.Drawing.Point(80, 187);
             this.cmbEquipo.Name = "cmbEquipo";
             this.cmbEquipo.Size = new System.Drawing.Size(134, 21);
             this.cmbEquipo.TabIndex = 90;
@@ -80,19 +80,11 @@
             // 
             this.lblEquipo.AutoSize = true;
             this.lblEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEquipo.Location = new System.Drawing.Point(52, 190);
+            this.lblEquipo.Location = new System.Drawing.Point(11, 190);
             this.lblEquipo.Name = "lblEquipo";
             this.lblEquipo.Size = new System.Drawing.Size(56, 17);
             this.lblEquipo.TabIndex = 89;
             this.lblEquipo.Text = "Equipo:";
-            // 
-            // lstPizarrones
-            // 
-            this.lstPizarrones.FormattingEnabled = true;
-            this.lstPizarrones.Location = new System.Drawing.Point(288, 123);
-            this.lstPizarrones.Name = "lstPizarrones";
-            this.lstPizarrones.Size = new System.Drawing.Size(307, 173);
-            this.lstPizarrones.TabIndex = 91;
             // 
             // btnAtras
             // 
@@ -114,21 +106,30 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // lstPizarrones
+            // 
+            this.lstPizarrones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstPizarrones.Location = new System.Drawing.Point(220, 99);
+            this.lstPizarrones.Name = "lstPizarrones";
+            this.lstPizarrones.Size = new System.Drawing.Size(411, 201);
+            this.lstPizarrones.TabIndex = 127;
+            // 
             // InformePizarronesPorEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lstPizarrones);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.lstPizarrones);
             this.Controls.Add(this.cmbEquipo);
             this.Controls.Add(this.lblEquipo);
             this.Controls.Add(this.dateTimeFechaCreacion);
             this.Controls.Add(this.lblFechaCreacion);
             this.Controls.Add(this.lblInformePizarrones);
             this.Name = "InformePizarronesPorEquipo";
-            this.Size = new System.Drawing.Size(637, 366);
+            this.Size = new System.Drawing.Size(644, 366);
             this.Load += new System.EventHandler(this.InformePizarronesPorEquipo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.lstPizarrones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,8 +142,8 @@
         private System.Windows.Forms.Label lblFechaCreacion;
         private System.Windows.Forms.ComboBox cmbEquipo;
         private System.Windows.Forms.Label lblEquipo;
-        private System.Windows.Forms.ListBox lstPizarrones;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.DataGridView lstPizarrones;
     }
 }

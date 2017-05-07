@@ -44,12 +44,15 @@
     <Compile Include="ControladorConfirmacionContraseña.cs" />
     <Compile Include="ControladorContraseñaCorrecta.cs" />
     <Compile Include="ControladorDatosUsuarioVacios.cs" />
+    <Compile Include="ControladorEquipoSinPizarrones.cs" />
+    <Compile Include="ControladorFormatoContraseña.cs" />
     <Compile Include="ControladorFormatoEmail.cs" />
     <Compile Include="ControladorInicioSesion.cs" />
     <Compile Include="ControladorNoHayEquipos.cs" />
     <Compile Include="ControladorNoHayPizarrones.cs" />
     <Compile Include="ControladorNoHayUsuarios.cs" />
     <Compile Include="ControladorNombreEquipoRepetido.cs" />
+    <Compile Include="ControladorNombreEquipoVacio.cs" />
     <Compile Include="ControladorNombrePizarronRepetido.cs" />
     <Compile Include="ControladorNombrePizarronVacio.cs" />
     <Compile Include="ControladorUsuarioSinEquipo.cs" />

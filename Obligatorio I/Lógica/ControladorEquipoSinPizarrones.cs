@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace Lógica
 {
-    public class ControladorNombreEquipoRepetido
+    public class ControladorEquipoSinPizarrones
     {
         Sistema s = Sistema.GetInstance();
-
-        public void NombreEquipoRepetido(string nombre)
+        public void EquipoSinPizarrones(Equipo e)
         {
-            if (s.NombreEquipoRepetido(nombre))
+            if (s.FiltroDePizarronesPorEquipo(e).Count == 0)
             {
-                throw new ExcepcionNombreEquipoRepetido();
+                throw new ExcepcionEquipoSinPizarrones();
             }
         }
     }

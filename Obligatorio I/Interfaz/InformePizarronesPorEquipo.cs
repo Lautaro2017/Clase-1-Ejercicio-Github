@@ -20,14 +20,12 @@ namespace Interfaz
         {
             usuarioLogueado = u;
             InitializeComponent();
+            InicializarCombo();
         }
 
         public void InicializarCombo()
         {
-            foreach (Equipo e in s.Equipos)
-            {
-                cmbEquipo.Items.Add(e.Nombre);
-            }
+            cmbEquipo.Items.AddRange(s.Equipos.ToArray());
             cmbEquipo.SelectedIndex = 0;
         }
 
@@ -40,16 +38,27 @@ namespace Interfaz
         {
             Equipo equipo = (Equipo)cmbEquipo.SelectedItem;
             List<Pizarron> pizarrones = s.FiltroDePizarronesPorEquipo(equipo);
-            DateTime fechaCreacion = dateTimeFechaCreacion.Value;
+            DateTime fechaCreacion = dateTimeFechaCreacion.Value.Date;
+            lstPizarrones.Rows.Clear();
+            lstPizarrones.ColumnCount = 4;
+            lstPizarrones.Columns[0].Name = "Equipo";
+            lstPizarrones.Columns[1].Name = "Fecha de creación";
+            lstPizarrones.Columns[2].Name = "Última modificación";
+            lstPizarrones.Columns[3].Name = "Cantidad de elementos";
             foreach (Pizarron p in pizarrones)
             {
-                if (p.FechaDeCreacion == fechaCreacion)
+                if (p.FechaDeCreacion.Date == fechaCreacion)
                 {
                     string equipoCreador = p.EquipoPerteneciente.Nombre;
                     string fechaDeCreacion = fechaCreacion.ToString();
                     string fechaMod = p.UltimaModificacion.ToString();
                     string cantElementos = p.Elementos.Count()+"";
-                    lstPizarrones.Items.Add(equipoCreador + fechaDeCreacion + fechaMod + cantElementos);
+                    string[] row = new String[4];
+                    row[0] = equipoCreador;
+                    row[1] = fechaDeCreacion;
+                    row[2] = fechaMod;
+                    row[3] = cantElementos;
+                    lstPizarrones.Rows.Add(row);
                 }
             }
         }

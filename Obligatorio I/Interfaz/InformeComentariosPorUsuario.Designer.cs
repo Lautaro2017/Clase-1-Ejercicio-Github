@@ -35,11 +35,12 @@
             this.cmbUsuarioQueResuelve = new System.Windows.Forms.ComboBox();
             this.lblUsuarioQueResuelve = new System.Windows.Forms.Label();
             this.btnAtras = new System.Windows.Forms.Button();
-            this.lstPizarrones = new System.Windows.Forms.ListBox();
             this.cmbUsuarioCreador = new System.Windows.Forms.ComboBox();
             this.lblUsuarioCreador = new System.Windows.Forms.Label();
             this.dateTimeFechaCreacion = new System.Windows.Forms.DateTimePicker();
             this.lblFechaCreacion = new System.Windows.Forms.Label();
+            this.lstComentarios = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.lstComentarios)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInformeComentarios
@@ -62,10 +63,10 @@
             this.btnBuscar.TabIndex = 125;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // dateTimeFechaResuelto
             // 
-            this.dateTimeFechaResuelto.Enabled = false;
             this.dateTimeFechaResuelto.Location = new System.Drawing.Point(54, 246);
             this.dateTimeFechaResuelto.Name = "dateTimeFechaResuelto";
             this.dateTimeFechaResuelto.Size = new System.Drawing.Size(200, 20);
@@ -108,14 +109,6 @@
             this.btnAtras.Text = "Atrás";
             this.btnAtras.UseVisualStyleBackColor = true;
             // 
-            // lstPizarrones
-            // 
-            this.lstPizarrones.FormattingEnabled = true;
-            this.lstPizarrones.Location = new System.Drawing.Point(289, 106);
-            this.lstPizarrones.Name = "lstPizarrones";
-            this.lstPizarrones.Size = new System.Drawing.Size(307, 199);
-            this.lstPizarrones.TabIndex = 119;
-            // 
             // cmbUsuarioCreador
             // 
             this.cmbUsuarioCreador.FormattingEnabled = true;
@@ -136,7 +129,6 @@
             // 
             // dateTimeFechaCreacion
             // 
-            this.dateTimeFechaCreacion.Enabled = false;
             this.dateTimeFechaCreacion.Location = new System.Drawing.Point(54, 131);
             this.dateTimeFechaCreacion.Name = "dateTimeFechaCreacion";
             this.dateTimeFechaCreacion.Size = new System.Drawing.Size(200, 20);
@@ -152,17 +144,25 @@
             this.lblFechaCreacion.TabIndex = 115;
             this.lblFechaCreacion.Text = "Fecha de Creación:";
             // 
+            // lstComentarios
+            // 
+            this.lstComentarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstComentarios.Location = new System.Drawing.Point(274, 83);
+            this.lstComentarios.Name = "lstComentarios";
+            this.lstComentarios.Size = new System.Drawing.Size(350, 218);
+            this.lstComentarios.TabIndex = 128;
+            // 
             // InformeComentariosPorUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lstComentarios);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dateTimeFechaResuelto);
             this.Controls.Add(this.lblFechaResuelto);
             this.Controls.Add(this.cmbUsuarioQueResuelve);
             this.Controls.Add(this.lblUsuarioQueResuelve);
             this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.lstPizarrones);
             this.Controls.Add(this.cmbUsuarioCreador);
             this.Controls.Add(this.lblUsuarioCreador);
             this.Controls.Add(this.dateTimeFechaCreacion);
@@ -170,6 +170,7 @@
             this.Controls.Add(this.lblInformeComentarios);
             this.Name = "InformeComentariosPorUsuario";
             this.Size = new System.Drawing.Size(637, 366);
+            ((System.ComponentModel.ISupportInitialize)(this.lstComentarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,10 +185,10 @@
         private System.Windows.Forms.ComboBox cmbUsuarioQueResuelve;
         private System.Windows.Forms.Label lblUsuarioQueResuelve;
         private System.Windows.Forms.Button btnAtras;
-        private System.Windows.Forms.ListBox lstPizarrones;
         private System.Windows.Forms.DateTimePicker dateTimeFechaCreacion;
         private System.Windows.Forms.Label lblFechaCreacion;
         private System.Windows.Forms.Label lblUsuarioCreador;
         private System.Windows.Forms.ComboBox cmbUsuarioCreador;
+        private System.Windows.Forms.DataGridView lstComentarios;
     }
 }

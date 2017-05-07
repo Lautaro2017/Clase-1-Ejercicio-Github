@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.cmbEquipo = new System.Windows.Forms.ComboBox();
@@ -40,21 +41,23 @@
             this.lblPizarron = new System.Windows.Forms.Label();
             this.tableLayoutPizarron = new System.Windows.Forms.TableLayoutPanel();
             this.lblAgregarElemento = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(590, 352);
+            this.btnCancelar.Location = new System.Drawing.Point(528, 346);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(101, 25);
             this.btnCancelar.TabIndex = 97;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(437, 352);
+            this.btnGuardar.Location = new System.Drawing.Point(346, 346);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(101, 25);
             this.btnGuardar.TabIndex = 96;
@@ -68,6 +71,7 @@
             this.cmbEquipo.Name = "cmbEquipo";
             this.cmbEquipo.Size = new System.Drawing.Size(134, 21);
             this.cmbEquipo.TabIndex = 95;
+            this.cmbEquipo.SelectedIndexChanged += new System.EventHandler(this.cmbEquipo_SelectedIndexChanged);
             // 
             // lblEquipo
             // 
@@ -126,6 +130,7 @@
             this.cmbPizarron.Name = "cmbPizarron";
             this.cmbPizarron.Size = new System.Drawing.Size(134, 21);
             this.cmbPizarron.TabIndex = 102;
+            this.cmbPizarron.SelectedIndexChanged += new System.EventHandler(this.cmbPizarron_SelectedIndexChanged);
             // 
             // lblPizarron
             // 
@@ -139,9 +144,11 @@
             // 
             // tableLayoutPizarron
             // 
+            this.tableLayoutPizarron.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tableLayoutPizarron.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPizarron.ColumnCount = 1;
             this.tableLayoutPizarron.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPizarron.Location = new System.Drawing.Point(293, 83);
+            this.tableLayoutPizarron.Location = new System.Drawing.Point(261, 83);
             this.tableLayoutPizarron.Name = "tableLayoutPizarron";
             this.tableLayoutPizarron.RowCount = 1;
             this.tableLayoutPizarron.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -152,16 +159,22 @@
             // 
             this.lblAgregarElemento.AutoSize = true;
             this.lblAgregarElemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgregarElemento.Location = new System.Drawing.Point(41, 292);
+            this.lblAgregarElemento.Location = new System.Drawing.Point(41, 285);
             this.lblAgregarElemento.Name = "lblAgregarElemento";
             this.lblAgregarElemento.Size = new System.Drawing.Size(126, 17);
             this.lblAgregarElemento.TabIndex = 104;
             this.lblAgregarElemento.Text = "Agregar Elemento:";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // toolStrip1
             // 
+            this.toolStrip1.AllowDrop = true;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Location = new System.Drawing.Point(44, 325);
+            this.toolStrip1.Location = new System.Drawing.Point(44, 314);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(111, 25);
             this.toolStrip1.TabIndex = 105;
@@ -185,7 +198,7 @@
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblMenuPizarron);
             this.Name = "VisualizarPizarron";
-            this.Size = new System.Drawing.Size(734, 402);
+            this.Size = new System.Drawing.Size(667, 382);
             this.Load += new System.EventHandler(this.VisualizarPizarron_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -205,6 +218,7 @@
         private System.Windows.Forms.Label lblPizarron;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPizarron;
         private System.Windows.Forms.Label lblAgregarElemento;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }

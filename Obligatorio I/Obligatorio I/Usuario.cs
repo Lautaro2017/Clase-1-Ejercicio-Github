@@ -85,5 +85,10 @@ namespace Obligatorio_I
 
             return this.Email.Equals(item.Email);
         }
+
+        public override string ToString()
+        {
+            return this.Nombre + " " + this.Apellido;
+        }
     }
 }

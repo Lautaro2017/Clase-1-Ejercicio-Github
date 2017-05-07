@@ -21,6 +21,7 @@ namespace Interfaz
         private ControladorConfirmacionContraseña controlador2;
         private ControladorFormatoEmail controlador3;
         private ControladorFechaDeNacimiento controlador4;
+        private ControladorFormatoContraseña controlador5;
 
         public CrearUsuario(Usuario u)
         {
@@ -29,6 +30,7 @@ namespace Interfaz
             controlador2 = new ControladorConfirmacionContraseña();
             controlador3 = new ControladorFormatoEmail();
             controlador4 = new ControladorFechaDeNacimiento();
+            controlador5 = new ControladorFormatoContraseña();
             InitializeComponent();
         }
 
@@ -41,6 +43,7 @@ namespace Interfaz
         {
             try
             {
+                Panel parent = this.Parent as Panel;
                 string nombre = txtNombre.Text;
                 string apellido = txtApellido.Text;
                 string email = txtEmail.Text;
@@ -53,8 +56,12 @@ namespace Interfaz
                 controlador2.ConfirmacionContraseña(contraseña, contraseñaConf);
                 controlador3.ControladorEmail(email);
                 controlador4.FechaDeNacimientoValida(fechaNac);
+                controlador5.FormatoContraseñaValido(contraseña);
                 Usuario u = new Usuario(nombre, apellido, email, fechaNac, contraseña, esAdmin);
                 s.AgregarUsuario(u);
+                MessageBox.Show("El usuario se ha creado correctamente");
+                parent.Controls.Clear();
+                parent.Controls.Add(new MenuAdministrador(usuarioLogueado));
             }
             catch(ExcepcionDatosVacios ex)
             {
@@ -69,6 +76,10 @@ namespace Interfaz
                 MessageBox.Show(ex.Message);
             }
             catch (ExcepcionFechaDeNacimiento ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch(ExcepcionFormatoContraseña ex)
             {
                 MessageBox.Show(ex.Message);
             }

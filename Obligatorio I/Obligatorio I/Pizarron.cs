@@ -66,5 +66,10 @@ namespace Obligatorio_I
             return this.EquipoPerteneciente.Equals(item.EquipoPerteneciente)
                 && this.Nombre.Equals(item.Nombre);
         }
+
+        public override string ToString()
+        {
+            return this.Nombre;
+        }
     }
 }
