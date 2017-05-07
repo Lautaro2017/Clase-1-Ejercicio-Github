@@ -275,5 +275,10 @@ namespace Obligatorio_I
             }
             return false;
         }
+
+        public List<Usuario> UsuariosNoAgregadosEnEquipo(Equipo e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
