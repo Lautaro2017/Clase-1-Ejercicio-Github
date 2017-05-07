@@ -400,5 +400,21 @@ namespace Pruebas
             List<Equipo> equipos = nuevoSistema.EquiposDeUsuario(u2);
             Assert.IsTrue(equipos.Count == 0);
         }
+
+        [TestMethod]
+        public void NombreEquipoRepetidoOK()
+        {
+            Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.AgregarEquipo(e);
+            Assert.IsTrue(nuevoSistema.NombreEquipoRepetido("Equipo Rocket"));
+        }
+
+        [TestMethod]
+        public void NombreEquipoRepetidoOK()
+        {
+            Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.AgregarEquipo(e);
+            Assert.IsTrue(nuevoSistema.NombreEquipoRepetido("EquipoRocket"));
+        }
     }
 }
