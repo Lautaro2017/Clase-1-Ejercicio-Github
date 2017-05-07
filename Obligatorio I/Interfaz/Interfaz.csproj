@@ -48,6 +48,12 @@
     <Compile Include="AcercaDePlanilla.Designer.cs">
       <DependentUpon>AcercaDePlanilla.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgregarUsuariosAEquipo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AgregarUsuariosAEquipo.Designer.cs">
+      <DependentUpon>AgregarUsuariosAEquipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearEquipo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,6 +113,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AcercaDePlanilla.resx">
       <DependentUpon>AcercaDePlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarUsuariosAEquipo.resx">
+      <DependentUpon>AgregarUsuariosAEquipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearEquipo.resx">
       <DependentUpon>CrearEquipo.cs</DependentUpon>
