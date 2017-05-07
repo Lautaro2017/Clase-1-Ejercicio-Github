@@ -262,9 +262,16 @@ namespace Obligatorio_I
             return equipos;
         }
 
-        public bool NombreEquipoRepetido(string v)
+        public bool NombreEquipoRepetido(string nombre)
         {
-            throw new NotImplementedException();
+            foreach (Equipo e in this.Equipos)
+            {
+                if (e.Nombre == nombre)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
