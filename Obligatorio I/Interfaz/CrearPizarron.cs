@@ -19,6 +19,7 @@ namespace Interfaz
         private ControladorNombrePizarronRepetido controlador2;
         private ControladorValorNumerico controlador3;
         private Usuario usuarioLogueado;
+        private Sistema sistema = Sistema.GetInstance();
 
         public CrearPizarron(Usuario u)
         {
@@ -48,6 +49,7 @@ namespace Interfaz
         {
             try
             {
+                Panel parent = this.Parent as Panel;
                 Equipo equipo = (Equipo)cmbEquipo.SelectedItem;
                 string nombre = txtNombre.Text;
                 string alto = txtAlto.Text;
@@ -56,7 +58,13 @@ namespace Interfaz
                 controlador1.NombrePizarronVacio(nombre);
                 controlador2.NombrePizarronRepetido(nombre,equipo);
                 controlador3.EsValorNumerico(alto);
-                controlador3.EsValorNumerico(ancho);                
+                controlador3.EsValorNumerico(ancho);
+                Pizarron nuevoPizarron = new Pizarron(nombre, equipo, descripcion, Int32.Parse(alto), Int32.Parse(ancho), usuarioLogueado);
+                sistema.AgregarPizarron(nuevoPizarron);
+                MessageBox.Show("Pizarrón guardado!");
+                MenuUsuario nuevoMenuUsuario = new MenuUsuario(usuarioLogueado);
+                parent.Controls.Clear();
+                parent.Controls.Add(nuevoMenuUsuario);
             }
             catch(ExcepcionNombrePizarronVacio e1)
             {

@@ -37,13 +37,13 @@ namespace Interfaz
                 Panel parent = this.Parent as Panel;
                 if (s.BuscarUsuarioPorMail(email).EsAdministrador)
                 {
-                    MenuAdministrador nuevoMenuAdmin = new MenuAdministrador(email);
+                    MenuAdministrador nuevoMenuAdmin = new MenuAdministrador(s.BuscarUsuarioPorMail(email));
                     parent.Controls.Clear();
                     parent.Controls.Add(nuevoMenuAdmin);
                 }
                 else
                 {
-                    MenuUsuario nuevoMenuUsuario = new MenuUsuario(email);
+                    MenuUsuario nuevoMenuUsuario = new MenuUsuario(s.BuscarUsuarioPorMail(email));
                     parent.Controls.Clear();
                     parent.Controls.Add(nuevoMenuUsuario);
                 }
