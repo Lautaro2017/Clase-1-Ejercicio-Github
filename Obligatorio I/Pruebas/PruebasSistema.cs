@@ -360,5 +360,26 @@ namespace Pruebas
             nuevoSistema.AgregarPizarron(p);
             Assert.IsFalse(nuevoSistema.NombrePizarronRepetido("Gastos varios", e1));
         }
+
+        [TestMethod]
+        public void UsuarioConEquipoOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.AgregarEquipo(e);
+            bool condicion = nuevoSistema.TieneEquipo(u);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void UsuarioSinEquipoOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.AgregarEquipo(e);
+            bool condicion = nuevoSistema.TieneEquipo(u2);
+            Assert.IsFalse(condicion);
+        }
     }
 }
