@@ -46,6 +46,10 @@
     <Compile Include="ControladorDatosUsuarioVacios.cs" />
     <Compile Include="ControladorFormatoEmail.cs" />
     <Compile Include="ControladorInicioSesion.cs" />
+    <Compile Include="ControladorNoHayEquipos.cs" />
+    <Compile Include="ControladorNoHayPizarrones.cs" />
+    <Compile Include="ControladorNoHayUsuarios.cs" />
+    <Compile Include="ControladorNombreEquipoRepetido.cs" />
     <Compile Include="ControladorNombrePizarronRepetido.cs" />
     <Compile Include="ControladorNombrePizarronVacio.cs" />
     <Compile Include="ControladorUsuarioSinEquipo.cs" />

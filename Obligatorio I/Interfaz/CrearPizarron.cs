@@ -33,11 +33,7 @@ namespace Interfaz
 
         private void InicializarCombo()
         {
-            List<Equipo> equipos = sistema.EquiposDeUsuario(usuarioLogueado);
-            foreach (Equipo e in equipos)
-            {
-                cmbEquipo.Items.Add(e.Nombre);
-            }
+            cmbEquipo.Items.AddRange(sistema.Equipos.ToArray());
             cmbEquipo.SelectedIndex = 0;
         }
 
@@ -53,10 +49,16 @@ namespace Interfaz
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            MenuUsuario nuevoMenuUsuario = new MenuUsuario(usuarioLogueado);
             Panel parent = this.Parent as Panel;
             parent.Controls.Clear();
-            parent.Controls.Add(nuevoMenuUsuario);
+            if (usuarioLogueado.EsAdministrador)
+            {
+                parent.Controls.Add(new MenuAdministrador(usuarioLogueado));
+            }
+            else
+            {
+                parent.Controls.Add(new MenuUsuario(usuarioLogueado));
+            }            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -78,7 +80,14 @@ namespace Interfaz
                 MessageBox.Show("Pizarrón guardado!");
                 MenuUsuario nuevoMenuUsuario = new MenuUsuario(usuarioLogueado);
                 parent.Controls.Clear();
-                parent.Controls.Add(nuevoMenuUsuario);
+                if (usuarioLogueado.EsAdministrador)
+                {
+                    parent.Controls.Add(new MenuAdministrador(usuarioLogueado));
+                }
+                else
+                {
+                    parent.Controls.Add(new MenuUsuario(usuarioLogueado));
+                }
             }
             catch(ExcepcionNombrePizarronVacio e1)
             {

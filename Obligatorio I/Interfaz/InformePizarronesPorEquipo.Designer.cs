@@ -102,6 +102,7 @@
             this.btnAtras.TabIndex = 103;
             this.btnAtras.Text = "Atrás";
             this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // btnBuscar
             // 
@@ -111,6 +112,7 @@
             this.btnBuscar.TabIndex = 126;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // InformePizarronesPorEquipo
             // 

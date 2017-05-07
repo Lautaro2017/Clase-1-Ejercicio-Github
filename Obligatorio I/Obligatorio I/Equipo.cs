@@ -48,5 +48,10 @@ namespace Obligatorio_I
 
             return this.Nombre.Equals(item.Nombre);
         }
+
+        public override string ToString()
+        {
+            return this.Nombre;
+        }
     }
 }

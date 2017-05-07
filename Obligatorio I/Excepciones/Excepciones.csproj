@@ -48,6 +48,9 @@
     <Compile Include="ExcepcionEmail.cs" />
     <Compile Include="ExcepcionEquipoRepetido.cs" />
     <Compile Include="ExcepcionFechaDeNacimiento.cs" />
+    <Compile Include="ExcepcionNoHayEquipos.cs" />
+    <Compile Include="ExcepcionNoHayPizarrones.cs" />
+    <Compile Include="ExcepcionNoHayUsuarios.cs" />
     <Compile Include="ExcepcionNombreEquipoVacio.cs" />
     <Compile Include="ExcepcionNombrePizarronVacio.cs" />
     <Compile Include="ExcepcionPizarronRepetido.cs" />
@@ -57,6 +60,12 @@
     <Compile Include="ExcepecionEquipoSinUsuarios.cs" />
     <Compile Include="ExcepcionUsuarioIncorrecto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Obligatorio I\Obligatorio I.csproj">
+      <Project>{1DBB0C63-189C-4AA6-B317-57550DD3DCF2}</Project>
+      <Name>Obligatorio I</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
