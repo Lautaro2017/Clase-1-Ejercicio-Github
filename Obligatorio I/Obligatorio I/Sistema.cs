@@ -246,5 +246,10 @@ namespace Obligatorio_I
             }
             return false;
         }
+
+        public List<Equipo> EquiposDeUsuario(Usuario u)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
