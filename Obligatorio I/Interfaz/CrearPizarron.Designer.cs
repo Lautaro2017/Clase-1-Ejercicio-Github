@@ -36,7 +36,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.cmbEquipo = new System.Windows.Forms.ComboBox();
             this.lblEquipo = new System.Windows.Forms.Label();
-            this.rtxtDescripcion = new System.Windows.Forms.RichTextBox();
+            this.txtDescripcion = new System.Windows.Forms.RichTextBox();
             this.lblAlto = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -97,6 +97,7 @@
             this.btnGuardar.TabIndex = 83;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cmbEquipo
             // 
@@ -117,13 +118,13 @@
             this.lblEquipo.TabIndex = 81;
             this.lblEquipo.Text = "Equipo:";
             // 
-            // rtxtDescripcion
+            // txtDescripcion
             // 
-            this.rtxtDescripcion.Location = new System.Drawing.Point(324, 175);
-            this.rtxtDescripcion.Name = "rtxtDescripcion";
-            this.rtxtDescripcion.Size = new System.Drawing.Size(206, 58);
-            this.rtxtDescripcion.TabIndex = 80;
-            this.rtxtDescripcion.Text = "";
+            this.txtDescripcion.Location = new System.Drawing.Point(324, 175);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(206, 58);
+            this.txtDescripcion.TabIndex = 80;
+            this.txtDescripcion.Text = "";
             // 
             // lblAlto
             // 
@@ -173,7 +174,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.cmbEquipo);
             this.Controls.Add(this.lblEquipo);
-            this.Controls.Add(this.rtxtDescripcion);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblAlto);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
@@ -191,7 +192,7 @@
         private System.Windows.Forms.Label lblCrearPizarron;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.RichTextBox rtxtDescripcion;
+        private System.Windows.Forms.RichTextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblDescripcion;
