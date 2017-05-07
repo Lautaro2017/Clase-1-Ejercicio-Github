@@ -41,12 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControladorConfirmacionContraseña.cs" />
     <Compile Include="ControladorContraseñaCorrecta.cs" />
+    <Compile Include="ControladorDatosUsuarioVacios.cs" />
+    <Compile Include="ControladorFormatoEmail.cs" />
     <Compile Include="ControladorInicioSesion.cs" />
     <Compile Include="ControladorNombrePizarronRepetido.cs" />
     <Compile Include="ControladorNombrePizarronVacio.cs" />
     <Compile Include="ControladorUsuarioSinEquipo.cs" />
     <Compile Include="ControladorValorNumerico.cs" />
+    <Compile Include="ControladorFechaDeNacimiento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

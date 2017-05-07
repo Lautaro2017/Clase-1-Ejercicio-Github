@@ -28,6 +28,7 @@ namespace Obligatorio_I
             Utilidades ut = new Utilidades();
             Usuario u = ut.NuevoUsuario();
             Usuario u2 = ut.OtroUsuario();
+            Equipo e = ut.NuevoEquipo();
             u2.EsAdministrador = true;
             if (instance == null)
             {
@@ -38,6 +39,7 @@ namespace Obligatorio_I
                         instance = new Sistema();
                         instance.AgregarUsuario(u);
                         instance.AgregarUsuario(u2);
+                        instance.AgregarEquipo(e);
                     }
                 }
             }

@@ -28,11 +28,17 @@ namespace Interfaz
             controlador2 = new ControladorNombrePizarronRepetido();
             controlador3 = new ControladorValorNumerico();
             InitializeComponent();
+            InicializarCombo();
         }
 
         private void InicializarCombo()
         {
-
+            List<Equipo> equipos = sistema.EquiposDeUsuario(usuarioLogueado);
+            foreach (Equipo e in equipos)
+            {
+                cmbEquipo.Items.Add(e.Nombre);
+            }
+            cmbEquipo.SelectedIndex = 0;
         }
 
         private void cmbEquipo_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,7 +53,10 @@ namespace Interfaz
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            MenuUsuario nuevoMenuUsuario = new MenuUsuario(usuarioLogueado);
+            Panel parent = this.Parent as Panel;
+            parent.Controls.Clear();
+            parent.Controls.Add(nuevoMenuUsuario);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
