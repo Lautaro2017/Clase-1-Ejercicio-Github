@@ -234,5 +234,10 @@ namespace Obligatorio_I
             }
             return false;
         }
+
+        public bool TieneEquipo(Usuario u2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
