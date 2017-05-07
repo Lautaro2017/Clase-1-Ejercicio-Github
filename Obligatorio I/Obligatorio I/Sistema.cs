@@ -249,7 +249,15 @@ namespace Obligatorio_I
 
         public List<Equipo> EquiposDeUsuario(Usuario u)
         {
-            throw new NotImplementedException();
+            List<Equipo> equipos = new List<Equipo>();
+            foreach (Equipo e in this.Equipos)
+            {
+                if (e.usuarios.Contains(u))
+                {
+                    equipos.Add(e);
+                }
+            }
+            return equipos;
         }
     }
 }
