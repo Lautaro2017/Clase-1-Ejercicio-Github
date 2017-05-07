@@ -261,5 +261,10 @@ namespace Obligatorio_I
             }
             return equipos;
         }
+
+        public bool NombreEquipoRepetido(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -410,7 +410,7 @@ namespace Pruebas
         }
 
         [TestMethod]
-        public void NombreEquipoRepetidoOK()
+        public void NombreEquipoRepetidoNotOK()
         {
             Equipo e = utilidad.NuevoEquipo();
             nuevoSistema.AgregarEquipo(e);
