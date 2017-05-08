@@ -121,5 +121,21 @@ namespace Interfaz
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnAgregarUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                controlador1.NoHayEquipos();
+                Panel parent = this.Parent as Panel;
+                AgregarUsuariosAEquipo ventana = new AgregarUsuariosAEquipo(usuarioLogueado);
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
+            catch (ExcepcionNoHayEquipos ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

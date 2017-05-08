@@ -110,7 +110,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(325, 176);
+            this.label1.Location = new System.Drawing.Point(325, 177);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 17);
             this.label1.TabIndex = 58;
@@ -119,7 +119,7 @@
             // cmbCantMaxUsuarios
             // 
             this.cmbCantMaxUsuarios.FormattingEnabled = true;
-            this.cmbCantMaxUsuarios.Location = new System.Drawing.Point(476, 173);
+            this.cmbCantMaxUsuarios.Location = new System.Drawing.Point(476, 174);
             this.cmbCantMaxUsuarios.Name = "cmbCantMaxUsuarios";
             this.cmbCantMaxUsuarios.Size = new System.Drawing.Size(52, 21);
             this.cmbCantMaxUsuarios.TabIndex = 59;

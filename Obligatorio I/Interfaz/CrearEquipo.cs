@@ -86,5 +86,13 @@ namespace Interfaz
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnAgregarUsuarios_Click(object sender, EventArgs e)
+        {
+            AgregarUsuariosAEquipo ventana = new AgregarUsuariosAEquipo(usuarioLogueado);
+            Panel parent = this.Parent as Panel;
+            parent.Controls.Clear();
+            parent.Controls.Add(ventana);
+        }
     }
 }

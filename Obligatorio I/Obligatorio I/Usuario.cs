@@ -8,8 +8,8 @@ namespace Obligatorio_I
 {
     public class Usuario
     {
-        private string Nombre { set; get; }
-        private string Apellido { set; get; }
+        private string nombre { set; get; }
+        private string apellido { set; get; }
         private string email { set; get; }
         private DateTime FechaDeNacimiento { set; get; }
         private string contraseña { set; get; }
@@ -17,8 +17,8 @@ namespace Obligatorio_I
 
         public Usuario()
         {
-            this.Nombre = "";
-            this.Apellido = "";
+            this.nombre = "";
+            this.apellido = "";
         }
 
         public string Email
@@ -45,6 +45,30 @@ namespace Obligatorio_I
             }
         }
 
+        public string Nombre
+        {
+            get
+            {
+                return nombre;
+            }
+            set
+            {
+                this.nombre = value;
+            }
+        }
+
+        public string Apellido
+        {
+            get
+            {
+                return apellido;
+            }
+            set
+            {
+                this.apellido = value;
+            }
+        }
+
         public bool EsAdministrador
         {
             get
@@ -59,8 +83,8 @@ namespace Obligatorio_I
 
         public Usuario(string nuevoNombre, string nuevoApellido, string nuevoEmail, DateTime nuevaFechaNac, string nuevaContraseña, bool nuevoEsAdministrador)
         {
-            this.Nombre = nuevoNombre;
-            this.Apellido = nuevoApellido;
+            this.nombre = nuevoNombre;
+            this.apellido = nuevoApellido;
             //Unico
             this.Email = nuevoEmail;
             this.FechaDeNacimiento = nuevaFechaNac;
@@ -88,7 +112,7 @@ namespace Obligatorio_I
 
         public override string ToString()
         {
-            return this.Nombre + " " + this.Apellido;
+            return this.nombre + " " + this.apellido;
         }
     }
 }

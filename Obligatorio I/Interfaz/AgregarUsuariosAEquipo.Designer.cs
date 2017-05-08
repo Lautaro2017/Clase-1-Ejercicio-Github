@@ -32,13 +32,15 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.lstUsuarioParaAgregar = new System.Windows.Forms.ListView();
-            this.lstUsuariosAgregados = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.lblCrearEquipo = new System.Windows.Forms.Label();
+            this.lstUsuarioParaAgregar = new System.Windows.Forms.DataGridView();
+            this.lstUsuariosAgregados = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.lstUsuarioParaAgregar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstUsuariosAgregados)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbEquipos
@@ -48,6 +50,7 @@
             this.cmbEquipos.Name = "cmbEquipos";
             this.cmbEquipos.Size = new System.Drawing.Size(185, 21);
             this.cmbEquipos.TabIndex = 60;
+            this.cmbEquipos.SelectedIndexChanged += new System.EventHandler(this.cmbEquipos_SelectedIndexChanged);
             // 
             // lblNombre
             // 
@@ -77,22 +80,7 @@
             this.button1.TabIndex = 63;
             this.button1.Text = "->";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // lstUsuarioParaAgregar
-            // 
-            this.lstUsuarioParaAgregar.Location = new System.Drawing.Point(36, 130);
-            this.lstUsuarioParaAgregar.Name = "lstUsuarioParaAgregar";
-            this.lstUsuarioParaAgregar.Size = new System.Drawing.Size(182, 164);
-            this.lstUsuarioParaAgregar.TabIndex = 64;
-            this.lstUsuarioParaAgregar.UseCompatibleStateImageBehavior = false;
-            // 
-            // lstUsuariosAgregados
-            // 
-            this.lstUsuariosAgregados.Location = new System.Drawing.Point(373, 130);
-            this.lstUsuariosAgregados.Name = "lstUsuariosAgregados";
-            this.lstUsuariosAgregados.Size = new System.Drawing.Size(182, 164);
-            this.lstUsuariosAgregados.TabIndex = 65;
-            this.lstUsuariosAgregados.UseCompatibleStateImageBehavior = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -112,6 +100,7 @@
             this.btnCancelar.TabIndex = 69;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -121,6 +110,7 @@
             this.btnGuardar.TabIndex = 68;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // button2
             // 
@@ -130,6 +120,7 @@
             this.button2.TabIndex = 70;
             this.button2.Text = "<-";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // lblCrearEquipo
             // 
@@ -143,23 +134,41 @@
             this.lblCrearEquipo.Text = "Agregar usuario a equipo";
             this.lblCrearEquipo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // lstUsuarioParaAgregar
+            // 
+            this.lstUsuarioParaAgregar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstUsuarioParaAgregar.Location = new System.Drawing.Point(28, 125);
+            this.lstUsuarioParaAgregar.Name = "lstUsuarioParaAgregar";
+            this.lstUsuarioParaAgregar.Size = new System.Drawing.Size(190, 169);
+            this.lstUsuarioParaAgregar.TabIndex = 128;
+            // 
+            // lstUsuariosAgregados
+            // 
+            this.lstUsuariosAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstUsuariosAgregados.Location = new System.Drawing.Point(373, 125);
+            this.lstUsuariosAgregados.Name = "lstUsuariosAgregados";
+            this.lstUsuariosAgregados.Size = new System.Drawing.Size(190, 169);
+            this.lstUsuariosAgregados.TabIndex = 129;
+            // 
             // AgregarUsuariosAEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lstUsuariosAgregados);
+            this.Controls.Add(this.lstUsuarioParaAgregar);
             this.Controls.Add(this.lblCrearEquipo);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lstUsuariosAgregados);
-            this.Controls.Add(this.lstUsuarioParaAgregar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.cmbEquipos);
             this.Name = "AgregarUsuariosAEquipo";
             this.Size = new System.Drawing.Size(582, 347);
+            ((System.ComponentModel.ISupportInitialize)(this.lstUsuarioParaAgregar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstUsuariosAgregados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,12 +179,12 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListView lstUsuarioParaAgregar;
-        private System.Windows.Forms.ListView lstUsuariosAgregados;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblCrearEquipo;
+        private System.Windows.Forms.DataGridView lstUsuarioParaAgregar;
+        private System.Windows.Forms.DataGridView lstUsuariosAgregados;
     }
 }

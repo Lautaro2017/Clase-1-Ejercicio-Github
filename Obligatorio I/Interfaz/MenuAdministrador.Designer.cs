@@ -36,6 +36,7 @@
             this.btnCrearPizarron = new System.Windows.Forms.Button();
             this.btnCrearEquipo = new System.Windows.Forms.Button();
             this.btnCrearUsuario = new System.Windows.Forms.Button();
+            this.btnAgregarUsuario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMenu
@@ -120,10 +121,21 @@
             this.btnCrearUsuario.UseVisualStyleBackColor = true;
             this.btnCrearUsuario.Click += new System.EventHandler(this.btnCrearUsuario_Click);
             // 
+            // btnAgregarUsuario
+            // 
+            this.btnAgregarUsuario.Location = new System.Drawing.Point(256, 253);
+            this.btnAgregarUsuario.Name = "btnAgregarUsuario";
+            this.btnAgregarUsuario.Size = new System.Drawing.Size(127, 37);
+            this.btnAgregarUsuario.TabIndex = 105;
+            this.btnAgregarUsuario.Text = "Agrega usuario a equipo";
+            this.btnAgregarUsuario.UseVisualStyleBackColor = true;
+            this.btnAgregarUsuario.Click += new System.EventHandler(this.btnAgregarUsuario_Click);
+            // 
             // MenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnAgregarUsuario);
             this.Controls.Add(this.btnInformeComentario);
             this.Controls.Add(this.btnInformePizarron);
             this.Controls.Add(this.btnSalir);
@@ -148,5 +160,6 @@
         private System.Windows.Forms.Button btnCrearPizarron;
         private System.Windows.Forms.Button btnCrearEquipo;
         private System.Windows.Forms.Button btnCrearUsuario;
+        private System.Windows.Forms.Button btnAgregarUsuario;
     }
 }
