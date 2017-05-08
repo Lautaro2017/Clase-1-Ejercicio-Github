@@ -289,9 +289,19 @@ namespace Obligatorio_I
             return usuarios;
         }
 
-        public object BuscarPizarronPorNombreYEquipo(string v1, string v2)
+        public Pizarron BuscarPizarronPorNombreYEquipo(string nombre, string equipo)
         {
-            throw new NotImplementedException();
+            foreach (Pizarron p in this.Pizarrones)
+            {
+                if (p.EquipoPerteneciente.Nombre == nombre)
+                {
+                    if (p.Nombre == nombre)
+                    {
+                        return p;
+                    }
+                }
+            }
+            return null;
         }
     }
 }

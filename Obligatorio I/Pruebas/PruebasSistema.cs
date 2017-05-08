@@ -438,7 +438,7 @@ namespace Pruebas
             Equipo e = utilidad.NuevoEquipo();
             nuevoSistema.AgregarEquipo(e);
             nuevoSistema.AgregarPizarron(p);
-            bool condicion = nuevoSistema.BuscarPizarronPorNombreYEquipo("Gastos varios", "Equipo Rocket").contains(p);
+            bool condicion = nuevoSistema.BuscarPizarronPorNombreYEquipo("Gastos varios", "Equipo Rocket") == p;
             Assert.IsTrue(condicion);
         }
     }
