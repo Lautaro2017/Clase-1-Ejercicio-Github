@@ -430,5 +430,16 @@ namespace Pruebas
             bool condicion = !usuarios.Contains(u1) && usuarios.Contains(u2);
             Assert.IsTrue(condicion);
         }
+
+        [TestMethod]
+        public void BuscarPizarronPorNombreYEquipoOK()
+        {
+            Pizarron p = utilidad.NuevoPizarron();
+            Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.AgregarEquipo(e);
+            nuevoSistema.AgregarPizarron(p);
+            bool condicion = nuevoSistema.BuscarPizarronPorNombreYEquipo("Gastos varios", "Equipo Rocket").contains(p);
+            Assert.IsTrue(condicion);
+        }
     }
 }
