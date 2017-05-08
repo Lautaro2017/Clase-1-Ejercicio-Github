@@ -137,5 +137,21 @@ namespace Interfaz
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnEliminarPizarron_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                controlador3.NoHayPizarrones();
+                Panel parent = this.Parent as Panel;
+                EliminarPizarron ventana = new EliminarPizarron(usuarioLogueado);
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
+            catch (ExcepcionNoHayPizarrones ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

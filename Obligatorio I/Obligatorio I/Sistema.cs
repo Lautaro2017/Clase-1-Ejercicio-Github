@@ -293,7 +293,7 @@ namespace Obligatorio_I
         {
             foreach (Pizarron p in this.Pizarrones)
             {
-                if (p.EquipoPerteneciente.Nombre == nombre)
+                if (p.EquipoPerteneciente.Nombre == equipo)
                 {
                     if (p.Nombre == nombre)
                     {

@@ -37,6 +37,7 @@
             this.btnCrearEquipo = new System.Windows.Forms.Button();
             this.btnCrearUsuario = new System.Windows.Forms.Button();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
+            this.btnEliminarPizarron = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMenu
@@ -123,7 +124,7 @@
             // 
             // btnAgregarUsuario
             // 
-            this.btnAgregarUsuario.Location = new System.Drawing.Point(256, 253);
+            this.btnAgregarUsuario.Location = new System.Drawing.Point(174, 243);
             this.btnAgregarUsuario.Name = "btnAgregarUsuario";
             this.btnAgregarUsuario.Size = new System.Drawing.Size(127, 37);
             this.btnAgregarUsuario.TabIndex = 105;
@@ -131,10 +132,21 @@
             this.btnAgregarUsuario.UseVisualStyleBackColor = true;
             this.btnAgregarUsuario.Click += new System.EventHandler(this.btnAgregarUsuario_Click);
             // 
+            // btnEliminarPizarron
+            // 
+            this.btnEliminarPizarron.Location = new System.Drawing.Point(336, 243);
+            this.btnEliminarPizarron.Name = "btnEliminarPizarron";
+            this.btnEliminarPizarron.Size = new System.Drawing.Size(127, 37);
+            this.btnEliminarPizarron.TabIndex = 106;
+            this.btnEliminarPizarron.Text = "Eliminar pizarrón";
+            this.btnEliminarPizarron.UseVisualStyleBackColor = true;
+            this.btnEliminarPizarron.Click += new System.EventHandler(this.btnEliminarPizarron_Click);
+            // 
             // MenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnEliminarPizarron);
             this.Controls.Add(this.btnAgregarUsuario);
             this.Controls.Add(this.btnInformeComentario);
             this.Controls.Add(this.btnInformePizarron);
@@ -161,5 +173,6 @@
         private System.Windows.Forms.Button btnCrearEquipo;
         private System.Windows.Forms.Button btnCrearUsuario;
         private System.Windows.Forms.Button btnAgregarUsuario;
+        private System.Windows.Forms.Button btnEliminarPizarron;
     }
 }

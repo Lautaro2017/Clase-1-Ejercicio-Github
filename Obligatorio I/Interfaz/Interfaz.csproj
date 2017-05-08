@@ -72,6 +72,12 @@
     <Compile Include="CrearUsuario.Designer.cs">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="EliminarPizarron.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EliminarPizarron.Designer.cs">
+      <DependentUpon>EliminarPizarron.cs</DependentUpon>
+    </Compile>
     <Compile Include="InformeComentariosPorUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearUsuario.resx">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminarPizarron.resx">
+      <DependentUpon>EliminarPizarron.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InformeComentariosPorUsuario.resx">
       <DependentUpon>InformeComentariosPorUsuario.cs</DependentUpon>
