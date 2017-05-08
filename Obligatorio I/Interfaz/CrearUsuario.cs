@@ -48,7 +48,7 @@ namespace Interfaz
                 Panel parent = this.Parent as Panel;
                 string nombre = txtNombre.Text;
                 string apellido = txtApellido.Text;
-                string email = txtEmail.Text;
+                string email = txtEmail.Text.ToLower();
                 string contraseña = txtContraseña.Text;
                 string contraseñaConf = txtConfirmarContraseña.Text;
                 bool esAdmin = chkEsAdministrador.Checked;

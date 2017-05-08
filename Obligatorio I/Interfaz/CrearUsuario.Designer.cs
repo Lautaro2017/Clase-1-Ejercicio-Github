@@ -68,7 +68,7 @@
             this.txtConfirmarContraseña.Location = new System.Drawing.Point(172, 226);
             this.txtConfirmarContraseña.Name = "txtConfirmarContraseña";
             this.txtConfirmarContraseña.Size = new System.Drawing.Size(134, 20);
-            this.txtConfirmarContraseña.TabIndex = 33;
+            this.txtConfirmarContraseña.TabIndex = 41;
             this.txtConfirmarContraseña.UseSystemPasswordChar = true;
             // 
             // lblConfirmarContraseña
@@ -93,7 +93,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(325, 284);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(101, 25);
-            this.btnCancelar.TabIndex = 35;
+            this.btnCancelar.TabIndex = 47;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -103,7 +103,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(172, 284);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(101, 25);
-            this.btnGuardar.TabIndex = 34;
+            this.btnGuardar.TabIndex = 46;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -162,7 +162,7 @@
             this.txtContraseña.Location = new System.Drawing.Point(172, 200);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(134, 20);
-            this.txtContraseña.TabIndex = 42;
+            this.txtContraseña.TabIndex = 40;
             this.txtContraseña.UseSystemPasswordChar = true;
             // 
             // lblContraseña

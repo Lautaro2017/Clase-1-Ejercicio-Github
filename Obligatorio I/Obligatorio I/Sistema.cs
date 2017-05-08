@@ -219,7 +219,7 @@ namespace Obligatorio_I
         {
             foreach (Usuario u in this.Usuarios)
             {
-                if (u.Email == email)
+                if (u.Email.ToLower() == email.ToLower())
                 {
                     return u;
                 }
