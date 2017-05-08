@@ -288,5 +288,10 @@ namespace Obligatorio_I
             }
             return usuarios;
         }
+
+        public object BuscarPizarronPorNombreYEquipo(string v1, string v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
