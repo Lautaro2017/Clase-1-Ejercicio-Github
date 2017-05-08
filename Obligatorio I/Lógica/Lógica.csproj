@@ -41,10 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControladorCantidadMaxUsuarios.cs" />
     <Compile Include="ControladorConfirmacionContraseña.cs" />
     <Compile Include="ControladorContraseñaCorrecta.cs" />
     <Compile Include="ControladorDatosUsuarioVacios.cs" />
     <Compile Include="ControladorEquipoSinPizarrones.cs" />
+    <Compile Include="ControladorEquipoSinUsuarios.cs" />
     <Compile Include="ControladorFormatoContraseña.cs" />
     <Compile Include="ControladorFormatoEmail.cs" />
     <Compile Include="ControladorInicioSesion.cs" />
