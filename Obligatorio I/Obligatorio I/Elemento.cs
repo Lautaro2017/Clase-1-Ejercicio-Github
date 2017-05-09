@@ -26,7 +26,7 @@ namespace Obligatorio_I
         }
 
         public Point PuntoOrigen { set; get; }
-
+        
         //Si el tipo es T se usan estas variables
         public int TamañoFuente { set; get; }
         public string TipoFuente { set; get; }
