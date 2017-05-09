@@ -39,6 +39,11 @@ namespace Obligatorio_I
             this.UltimaModificacion = DateTime.Now;
         }
 
+        public bool SeAgregaElemento(Elemento e, Pizarron p)
+        {
+            throw new NotImplementedException();
+        }
+
         public void AgregarElemento(Elemento e)
         {
             this.Elementos.Add(e);
