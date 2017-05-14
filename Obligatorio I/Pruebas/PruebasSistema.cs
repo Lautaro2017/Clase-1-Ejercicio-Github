@@ -441,5 +441,32 @@ namespace Pruebas
             bool condicion = nuevoSistema.BuscarPizarronPorNombreYEquipo("Gastos varios", "Equipo Rocket") == p;
             Assert.IsTrue(condicion);
         }
+
+        [TestMethod]
+        public void BuscarComentarioPorUsuarioYFechaOK()
+        {
+            DateTime fecha = new DateTime();
+            Comentario c = utilidad.NuevoComentario();
+            Usuario u = utilidad.NuevoUsuario();
+            c.FechaCreacion = fecha;
+            c.Creador = u;
+            Comentario buscar = nuevoSistema.BuscarComentarioPorUsuarioYFecha(u,fecha);
+            bool condicion = c.Equals(u);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void BuscarComentarioPorUsuarioYFechaNotOK()
+        {
+            DateTime fecha = new DateTime(2017,2,2);
+            DateTime fecha2 = new DateTime(2017, 3, 2);
+            Comentario c = utilidad.NuevoComentario();
+            Usuario u = utilidad.NuevoUsuario();
+            c.FechaCreacion = fecha;
+            c.Creador = u;
+            Comentario buscar = nuevoSistema.BuscarComentarioPorUsuarioYFecha(u,fecha2);
+            bool condicion = c.Equals(null);
+            Assert.IsTrue(condicion);
+        }
     }
 }
