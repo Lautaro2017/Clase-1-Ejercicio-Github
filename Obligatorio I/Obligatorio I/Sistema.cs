@@ -303,5 +303,20 @@ namespace Obligatorio_I
             }
             return null;
         }
+
+        public Comentario BuscarComentarioPorUsuarioYFecha(Usuario u, DateTime fecha)
+        {
+            foreach (Elemento e in this.Elementos)
+            {
+                foreach (Comentario c in e.Comentarios)
+                {
+                    if (c.Creador.Equals(u) && c.FechaCreacion == fecha)
+                    {
+                        return c;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }
