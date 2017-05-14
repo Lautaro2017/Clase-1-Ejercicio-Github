@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.cmbEquipo = new System.Windows.Forms.ComboBox();
@@ -39,15 +38,16 @@
             this.lblMenuPizarron = new System.Windows.Forms.Label();
             this.cmbPizarron = new System.Windows.Forms.ComboBox();
             this.lblPizarron = new System.Windows.Forms.Label();
-            this.tableLayoutPizarron = new System.Windows.Forms.TableLayoutPanel();
             this.lblAgregarElemento = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.pnlPizarron = new System.Windows.Forms.Panel();
+            this.btnCargarImagen = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnCargarCuadroTexto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(528, 346);
+            this.btnCancelar.Location = new System.Drawing.Point(528, 343);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(101, 25);
             this.btnCancelar.TabIndex = 97;
@@ -57,12 +57,14 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(346, 346);
+            this.btnGuardar.AccessibleRole = System.Windows.Forms.AccessibleRole.Slider;
+            this.btnGuardar.Location = new System.Drawing.Point(346, 343);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(101, 25);
             this.btnGuardar.TabIndex = 96;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cmbEquipo
             // 
@@ -85,6 +87,7 @@
             // 
             // rtxtDescripcion
             // 
+            this.rtxtDescripcion.Enabled = false;
             this.rtxtDescripcion.Location = new System.Drawing.Point(44, 199);
             this.rtxtDescripcion.Name = "rtxtDescripcion";
             this.rtxtDescripcion.Size = new System.Drawing.Size(199, 58);
@@ -142,19 +145,6 @@
             this.lblPizarron.TabIndex = 101;
             this.lblPizarron.Text = "Pizarron:";
             // 
-            // tableLayoutPizarron
-            // 
-            this.tableLayoutPizarron.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tableLayoutPizarron.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPizarron.ColumnCount = 1;
-            this.tableLayoutPizarron.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPizarron.Location = new System.Drawing.Point(261, 83);
-            this.tableLayoutPizarron.Name = "tableLayoutPizarron";
-            this.tableLayoutPizarron.RowCount = 1;
-            this.tableLayoutPizarron.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPizarron.Size = new System.Drawing.Size(398, 235);
-            this.tableLayoutPizarron.TabIndex = 103;
-            // 
             // lblAgregarElemento
             // 
             this.lblAgregarElemento.AutoSize = true;
@@ -165,28 +155,46 @@
             this.lblAgregarElemento.TabIndex = 104;
             this.lblAgregarElemento.Text = "Agregar Elemento:";
             // 
-            // contextMenuStrip1
+            // pnlPizarron
             // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.pnlPizarron.Location = new System.Drawing.Point(289, 74);
+            this.pnlPizarron.Name = "pnlPizarron";
+            this.pnlPizarron.Size = new System.Drawing.Size(363, 240);
+            this.pnlPizarron.TabIndex = 106;
             // 
-            // toolStrip1
+            // btnCargarImagen
             // 
-            this.toolStrip1.AllowDrop = true;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Location = new System.Drawing.Point(44, 314);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(111, 25);
-            this.toolStrip1.TabIndex = 105;
-            this.toolStrip1.Text = "toolStrip1";
+            this.btnCargarImagen.Location = new System.Drawing.Point(44, 317);
+            this.btnCargarImagen.Name = "btnCargarImagen";
+            this.btnCargarImagen.Size = new System.Drawing.Size(83, 37);
+            this.btnCargarImagen.TabIndex = 107;
+            this.btnCargarImagen.Text = "Cargar imagen";
+            this.btnCargarImagen.UseVisualStyleBackColor = true;
+            this.btnCargarImagen.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // btnCargarCuadroTexto
+            // 
+            this.btnCargarCuadroTexto.Location = new System.Drawing.Point(160, 317);
+            this.btnCargarCuadroTexto.Name = "btnCargarCuadroTexto";
+            this.btnCargarCuadroTexto.Size = new System.Drawing.Size(83, 37);
+            this.btnCargarCuadroTexto.TabIndex = 108;
+            this.btnCargarCuadroTexto.Text = "Cargar cuadro de texto";
+            this.btnCargarCuadroTexto.UseVisualStyleBackColor = true;
+            this.btnCargarCuadroTexto.Click += new System.EventHandler(this.btnCargarCuadroTexto_Click);
             // 
             // VisualizarPizarron
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.btnCargarCuadroTexto);
+            this.Controls.Add(this.btnCargarImagen);
+            this.Controls.Add(this.pnlPizarron);
             this.Controls.Add(this.lblAgregarElemento);
-            this.Controls.Add(this.tableLayoutPizarron);
             this.Controls.Add(this.cmbPizarron);
             this.Controls.Add(this.lblPizarron);
             this.Controls.Add(this.btnCancelar);
@@ -200,6 +208,7 @@
             this.Name = "VisualizarPizarron";
             this.Size = new System.Drawing.Size(667, 382);
             this.Load += new System.EventHandler(this.VisualizarPizarron_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.VisualizarPizarron_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,13 +221,14 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblMenuPizarron;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox cmbPizarron;
         private System.Windows.Forms.Label lblPizarron;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPizarron;
         private System.Windows.Forms.Label lblAgregarElemento;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.Panel pnlPizarron;
+        private System.Windows.Forms.Button btnCargarImagen;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnCargarCuadroTexto;
+        public System.Windows.Forms.Button btnGuardar;
     }
 }

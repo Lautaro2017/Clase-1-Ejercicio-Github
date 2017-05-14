@@ -17,20 +17,37 @@ namespace Interfaz
     {
         Sistema s = Sistema.GetInstance();
         private Usuario usuarioLogueado;
+        private PizarronDeEquipo pizarronEnUso;
+        private Pizarron pizarron;
         private ControladorEquipoSinPizarrones controlador1;
+        private int posMouseFormX, posMouseFormY;
+        private int posMouseElemX, posMouseElemY;
+        private int posActElemX, posActElemY;
+        private List<Elemento> elementos;
+        int cantElementos;
+        bool elementoPresionado = false;
 
         public VisualizarPizarron(Usuario u)
         {
             usuarioLogueado = u;
             controlador1 = new ControladorEquipoSinPizarrones();
+            elementos = new List<Elemento>();
             InitializeComponent();
             InicializarCombos();
         }
 
         public void InicializarCombos()
         {
-            cmbEquipo.Items.AddRange(s.Equipos.ToArray());
-            cmbEquipo.SelectedIndex = 0;
+            if (usuarioLogueado.EsAdministrador)
+            {
+                cmbEquipo.Items.AddRange(s.Equipos.ToArray());
+                cmbEquipo.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbEquipo.Items.AddRange(s.EquiposDeUsuario(usuarioLogueado).ToArray());
+                cmbEquipo.SelectedIndex = 0;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -58,7 +75,10 @@ namespace Interfaz
             try
             {
                 Equipo equipo = (Equipo)cmbEquipo.SelectedItem;
-                cmbPizarron.Items.AddRange(s.FiltroDePizarronesPorEquipo(equipo).ToArray());                
+                controlador1.EquipoSinPizarrones(equipo);
+                cmbPizarron.Controls.Clear();
+                cmbPizarron.Items.AddRange(s.FiltroDePizarronesPorEquipo(equipo).ToArray());
+                cmbPizarron.SelectedIndex = 0;
             }
             catch(ExcepcionEquipoSinPizarrones ex)
             {
@@ -68,9 +88,64 @@ namespace Interfaz
 
         private void cmbPizarron_SelectedIndexChanged(object sender, EventArgs e)
         {
+            pnlPizarron.Controls.Clear();
             Pizarron p = (Pizarron)cmbPizarron.SelectedItem;
-            tableLayoutPizarron.Width = p.Ancho;
-            tableLayoutPizarron.Height = p.Alto;
+            rtxtDescripcion.Text = p.Descripcion;
+            elementos = new List<Elemento>();
+            foreach (Elemento elem in p.Elementos)
+            {
+                elementos.Add(elem);
+            }
+            cantElementos = p.Elementos.Count;
+            this.pizarron = p;            
+            PizarronDeEquipo pizarron = new PizarronDeEquipo(p.Elementos, p.Alto, p.Ancho);
+            pnlPizarron.Controls.Add(pizarron);
+            pizarron.Location = new Point(
+            pnlPizarron.ClientSize.Width / 2 - pnlPizarron.Size.Width / 2,
+            pnlPizarron.ClientSize.Height / 2 - pnlPizarron.Size.Height / 2);
+            pnlPizarron.Anchor = AnchorStyles.None;
+            pnlPizarron.BackColor = Color.Transparent;
+            pizarronEnUso = pizarron;      
+            foreach (Control caja in pizarron.Controls)
+            {
+                if (caja is PictureBox)
+                {
+                    caja.MouseMove += Cuadro_MouseMove;
+                    caja.MouseDown += Cuadro_MouseDown;
+                    caja.MouseUp += Cuadro_MouseUp;                    
+                }
+                if (caja is TextBox)
+                {
+                    caja.MouseMove += CuadroDeTexto_MouseMove;
+                    caja.MouseDown += CuadroDeTexto_MouseDown;
+                    caja.MouseUp += CuadroDeTexto_MouseUp;                    
+                }
+                caja.DoubleClick += Caja_DoubleClick;
+            }
+        }
+
+        private void Caja_DoubleClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {            
+            foreach (Elemento el in elementos)
+            {
+                for (int i = 0; i < pizarron.Elementos.Count; i++)
+                {
+                    if (pizarron.Elementos[i].Equals(el))
+                    {
+                        pizarron.Elementos[i].Alto = el.Alto;
+                        pizarron.Elementos[i].Ancho = el.Ancho;
+                        pizarron.Elementos[i].PuntoOrigen = el.PuntoOrigen;
+                        pizarron.Elementos[i].Contenido = el.Contenido;
+                    }
+                }
+                pizarron.AgregarElemento(el);
+            }
+            MessageBox.Show("Datos salvados!");
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -80,6 +155,151 @@ namespace Interfaz
             MenuAdministrador nuevoMenuAdmin = new MenuAdministrador(usuarioLogueado);
             parent.Controls.Add(nuevoMenuAdmin);
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = openFileDialog1.FileName;
+                    PictureBox cuadro = new PictureBox();
+                    cuadro.ImageLocation = imagen;
+                    cuadro.SizeMode = PictureBoxSizeMode.StretchImage;
+                    cuadro.MouseMove += Cuadro_MouseMove;
+                    cuadro.MouseDown += Cuadro_MouseDown;
+                    cuadro.MouseUp += Cuadro_MouseUp;
+                    cuadro.SizeMode = PictureBoxSizeMode.Normal;                    
+                    pizarronEnUso.Controls.Add(cuadro);
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido");
+            }
+        }
+
+        private void Cuadro_MouseUp(object sender, MouseEventArgs e)
+        {
+            elementoPresionado = false;
+        }
+
+        private void Cuadro_MouseDown(object sender, MouseEventArgs e)
+        {
+            posMouseElemX = e.Location.X;
+            posMouseElemY = e.Location.Y;
+            elementoPresionado = true;
+        }
+
+        private void MoverPictureBox(PictureBox caja)
+        {
+            caja.Location = new System.Drawing.Point(posMouseFormX - posMouseElemX, posMouseFormY - posMouseElemY);
+            posActElemX = caja.Location.X;
+            posActElemY = caja.Location.Y;
+            Elemento.Point coord = new Elemento.Point(posActElemX, posActElemY);
+            Elemento e = new Elemento('I', caja.Height, caja.Width, new List<Comentario>(), coord,pizarron);
+            e.Contenido = caja.ImageLocation;
+            bool yaIncluido = false;
+            for (int i = 0; i < elementos.Count; i++)
+            {
+                if (elementos[i].Equals(e))
+                {
+                    elementos[i] = e;
+                    yaIncluido = true;
+                }
+            }
+            if (!yaIncluido)
+            {
+                elementos.Insert(cantElementos, e);                
+            }            
+        }
+
+        private void Cuadro_MouseMove(object sender, MouseEventArgs e)
+        {
+            posMouseFormX = posActElemX + e.Location.X;
+            posMouseFormY = posActElemY + e.Location.Y;
+            if (elementoPresionado)
+            {
+                MoverPictureBox((PictureBox)sender);
+            }
+        }
+
+        private void btnCargarCuadroTexto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TextBox cuadroDeTexto = new TextBox();
+                cuadroDeTexto.Width = 100;
+                cuadroDeTexto.Height = 30;
+                cuadroDeTexto.Text = "Escriba aqui...";
+                cuadroDeTexto.MouseMove += CuadroDeTexto_MouseMove;
+                cuadroDeTexto.MouseDown += CuadroDeTexto_MouseDown;
+                cuadroDeTexto.MouseUp += CuadroDeTexto_MouseUp;
+                pizarronEnUso.Controls.Add(cuadroDeTexto);                
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("ERROR!");
+            }
+        }
+
+        private void CuadroDeTexto_MouseUp(object sender, MouseEventArgs e)
+        {
+            elementoPresionado = false;
+        }
+
+        private void VisualizarPizarron_MouseMove(object sender, MouseEventArgs e)
+        {
+            posMouseFormX = posActElemX + e.Location.X;
+            posMouseFormY = posActElemY + e.Location.Y;
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            cantElementos = this.pizarron.Elementos.Count == 0 ? 0 : this.pizarron.Elementos.Count-1;
+        }
+
+        private void MoverTextBox(TextBox caja)
+        {
+            caja.Location = new System.Drawing.Point(posMouseFormX - posMouseElemX, posMouseFormY - posMouseElemY);
+            posActElemX = caja.Location.X;
+            posActElemY = caja.Location.Y;
+            Elemento.Point coord = new Elemento.Point(posActElemX, posActElemY);
+            Elemento e = new Elemento('T', caja.Height, caja.Width, new List<Comentario>(), coord, pizarron);
+            e.Contenido = caja.Text;
+            bool yaIncluido = false;
+            for (int i = 0; i < elementos.Count; i++)
+            {
+                if (elementos[i].Equals(e))
+                {
+                    elementos[i] = e;
+                    yaIncluido = true;
+                }
+            }
+            if (!yaIncluido)
+            {
+                elementos.Insert(cantElementos, e);
+            }
+
+        }
+
+        private void CuadroDeTexto_MouseDown(object sender, MouseEventArgs e)
+        {
+            posMouseElemX = e.Location.X;
+            posMouseElemY = e.Location.Y;
+            elementoPresionado = true;
+        }
+
+        private void CuadroDeTexto_MouseMove(object sender, MouseEventArgs e)
+        {
+            posMouseFormX = posActElemX + e.Location.X;
+            posMouseFormY = posActElemY + e.Location.Y;
+            if (elementoPresionado)
+            {
+                MoverTextBox((TextBox)sender);
+            }
         }
     }
 }
