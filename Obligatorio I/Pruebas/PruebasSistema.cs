@@ -468,5 +468,23 @@ namespace Pruebas
             bool condicion = c.Equals(null);
             Assert.IsTrue(condicion);
         }
+
+        [TestMethod]
+        public void PizarronesDondeUsuarioEsCreadorOK()
+        {
+            Pizarron p = utilidad.NuevoPizarron();
+            Usuario u = utilidad.NuevoUsuario();
+            bool condicion = nuevoSistema.PizarronesDondeUsuarioEsCreador(u).contains(p);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void PizarronesDondeUsuarioEsCreadorNotOK()
+        {
+            Pizarron p = utilidad.NuevoPizarron();
+            Usuario u = utilidad.OtroUsuario();
+            bool condicion = nuevoSistema.PizarronesDondeUsuarioEsCreador(u).contains(p);
+            Assert.IsFalse(condicion);
+        }
     }
 }
