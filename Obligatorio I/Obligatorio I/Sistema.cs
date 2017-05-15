@@ -367,7 +367,7 @@ namespace Obligatorio_I
                         }
                     }
                     Equipos.Remove(this.Equipos[i]);
-                    salir = this.Equipos[i] != null;
+                    i--;
                 }
             }
             foreach (Pizarron p in this.Pizarrones)
@@ -393,7 +393,24 @@ namespace Obligatorio_I
 
         public void EliminarEquipo(Equipo e)
         {
-            throw new NotImplementedException();
+            bool salir = false;
+            for (int i = 0; !salir && i < this.Equipos.Count; i++)
+            {
+                if (this.Equipos[i].Equals(e))
+                {
+                    this.Equipos.Remove(e);
+                    salir = true;
+                }
+            }
+            salir = false;
+            for (int i = 0; i < this.Pizarrones.Count; i++)
+            {
+                if (this.Pizarrones[i].EquipoPerteneciente.Equals(e))
+                {
+                    this.Pizarrones.Remove(this.Pizarrones[i]);
+                    i--;
+                }
+            }
         }
     }
 }
