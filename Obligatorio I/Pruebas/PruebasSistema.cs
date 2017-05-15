@@ -488,5 +488,26 @@ namespace Pruebas
             bool condicion = nuevoSistema.PizarronesDondeUsuarioEsCreador(u).Contains(p);
             Assert.IsFalse(condicion);
         }
+
+        [TestMethod]
+        public void EliminarUsuarioOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.EliminarUsuario(u);
+            bool condicion = nuevoSistema.Usuarios.Contains(u) && !nuevoSistema.Equipos.Contains(e);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void EliminarUsuarioYNoEquipoOK()
+        {
+            Usuario u = utilidad.NuevoUsuario();
+            Equipo e = utilidad.NuevoEquipo();
+            e.AgregarUsuario(utilidad.OtroUsuario());
+            nuevoSistema.EliminarUsuario(u);
+            bool condicion = nuevoSistema.Usuarios.Contains(u) && nuevoSistema.Equipos.Contains(e);
+            Assert.IsTrue(condicion);
+        }
     }
 }
