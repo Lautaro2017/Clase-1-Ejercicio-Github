@@ -109,5 +109,97 @@ namespace Pruebas
             string contraseña = utilidad.GenerarContraseña();
             Assert.IsTrue(validar.EsContraseñaValida(contraseña));
         }
+
+        [TestMethod]
+        public void FiltrarComentariosPorUsuarioResolutorOK()
+        {
+            List<Comentario> comentarios = new List<Comentario>();
+            Comentario c = utilidad.NuevoComentario();
+            comentarios.Add(c);
+            Usuario u = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            bool condicion = FiltrarComentariosPorUsuarioResolutor(comentarios, u2).Contains(c);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltrarComentariosPorUsuarioResolutorNotOK()
+        {
+            List<Comentario> comentarios = new List<Comentario>();
+            Comentario c = utilidad.NuevoComentario();
+            comentarios.Add(c);
+            Usuario u = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            bool condicion = FiltrarComentariosPorUsuarioResolutor(comentarios, u).Contains(c);
+            Assert.IsFalse(condicion);
+        }
+
+        [TestMethod]
+        public void FiltrarComentariosPorUsuarioCreadorOK()
+        {
+            List<Comentario> comentarios = new List<Comentario>();
+            Comentario c = utilidad.NuevoComentario();
+            comentarios.Add(c);
+            Usuario u = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            bool condicion = FiltrarComentariosPorUsuarioCreador(comentarios, u).Contains(c);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltrarComentariosPorUsuarioCreadorNotOK()
+        {
+            List<Comentario> comentarios = new List<Comentario>();
+            Comentario c = utilidad.NuevoComentario();
+            comentarios.Add(c);
+            Usuario u = utilidad.NuevoUsuario();
+            Usuario u2 = utilidad.OtroUsuario();
+            bool condicion = FiltrarComentariosPorUsuarioCreador(comentarios, u2).Contains(c);
+            Assert.IsFalse(condicion);
+        }
+
+        [TestMethod]
+        public void FiltrarComentariosPorFechaDeCreacionOK()
+        {
+            List<Comentario> comentarios = new List<Comentario>();
+            Comentario c = utilidad.NuevoComentario();
+            c.FechaCreacion = new DateTime(2015, 12, 20);
+            comentarios.Add(c);            
+            bool condicion = FiltrarComentariosPorFechaDeCreacion(comentarios, new DateTime(2015, 12, 20)).Contains(c);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltrarComentariosPorFechaDeCreacionNotOK()
+        {
+            List<Comentario> comentarios = new List<Comentario>();
+            Comentario c = utilidad.NuevoComentario();
+            c.FechaCreacion = new DateTime(2015, 12, 20);
+            comentarios.Add(c);            
+            bool condicion = FiltrarComentariosPorFechaDeCreacion(comentarios, new DateTime(2015, 12, 21)).Contains(c);
+            Assert.IsFalse(condicion);
+        }
+
+        [TestMethod]
+        public void FiltrarComentariosPorFechaDeResolucionOK()
+        {
+            List<Comentario> comentarios = new List<Comentario>();
+            Comentario c = utilidad.NuevoComentario();
+            c.FechaCreacion = new DateTime(2017, 15, 05);
+            comentarios.Add(c);
+            bool condicion = FiltrarComentariosPorFechaDeResolucion(comentarios, new DateTime(2017, 15, 05)).Contains(c);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void FiltrarComentariosPorFechaDeResolucionNotOK()
+        {
+            List<Comentario> comentarios = new List<Comentario>();
+            Comentario c = utilidad.NuevoComentario();
+            c.FechaCreacion = new DateTime(2017, 15, 06);
+            comentarios.Add(c);
+            bool condicion = FiltrarComentariosPorFechaDeResolucion(comentarios, new DateTime(2017, 15, 05)).Contains(c);
+            Assert.IsFalse(condicion);
+        }
     }
 }
