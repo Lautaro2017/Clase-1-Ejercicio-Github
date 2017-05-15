@@ -29,6 +29,7 @@ namespace Interfaz
         int cantElementos;
         bool elementoPresionado = false;
         bool datosSalvados = true;
+        bool allowResize = false;
 
         public VisualizarPizarron(Usuario u)
         {
@@ -139,6 +140,17 @@ namespace Interfaz
                         caja.MouseDown += CuadroDeTexto_MouseDown;
                         caja.MouseUp += CuadroDeTexto_MouseUp;
                     }
+                    PictureBox mover = new PictureBox();
+                    mover.Width = 5;
+                    mover.Height = 5;
+                    mover.Cursor = Cursors.SizeNWSE;
+                    mover.Anchor = AnchorStyles.Bottom;
+                    mover.Anchor = AnchorStyles.Right;
+                    caja.Controls.Add(mover);
+                    mover.Location = new Point(caja.Width - 5, caja.Height - 5);
+                    mover.MouseMove += Mover_MouseMove;
+                    mover.MouseDown += Mover_MouseDown;
+                    mover.MouseUp += Mover_MouseUp;
                 }
                 foreach (Control c in pizarronEnUso.Controls)
                 {
@@ -226,19 +238,30 @@ namespace Interfaz
             {
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    string imagen = openFileDialog1.FileName;
+                    string imagen = openFileDialog1.FileName;                    
                     PictureBox cuadro = new PictureBox();
+                    PictureBox mover = new PictureBox();
+                    mover.Width = 5;
+                    mover.Height = 5;
                     cuadro.ImageLocation = imagen;
                     cuadro.SizeMode = PictureBoxSizeMode.StretchImage;
                     cuadro.MouseMove += Cuadro_MouseMove;
                     cuadro.MouseDown += Cuadro_MouseDown;
                     cuadro.MouseUp += Cuadro_MouseUp;
-                    cuadro.SizeMode = PictureBoxSizeMode.Normal;                    
+                    cuadro.SizeMode = PictureBoxSizeMode.Normal;
+                    mover.Cursor = Cursors.SizeNWSE;
+                    mover.Anchor = AnchorStyles.Bottom;
+                    mover.Anchor = AnchorStyles.Right;                    
+                    cuadro.Controls.Add(mover);
+                    mover.Location = new Point(cuadro.Width-5, cuadro.Height-5);
+                    mover.MouseMove += Mover_MouseMove;
+                    mover.MouseDown += Mover_MouseDown;
+                    mover.MouseUp += Mover_MouseUp;
+                    pizarronEnUso.Controls.Add(cuadro);
                     Elemento.Point coord = new Elemento.Point(posActElemX, posActElemY);
                     Elemento el = new Elemento('I', cuadro.Height, cuadro.Width, new List<Comentario>(), coord, pizarron);
                     el.Contenido = imagen;
-                    elementos.Add(el);                    
-                    pizarronEnUso.Controls.Add(cuadro);
+                    elementos.Add(el);
                     cuadro.MouseDoubleClick += Caja_DoubleClick;
                 }
             }
@@ -246,6 +269,35 @@ namespace Interfaz
             {
                 MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido");
             }
+        }
+
+        private void Mover_MouseUp(object sender, MouseEventArgs e)
+        {
+            allowResize = false;
+        }
+
+        private void Mover_MouseDown(object sender, MouseEventArgs e)
+        {
+            allowResize = true;
+        }
+
+        private void Mover_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (allowResize)
+            {
+                if (sender is PictureBox)
+                {
+                    ((PictureBox)sender).Parent.Height = ((PictureBox)sender).Top + e.Y;
+                    ((PictureBox)sender).Parent.Width = ((PictureBox)sender).Left + e.X;
+                    ((PictureBox)sender).Location = new Point(((PictureBox)sender).Parent.Width - 5, ((PictureBox)sender).Parent.Height - 5);
+                }
+                else
+                {
+                    ((TextBox)sender).Parent.Height = ((TextBox)sender).Top + e.Y;
+                    ((TextBox)sender).Parent.Width = ((TextBox)sender).Left + e.X;
+                    ((TextBox)sender).Location = new Point(((TextBox)sender).Parent.Width - 5, ((TextBox)sender).Parent.Height - 5);
+                }
+            }            
         }
 
         private void Cuadro_MouseUp(object sender, MouseEventArgs e)
@@ -264,11 +316,11 @@ namespace Interfaz
         {
             caja.Location = new System.Drawing.Point(posMouseFormX - posMouseElemX, posMouseFormY - posMouseElemY);
             posActElemX = caja.Location.X;
-            posActElemY = caja.Location.Y;
-            Elemento.Point coord = new Elemento.Point(posActElemX, posActElemY);
+            posActElemY = caja.Location.Y;            
+            Elemento.Point coord = new Elemento.Point(posActElemX, posActElemY);            
             Elemento e = new Elemento('I', caja.Height, caja.Width, new List<Comentario>(), coord,pizarron);
             e.Contenido = caja.ImageLocation;
-            bool yaIncluido = false;
+            bool yaIncluido = false;            
             for (int i = 0; !yaIncluido && i < elementos.Count; i++)
             {
                 if (elementos[i].Equals(e))
@@ -300,19 +352,29 @@ namespace Interfaz
             try
             {
                 TextBox cuadroDeTexto = new TextBox();
+                PictureBox mover = new PictureBox();
                 cuadroDeTexto.Width = 100;
                 cuadroDeTexto.Height = 30;
+                mover.Width = 5;
+                mover.Height = 5;
                 cuadroDeTexto.Text = "Escriba aqui...";
                 cuadroDeTexto.MouseMove += CuadroDeTexto_MouseMove;
                 cuadroDeTexto.MouseDown += CuadroDeTexto_MouseDown;
                 cuadroDeTexto.MouseUp += CuadroDeTexto_MouseUp;
-                cuadroDeTexto.DoubleClick += Caja_DoubleClick;
+                mover.Cursor = Cursors.SizeNWSE;
+                mover.Anchor = AnchorStyles.Bottom;
+                mover.Anchor = AnchorStyles.Right;
+                cuadroDeTexto.Controls.Add(mover);
+                mover.Location = new Point(cuadroDeTexto.Width - 5, cuadroDeTexto.Height - 5);
+                mover.MouseMove += Mover_MouseMove;
+                mover.MouseDown += Mover_MouseDown;
+                mover.MouseUp += Mover_MouseUp;
                 Elemento.Point coord = new Elemento.Point(posActElemX, posActElemY);
                 Elemento el = new Elemento('T', cuadroDeTexto.Height, cuadroDeTexto.Width, new List<Comentario>(), coord, pizarron);
                 el.Contenido = cuadroDeTexto.Text;
                 elementos.Add(el);
+                cuadroDeTexto.MouseDoubleClick += Caja_DoubleClick;
                 pizarronEnUso.Controls.Add(cuadroDeTexto);
-                cuadroDeTexto.MouseDoubleClick += Caja_DoubleClick;                
             }
             catch (Exception exc)
             {

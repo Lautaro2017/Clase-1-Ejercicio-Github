@@ -32,6 +32,10 @@ namespace Obligatorio_I
             u2.Contraseña = "admin";
             Equipo e = ut.NuevoEquipo();
             u2.EsAdministrador = true;
+            Pizarron p = ut.NuevoPizarron();
+            p.Ancho = 200;
+            p.Alto = 200;
+            p.EquipoPerteneciente = e;
             if (instance == null)
             {
                 lock (synclock)
@@ -42,6 +46,7 @@ namespace Obligatorio_I
                         instance.AgregarUsuario(u);
                         instance.AgregarUsuario(u2);
                         instance.AgregarEquipo(e);
+                        instance.AgregarPizarron(p);
                     }
                 }
             }
