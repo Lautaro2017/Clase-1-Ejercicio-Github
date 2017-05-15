@@ -32,6 +32,7 @@
             this.btnVerPizarrón = new System.Windows.Forms.Button();
             this.btnCrearPizarron = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnEliminarPizarron = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMenuUsuario
@@ -76,10 +77,21 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnEliminarPizarron
+            // 
+            this.btnEliminarPizarron.Location = new System.Drawing.Point(182, 196);
+            this.btnEliminarPizarron.Name = "btnEliminarPizarron";
+            this.btnEliminarPizarron.Size = new System.Drawing.Size(127, 37);
+            this.btnEliminarPizarron.TabIndex = 107;
+            this.btnEliminarPizarron.Text = "Eliminar pizarrón";
+            this.btnEliminarPizarron.UseVisualStyleBackColor = true;
+            this.btnEliminarPizarron.Click += new System.EventHandler(this.btnEliminarPizarron_Click);
+            // 
             // MenuUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnEliminarPizarron);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnVerPizarrón);
             this.Controls.Add(this.btnCrearPizarron);
@@ -97,5 +109,6 @@
         private System.Windows.Forms.Button btnVerPizarrón;
         private System.Windows.Forms.Button btnCrearPizarron;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnEliminarPizarron;
     }
 }

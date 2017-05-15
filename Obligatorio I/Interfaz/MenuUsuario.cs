@@ -18,12 +18,14 @@ namespace Interfaz
         private Usuario usuarioLogueado;
         private ControladorUsuarioSinEquipo controlador;
         private ControladorUsuarioSinEquipoConPizarrones controlador2;
+        private ControladorNoHayPizarrones controlador3;
         
         public MenuUsuario(Usuario u)
         {
             usuarioLogueado = u;
             controlador = new ControladorUsuarioSinEquipo();
             controlador2 = new ControladorUsuarioSinEquipoConPizarrones();
+            controlador3 = new ControladorNoHayPizarrones();
             InitializeComponent();
         }
 
@@ -67,6 +69,22 @@ namespace Interfaz
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnEliminarPizarron_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                controlador3.NoHayPizarrones();
+                Panel parent = this.Parent as Panel;
+                EliminarPizarron ventana = new EliminarPizarron(usuarioLogueado);
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
+            catch (ExcepcionNoHayPizarrones ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

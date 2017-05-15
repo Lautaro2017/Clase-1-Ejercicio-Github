@@ -24,20 +24,36 @@ namespace Interfaz
         }
 
         public void InicializarLista()
-        {
-            List<Pizarron> pizarrones = s.Pizarrones;
+        {            
             lstPizarrones.Rows.Clear();
             lstPizarrones.ColumnCount = 2;
             lstPizarrones.Columns[0].Name = "Nombre";
             lstPizarrones.Columns[1].Name = "Equipo";
-            foreach (Pizarron p in pizarrones)
+            if (usuarioLogueado.EsAdministrador)
             {
-                string nombre = p.Nombre;
-                string equipoCreador = p.EquipoPerteneciente.Nombre;
-                string[] row = new String[2];
-                row[0] = nombre;
-                row[1] = equipoCreador;
-                lstPizarrones.Rows.Add(row);
+                List<Pizarron> pizarrones = s.Pizarrones;
+                foreach (Pizarron p in pizarrones)
+                {
+                    string nombre = p.Nombre;
+                    string equipoCreador = p.EquipoPerteneciente.Nombre;
+                    string[] row = new String[2];
+                    row[0] = nombre;
+                    row[1] = equipoCreador;
+                    lstPizarrones.Rows.Add(row);
+                }
+            }
+            else
+            {
+                List<Pizarron> pizarrones = s.PizarronesDondeUsuarioEsCreador(usuarioLogueado);
+                foreach (Pizarron p in pizarrones)
+                {
+                    string nombre = p.Nombre;
+                    string equipoCreador = p.EquipoPerteneciente.Nombre;
+                    string[] row = new String[2];
+                    row[0] = nombre;
+                    row[1] = equipoCreador;
+                    lstPizarrones.Rows.Add(row);
+                }
             }
         }
 
@@ -54,18 +70,38 @@ namespace Interfaz
                 s.EliminarPizarron(p);
             }
             MessageBox.Show("Cambios guardados");
-            MenuAdministrador ventana = new MenuAdministrador(usuarioLogueado);
-            Panel parent = this.Parent as Panel;
-            parent.Controls.Clear();
-            parent.Controls.Add(ventana);
+            if (usuarioLogueado.EsAdministrador)
+            {
+                MenuAdministrador ventana = new MenuAdministrador(usuarioLogueado);
+                Panel parent = this.Parent as Panel;
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
+            else
+            {
+                MenuUsuario ventana = new MenuUsuario(usuarioLogueado);
+                Panel parent = this.Parent as Panel;
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            MenuAdministrador ventana = new MenuAdministrador(usuarioLogueado);
-            Panel parent = this.Parent as Panel;
-            parent.Controls.Clear();
-            parent.Controls.Add(ventana);
+            if (usuarioLogueado.EsAdministrador)
+            {
+                MenuAdministrador ventana = new MenuAdministrador(usuarioLogueado);
+                Panel parent = this.Parent as Panel;
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
+            else
+            {
+                MenuUsuario ventana = new MenuUsuario(usuarioLogueado);
+                Panel parent = this.Parent as Panel;
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
         }
     }
 }
