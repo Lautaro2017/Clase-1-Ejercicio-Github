@@ -519,7 +519,7 @@ namespace Pruebas
         {
             Equipo e = utilidad.NuevoEquipo();
             nuevoSistema.AgregarEquipo(e);
-            bool condicion = BuscarEquipoPorNombreOK("Equipo Rocket").Equals(e);
+            bool condicion = nuevoSistema.BuscarEquipoPorNombreOK("Equipo Rocket").Equals(e);
             Assert.IsTrue(condicion);
         }
 
@@ -528,7 +528,7 @@ namespace Pruebas
         {
             Equipo e = utilidad.NuevoEquipo();
             nuevoSistema.AgregarEquipo(e);
-            bool condicion = nuevoSistema.BuscarEquipoPorNombreOK("Equipo Rocket1").Equals(null);
+            bool condicion = nuevoSistema.BuscarEquipoPorNombreOK("Equipo Rocket1") == null;
             Assert.IsTrue(condicion);
         }
     }

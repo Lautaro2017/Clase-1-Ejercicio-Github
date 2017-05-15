@@ -381,7 +381,14 @@ namespace Obligatorio_I
 
         public Equipo BuscarEquipoPorNombreOK(string nombre)
         {
-            throw new NotImplementedException();
+            foreach (Equipo e in this.Equipos)
+            {
+                if (e.Nombre == nombre)
+                {
+                    return e;
+                }
+            }
+            return null;
         }
     }
 }
