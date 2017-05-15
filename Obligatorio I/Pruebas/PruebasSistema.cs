@@ -494,8 +494,10 @@ namespace Pruebas
         {
             Usuario u = utilidad.NuevoUsuario();
             Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.AgregarUsuario(u);
+            nuevoSistema.AgregarEquipo(e);
             nuevoSistema.EliminarUsuario(u);
-            bool condicion = nuevoSistema.Usuarios.Contains(u) && !nuevoSistema.Equipos.Contains(e);
+            bool condicion = !nuevoSistema.Usuarios.Contains(u) && !nuevoSistema.Equipos.Contains(e);
             Assert.IsTrue(condicion);
         }
 
@@ -504,9 +506,11 @@ namespace Pruebas
         {
             Usuario u = utilidad.NuevoUsuario();
             Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.AgregarUsuario(u);
             e.AgregarUsuario(utilidad.OtroUsuario());
+            nuevoSistema.AgregarEquipo(e);            
             nuevoSistema.EliminarUsuario(u);
-            bool condicion = nuevoSistema.Usuarios.Contains(u) && nuevoSistema.Equipos.Contains(e);
+            bool condicion = !nuevoSistema.Usuarios.Contains(u) && nuevoSistema.Equipos.Contains(e);
             Assert.IsTrue(condicion);
         }
     }

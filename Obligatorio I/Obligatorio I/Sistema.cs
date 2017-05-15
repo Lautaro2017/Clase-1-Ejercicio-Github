@@ -345,7 +345,24 @@ namespace Obligatorio_I
 
         public void EliminarUsuario(Usuario u)
         {
-            throw new NotImplementedException();
+            bool salir = false;
+            for (int i = 0; !salir && i < this.Usuarios.Count; i++)
+            {
+                if (this.Usuarios[i] == u)
+                {
+                    this.Usuarios.Remove(u);
+                    salir = true;
+                }
+            }
+            salir = false;
+            for (int i = 0; !salir && i < this.Equipos.Count; i++)
+            {
+                if (this.Equipos[i].usuarios.Contains(u) && this.Equipos[i].usuarios.Count == 1)
+                {
+                    Equipos.Remove(this.Equipos[i]);
+                    salir = true;
+                }
+            }
         }
     }
 }
