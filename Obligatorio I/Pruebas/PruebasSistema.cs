@@ -513,5 +513,23 @@ namespace Pruebas
             bool condicion = !nuevoSistema.Usuarios.Contains(u) && nuevoSistema.Equipos.Contains(e);
             Assert.IsTrue(condicion);
         }
+
+        [TestMethod]
+        public void BuscarEquipoPorNombreOK()
+        {
+            Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.AgregarEquipo(e);
+            bool condicion = BuscarEquipoPorNombreOK("Equipo Rocket").Equals(e);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void BuscarEquipoPorNombreNotOK()
+        {
+            Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.AgregarEquipo(e);
+            bool condicion = BuscarEquipoPorNombreOK("Equipo Rocket1").Equals(null);
+            Assert.IsTrue(condicion);
+        }
     }
 }
