@@ -528,7 +528,7 @@ namespace Pruebas
         {
             Equipo e = utilidad.NuevoEquipo();
             nuevoSistema.AgregarEquipo(e);
-            bool condicion = BuscarEquipoPorNombreOK("Equipo Rocket1").Equals(null);
+            bool condicion = nuevoSistema.BuscarEquipoPorNombreOK("Equipo Rocket1").Equals(null);
             Assert.IsTrue(condicion);
         }
     }

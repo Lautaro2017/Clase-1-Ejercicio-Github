@@ -378,5 +378,10 @@ namespace Obligatorio_I
                 }
             }
         }
+
+        public Equipo BuscarEquipoPorNombreOK(string nombre)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
