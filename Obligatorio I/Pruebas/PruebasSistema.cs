@@ -473,6 +473,7 @@ namespace Pruebas
         public void PizarronesDondeUsuarioEsCreadorOK()
         {
             Pizarron p = utilidad.NuevoPizarron();
+            nuevoSistema.AgregarPizarron(p);
             Usuario u = utilidad.NuevoUsuario();
             bool condicion = nuevoSistema.PizarronesDondeUsuarioEsCreador(u).Contains(p);
             Assert.IsTrue(condicion);
@@ -482,6 +483,7 @@ namespace Pruebas
         public void PizarronesDondeUsuarioEsCreadorNotOK()
         {
             Pizarron p = utilidad.NuevoPizarron();
+            nuevoSistema.AgregarPizarron(p);
             Usuario u = utilidad.OtroUsuario();
             bool condicion = nuevoSistema.PizarronesDondeUsuarioEsCreador(u).Contains(p);
             Assert.IsFalse(condicion);

@@ -332,7 +332,15 @@ namespace Obligatorio_I
 
         public List<Pizarron> PizarronesDondeUsuarioEsCreador(Usuario u)
         {
-            throw new NotImplementedException();
+            List<Pizarron> pizarrones = new List<Pizarron>();
+            foreach (Pizarron p in this.Pizarrones)
+            {
+                if (p.Creador.Equals(u))
+                {
+                    pizarrones.Add(p);
+                }
+            }
+            return pizarrones;
         }
     }
 }
