@@ -140,7 +140,7 @@ namespace Obligatorio_I
             List<Comentario> nuevaLista = new List<Comentario>();
             foreach (Comentario c in comentarios)
             {
-                if (c.FechaCreacion.Equals(fecha))
+                if (c.FechaCreacion.Date.Equals(fecha.Date))
                 {
                     nuevaLista.Add(c);
                 }
@@ -153,7 +153,7 @@ namespace Obligatorio_I
             List<Comentario> nuevaLista = new List<Comentario>();
             foreach (Comentario c in comentarios)
             {
-                if (c.FechaResolucion.Equals(fecha))
+                if (c.FechaResolucion.Date.Equals(fecha.Date))
                 {
                     nuevaLista.Add(c);
                 }
