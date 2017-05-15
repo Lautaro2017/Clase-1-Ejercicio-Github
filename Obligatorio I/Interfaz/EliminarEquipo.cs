@@ -25,48 +25,46 @@ namespace Interfaz
 
         public void InicializarLista()
         {
-            lstPizarrones.Rows.Clear();
-            lstPizarrones.ColumnCount = 3;
-            lstPizarrones.Columns[0].Name = "Nombre";
-            lstPizarrones.Columns[1].Name = "Descripcion";
-            lstPizarrones.Columns[2].Name = "Fecha de creación";
+            lstEquipos.Rows.Clear();
+            lstEquipos.ColumnCount = 3;
+            lstEquipos.Columns[0].Name = "Nombre";
+            lstEquipos.Columns[1].Name = "Descripcion";
+            lstEquipos.Columns[2].Name = "Fecha de creación";
             foreach (Equipo e in s.Equipos)
             {
                 string nombre = e.Nombre;
                 string descripcion = e.Descripcion;
                 string fechaCreacion = e.FechaDeCreacion.ToString();
-            }
-            if (usuarioLogueado.EsAdministrador)
-            {
-                List<Pizarron> pizarrones = s.Pizarrones;
-                foreach (Pizarron p in pizarrones)
-                {
-                    string nombre = p.Nombre;
-                    string equipoCreador = p.EquipoPerteneciente.Nombre;
-                    string[] row = new String[2];
-                    row[0] = nombre;
-                    row[1] = equipoCreador;
-                    lstPizarrones.Rows.Add(row);
-                }
-            }
-            else
-            {
-                List<Pizarron> pizarrones = s.PizarronesDondeUsuarioEsCreador(usuarioLogueado);
-                foreach (Pizarron p in pizarrones)
-                {
-                    string nombre = p.Nombre;
-                    string equipoCreador = p.EquipoPerteneciente.Nombre;
-                    string[] row = new String[2];
-                    row[0] = nombre;
-                    row[1] = equipoCreador;
-                    lstPizarrones.Rows.Add(row);
-                }
+                string[] row = new String[3];
+                row[0] = nombre;
+                row[1] = descripcion;
+                row[2] = fechaCreacion;
+                lstEquipos.Rows.Add(row);
             }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            for (int index = 0; index < lstEquipos.SelectedRows.Count; index++)
+            {
+                var selectedRow = lstEquipos.SelectedRows[index];
+                string nombre = selectedRow.Cells["Nombre"].FormattedValue.ToString();
+                Equipo equipo = s.BuscarEquipoPorNombre(nombre);
+                s.EliminarEquipo(equipo);
+            }
+            MessageBox.Show("Cambios guardados");
+            MenuAdministrador ventana = new MenuAdministrador(usuarioLogueado);
+            Panel parent = this.Parent as Panel;
+            parent.Controls.Clear();
+            parent.Controls.Add(ventana);
+        }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            MenuAdministrador ventana = new MenuAdministrador(usuarioLogueado);
+            Panel parent = this.Parent as Panel;
+            parent.Controls.Clear();
+            parent.Controls.Add(ventana);
         }
     }
 }

@@ -30,9 +30,9 @@
         {
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.lstPizarrones = new System.Windows.Forms.DataGridView();
+            this.lstEquipos = new System.Windows.Forms.DataGridView();
             this.lblEliminarEquipo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.lstPizarrones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstEquipos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -43,6 +43,7 @@
             this.btnCancelar.TabIndex = 93;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -54,13 +55,13 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // lstPizarrones
+            // lstEquipos
             // 
-            this.lstPizarrones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.lstPizarrones.Location = new System.Drawing.Point(64, 57);
-            this.lstPizarrones.Name = "lstPizarrones";
-            this.lstPizarrones.Size = new System.Drawing.Size(374, 244);
-            this.lstPizarrones.TabIndex = 91;
+            this.lstEquipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstEquipos.Location = new System.Drawing.Point(64, 57);
+            this.lstEquipos.Name = "lstEquipos";
+            this.lstEquipos.Size = new System.Drawing.Size(374, 244);
+            this.lstEquipos.TabIndex = 91;
             // 
             // lblEliminarEquipo
             // 
@@ -80,11 +81,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.lstPizarrones);
+            this.Controls.Add(this.lstEquipos);
             this.Controls.Add(this.lblEliminarEquipo);
             this.Name = "EliminarEquipo";
             this.Size = new System.Drawing.Size(503, 369);
-            ((System.ComponentModel.ISupportInitialize)(this.lstPizarrones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstEquipos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,7 +95,7 @@
 
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.DataGridView lstPizarrones;
+        private System.Windows.Forms.DataGridView lstEquipos;
         private System.Windows.Forms.Label lblEliminarEquipo;
     }
 }
