@@ -56,7 +56,10 @@ namespace Obligatorio_I
 
         public void AgregarElemento(Elemento e)
         {
-            this.Elementos.Add(e);
+            if (!this.Elementos.Contains(e))
+            {
+                this.Elementos.Add(e);
+            }            
         }
         
         public override bool Equals(object obj)

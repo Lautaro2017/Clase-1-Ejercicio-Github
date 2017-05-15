@@ -13,6 +13,7 @@ namespace Obligatorio_I
         public Usuario Creador { set; get; }
         public Usuario Resolutivo { set; get; }
         public Pizarron PizarronContenedor { set; get; }
+        public string contenido;
 
         public Comentario(DateTime nuevaFechaResolucion, Usuario nuevoCreador, Usuario nuevoResolutivo, Pizarron nuevoPizarron)
         {
@@ -21,6 +22,19 @@ namespace Obligatorio_I
             this.Creador = nuevoCreador;
             this.Resolutivo = nuevoResolutivo;
             this.PizarronContenedor = nuevoPizarron;
+            this.contenido = "";
+        }
+
+        public string Contenido
+        {
+            get
+            {
+                return contenido;
+            }
+            set
+            {
+                this.contenido = value;
+            }
         }
 
         public override bool Equals(object obj)

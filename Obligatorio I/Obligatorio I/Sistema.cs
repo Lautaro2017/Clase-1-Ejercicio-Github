@@ -306,13 +306,16 @@ namespace Obligatorio_I
 
         public Comentario BuscarComentarioPorUsuarioYFecha(Usuario u, DateTime fecha)
         {
-            foreach (Elemento e in this.Elementos)
+            foreach (Pizarron p in this.Pizarrones)
             {
-                foreach (Comentario c in e.Comentarios)
+                foreach (Elemento e in p.Elementos)
                 {
-                    if (c.Creador.Equals(u) && c.FechaCreacion == fecha)
+                    foreach (Comentario c in e.Comentarios)
                     {
-                        return c;
+                        if (c.Creador.Equals(u) && c.FechaCreacion.ToString().Equals(fecha.ToString()))
+                        {
+                            return c;
+                        }
                     }
                 }
             }
