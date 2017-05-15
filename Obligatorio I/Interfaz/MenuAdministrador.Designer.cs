@@ -39,6 +39,7 @@
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
             this.btnEliminarPizarron = new System.Windows.Forms.Button();
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
+            this.btnEliminarEquipo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMenu
@@ -75,9 +76,9 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(486, 309);
+            this.btnSalir.Location = new System.Drawing.Point(339, 286);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(101, 25);
+            this.btnSalir.Size = new System.Drawing.Size(122, 37);
             this.btnSalir.TabIndex = 102;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -153,10 +154,21 @@
             this.btnEliminarUsuario.UseVisualStyleBackColor = true;
             this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
             // 
+            // btnEliminarEquipo
+            // 
+            this.btnEliminarEquipo.Location = new System.Drawing.Point(173, 286);
+            this.btnEliminarEquipo.Name = "btnEliminarEquipo";
+            this.btnEliminarEquipo.Size = new System.Drawing.Size(127, 37);
+            this.btnEliminarEquipo.TabIndex = 108;
+            this.btnEliminarEquipo.Text = "Eliminar equipo";
+            this.btnEliminarEquipo.UseVisualStyleBackColor = true;
+            this.btnEliminarEquipo.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnEliminarEquipo);
             this.Controls.Add(this.btnEliminarUsuario);
             this.Controls.Add(this.btnEliminarPizarron);
             this.Controls.Add(this.btnAgregarUsuario);
@@ -187,5 +199,6 @@
         private System.Windows.Forms.Button btnAgregarUsuario;
         private System.Windows.Forms.Button btnEliminarPizarron;
         private System.Windows.Forms.Button btnEliminarUsuario;
+        private System.Windows.Forms.Button btnEliminarEquipo;
     }
 }

@@ -171,5 +171,21 @@ namespace Interfaz
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                controlador1.NoHayEquipos();
+                Panel parent = this.Parent as Panel;
+                EliminarEquipo ventana = new EliminarEquipo(usuarioLogueado);
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
+            catch (ExcepcionNoHayUsuarios ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
