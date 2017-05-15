@@ -474,7 +474,7 @@ namespace Pruebas
         {
             Pizarron p = utilidad.NuevoPizarron();
             Usuario u = utilidad.NuevoUsuario();
-            bool condicion = nuevoSistema.PizarronesDondeUsuarioEsCreador(u).contains(p);
+            bool condicion = nuevoSistema.PizarronesDondeUsuarioEsCreador(u).Contains(p);
             Assert.IsTrue(condicion);
         }
 
@@ -483,7 +483,7 @@ namespace Pruebas
         {
             Pizarron p = utilidad.NuevoPizarron();
             Usuario u = utilidad.OtroUsuario();
-            bool condicion = nuevoSistema.PizarronesDondeUsuarioEsCreador(u).contains(p);
+            bool condicion = nuevoSistema.PizarronesDondeUsuarioEsCreador(u).Contains(p);
             Assert.IsFalse(condicion);
         }
     }

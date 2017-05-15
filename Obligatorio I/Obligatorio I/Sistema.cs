@@ -329,5 +329,10 @@ namespace Obligatorio_I
             }
             return null;
         }
+
+        public List<Pizarron> PizarronesDondeUsuarioEsCreador(Usuario u)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
