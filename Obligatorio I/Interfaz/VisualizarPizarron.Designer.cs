@@ -43,6 +43,8 @@
             this.btnCargarImagen = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnCargarCuadroTexto = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -187,10 +189,21 @@
             this.btnCargarCuadroTexto.UseVisualStyleBackColor = true;
             this.btnCargarCuadroTexto.Click += new System.EventHandler(this.btnCargarCuadroTexto_Click);
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(549, 32);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(86, 23);
+            this.btnImprimir.TabIndex = 109;
+            this.btnImprimir.Text = "Imprimir a PDF";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // VisualizarPizarron
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnCargarCuadroTexto);
             this.Controls.Add(this.btnCargarImagen);
             this.Controls.Add(this.pnlPizarron);
@@ -230,5 +243,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnCargarCuadroTexto;
         public System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

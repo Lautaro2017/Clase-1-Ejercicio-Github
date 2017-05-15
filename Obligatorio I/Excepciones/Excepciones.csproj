@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcepcionImprimirPizarron.cs" />
     <Compile Include="ExcepcionAnchoYAltoPizarron.cs" />
     <Compile Include="ExcepcionCambiosPendientes.cs" />
     <Compile Include="ExcepcionCantidadMaxUsuarios.cs" />
