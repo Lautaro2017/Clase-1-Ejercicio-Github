@@ -41,9 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExcepcionAnchoYAltoPizarron.cs" />
+    <Compile Include="ExcepcionCambiosPendientes.cs" />
     <Compile Include="ExcepcionCantidadMaxUsuarios.cs" />
+    <Compile Include="ExcepcionComentarioVacio.cs" />
     <Compile Include="ExcepcionConfirmacionContraseña.cs" />
     <Compile Include="ExcepcionContraseñaIncorrecta.cs" />
+    <Compile Include="ExcepcionElementoSinComentarios.cs" />
     <Compile Include="ExcepcionEquipoSinPizarrones.cs" />
     <Compile Include="ExcepcionFormatoContraseña.cs" />
     <Compile Include="ExcepcionDatosVacios.cs" />
