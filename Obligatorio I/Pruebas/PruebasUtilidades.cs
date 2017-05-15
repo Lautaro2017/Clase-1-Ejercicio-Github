@@ -118,7 +118,7 @@ namespace Pruebas
             comentarios.Add(c);
             Usuario u = utilidad.NuevoUsuario();
             Usuario u2 = utilidad.OtroUsuario();
-            bool condicion = FiltrarComentariosPorUsuarioResolutor(comentarios, u2).Contains(c);
+            bool condicion = utilidad.FiltrarComentariosPorUsuarioResolutor(comentarios, u2).Contains(c);
             Assert.IsTrue(condicion);
         }
 
@@ -130,7 +130,7 @@ namespace Pruebas
             comentarios.Add(c);
             Usuario u = utilidad.NuevoUsuario();
             Usuario u2 = utilidad.OtroUsuario();
-            bool condicion = FiltrarComentariosPorUsuarioResolutor(comentarios, u).Contains(c);
+            bool condicion = utilidad.FiltrarComentariosPorUsuarioResolutor(comentarios, u).Contains(c);
             Assert.IsFalse(condicion);
         }
 
@@ -142,7 +142,7 @@ namespace Pruebas
             comentarios.Add(c);
             Usuario u = utilidad.NuevoUsuario();
             Usuario u2 = utilidad.OtroUsuario();
-            bool condicion = FiltrarComentariosPorUsuarioCreador(comentarios, u).Contains(c);
+            bool condicion = utilidad.FiltrarComentariosPorUsuarioCreador(comentarios, u).Contains(c);
             Assert.IsTrue(condicion);
         }
 
@@ -154,7 +154,7 @@ namespace Pruebas
             comentarios.Add(c);
             Usuario u = utilidad.NuevoUsuario();
             Usuario u2 = utilidad.OtroUsuario();
-            bool condicion = FiltrarComentariosPorUsuarioCreador(comentarios, u2).Contains(c);
+            bool condicion = utilidad.FiltrarComentariosPorUsuarioCreador(comentarios, u2).Contains(c);
             Assert.IsFalse(condicion);
         }
 
@@ -165,7 +165,7 @@ namespace Pruebas
             Comentario c = utilidad.NuevoComentario();
             c.FechaCreacion = new DateTime(2015, 12, 20);
             comentarios.Add(c);            
-            bool condicion = FiltrarComentariosPorFechaDeCreacion(comentarios, new DateTime(2015, 12, 20)).Contains(c);
+            bool condicion = utilidad.FiltrarComentariosPorFechaDeCreacion(comentarios, new DateTime(2015, 12, 20)).Contains(c);
             Assert.IsTrue(condicion);
         }
 
@@ -176,7 +176,7 @@ namespace Pruebas
             Comentario c = utilidad.NuevoComentario();
             c.FechaCreacion = new DateTime(2015, 12, 20);
             comentarios.Add(c);            
-            bool condicion = FiltrarComentariosPorFechaDeCreacion(comentarios, new DateTime(2015, 12, 21)).Contains(c);
+            bool condicion = utilidad.FiltrarComentariosPorFechaDeCreacion(comentarios, new DateTime(2015, 12, 21)).Contains(c);
             Assert.IsFalse(condicion);
         }
 
@@ -187,7 +187,7 @@ namespace Pruebas
             Comentario c = utilidad.NuevoComentario();
             c.FechaCreacion = new DateTime(2017, 15, 05);
             comentarios.Add(c);
-            bool condicion = FiltrarComentariosPorFechaDeResolucion(comentarios, new DateTime(2017, 15, 05)).Contains(c);
+            bool condicion = utilidad.FiltrarComentariosPorFechaDeResolucion(comentarios, new DateTime(2017, 15, 05)).Contains(c);
             Assert.IsTrue(condicion);
         }
 
@@ -198,7 +198,7 @@ namespace Pruebas
             Comentario c = utilidad.NuevoComentario();
             c.FechaCreacion = new DateTime(2017, 15, 06);
             comentarios.Add(c);
-            bool condicion = FiltrarComentariosPorFechaDeResolucion(comentarios, new DateTime(2017, 15, 05)).Contains(c);
+            bool condicion = utilidad.FiltrarComentariosPorFechaDeResolucion(comentarios, new DateTime(2017, 15, 05)).Contains(c);
             Assert.IsFalse(condicion);
         }
     }
