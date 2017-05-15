@@ -19,6 +19,7 @@ namespace Interfaz
         private ControladorNoHayEquipos controlador1;
         private ControladorNoHayUsuarios controlador2;
         private ControladorNoHayPizarrones controlador3;
+        private ControladorNoHayUsuarios controlador4;
 
         public MenuAdministrador(Usuario u)
         {
@@ -26,6 +27,7 @@ namespace Interfaz
             controlador1 = new ControladorNoHayEquipos();
             controlador2 = new ControladorNoHayUsuarios();
             controlador3 = new ControladorNoHayPizarrones();
+            controlador4 = new ControladorNoHayUsuarios();
             InitializeComponent();
         }
 
@@ -149,6 +151,22 @@ namespace Interfaz
                 parent.Controls.Add(ventana);
             }
             catch (ExcepcionNoHayPizarrones ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnEliminarUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                controlador4.NoHayUsuarios();
+                Panel parent = this.Parent as Panel;
+                EliminarUsuario ventana = new EliminarUsuario(usuarioLogueado);
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
+            catch (ExcepcionNoHayUsuarios ex)
             {
                 MessageBox.Show(ex.Message);
             }

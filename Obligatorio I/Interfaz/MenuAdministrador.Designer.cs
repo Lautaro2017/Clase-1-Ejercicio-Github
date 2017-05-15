@@ -38,6 +38,7 @@
             this.btnCrearUsuario = new System.Windows.Forms.Button();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
             this.btnEliminarPizarron = new System.Windows.Forms.Button();
+            this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMenu
@@ -124,7 +125,7 @@
             // 
             // btnAgregarUsuario
             // 
-            this.btnAgregarUsuario.Location = new System.Drawing.Point(174, 243);
+            this.btnAgregarUsuario.Location = new System.Drawing.Point(100, 243);
             this.btnAgregarUsuario.Name = "btnAgregarUsuario";
             this.btnAgregarUsuario.Size = new System.Drawing.Size(127, 37);
             this.btnAgregarUsuario.TabIndex = 105;
@@ -134,7 +135,7 @@
             // 
             // btnEliminarPizarron
             // 
-            this.btnEliminarPizarron.Location = new System.Drawing.Point(336, 243);
+            this.btnEliminarPizarron.Location = new System.Drawing.Point(256, 243);
             this.btnEliminarPizarron.Name = "btnEliminarPizarron";
             this.btnEliminarPizarron.Size = new System.Drawing.Size(127, 37);
             this.btnEliminarPizarron.TabIndex = 106;
@@ -142,10 +143,21 @@
             this.btnEliminarPizarron.UseVisualStyleBackColor = true;
             this.btnEliminarPizarron.Click += new System.EventHandler(this.btnEliminarPizarron_Click);
             // 
+            // btnEliminarUsuario
+            // 
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(399, 243);
+            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(127, 37);
+            this.btnEliminarUsuario.TabIndex = 107;
+            this.btnEliminarUsuario.Text = "Eliminar usuario";
+            this.btnEliminarUsuario.UseVisualStyleBackColor = true;
+            this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
+            // 
             // MenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnEliminarUsuario);
             this.Controls.Add(this.btnEliminarPizarron);
             this.Controls.Add(this.btnAgregarUsuario);
             this.Controls.Add(this.btnInformeComentario);
@@ -174,5 +186,6 @@
         private System.Windows.Forms.Button btnCrearUsuario;
         private System.Windows.Forms.Button btnAgregarUsuario;
         private System.Windows.Forms.Button btnEliminarPizarron;
+        private System.Windows.Forms.Button btnEliminarUsuario;
     }
 }

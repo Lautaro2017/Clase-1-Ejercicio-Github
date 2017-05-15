@@ -91,6 +91,12 @@
     <Compile Include="EliminarPizarron.Designer.cs">
       <DependentUpon>EliminarPizarron.cs</DependentUpon>
     </Compile>
+    <Compile Include="EliminarUsuario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EliminarUsuario.Designer.cs">
+      <DependentUpon>EliminarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="InformeComentariosPorUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EliminarPizarron.resx">
       <DependentUpon>EliminarPizarron.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminarUsuario.resx">
+      <DependentUpon>EliminarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InformeComentariosPorUsuario.resx">
       <DependentUpon>InformeComentariosPorUsuario.cs</DependentUpon>

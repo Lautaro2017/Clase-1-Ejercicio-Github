@@ -342,5 +342,10 @@ namespace Obligatorio_I
             }
             return pizarrones;
         }
+
+        public void EliminarUsuario(Usuario u)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
