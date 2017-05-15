@@ -379,7 +379,7 @@ namespace Obligatorio_I
             }
         }
 
-        public Equipo BuscarEquipoPorNombreOK(string nombre)
+        public Equipo BuscarEquipoPorNombre(string nombre)
         {
             foreach (Equipo e in this.Equipos)
             {
@@ -389,6 +389,11 @@ namespace Obligatorio_I
                 }
             }
             return null;
+        }
+
+        public void EliminarEquipo(Equipo e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
