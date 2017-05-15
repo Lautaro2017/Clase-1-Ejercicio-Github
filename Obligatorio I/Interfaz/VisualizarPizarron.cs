@@ -122,21 +122,22 @@ namespace Interfaz
                 }
                 cantElementos = p.Elementos.Count;
                 this.pizarron = p;
-                PizarronDeEquipo pizarron = new PizarronDeEquipo(p.Elementos, p.Alto, p.Ancho);
-                pnlPizarron.Controls.Add(pizarron);
-                pizarron.Location = new Point(
+                PizarronDeEquipo pizarronDeEquipo = new PizarronDeEquipo(p.Elementos, p.Alto, p.Ancho);
+                pnlPizarron.Controls.Add(pizarronDeEquipo);
+                pizarronDeEquipo.Location = new Point(
                 pnlPizarron.ClientSize.Width / 2 - pnlPizarron.Size.Width / 2,
                 pnlPizarron.ClientSize.Height / 2 - pnlPizarron.Size.Height / 2);
                 pnlPizarron.Anchor = AnchorStyles.None;
                 pnlPizarron.BackColor = Color.Transparent;
-                pizarronEnUso = pizarron;
-                foreach (Control caja in pizarron.Controls)
+                pizarron = s.Pizarrones.Where(piz => piz.Equals(pizarron)).First();
+                pizarronEnUso = pizarronDeEquipo;
+                foreach (Control caja in pizarronDeEquipo.Controls)
                 {
                     if (caja is PictureBox)
                     {
                         caja.MouseMove += Cuadro_MouseMove;
                         caja.MouseDown += Cuadro_MouseDown;
-                        caja.MouseUp += Cuadro_MouseUp;
+                        caja.MouseUp += Cuadro_MouseUp;                        
                     }
                     if (caja is TextBox)
                     {
@@ -144,6 +145,7 @@ namespace Interfaz
                         caja.MouseDown += CuadroDeTexto_MouseDown;
                         caja.MouseUp += CuadroDeTexto_MouseUp;
                     }
+                    caja.Click += Cuadro_Click;
                     PictureBox mover = new PictureBox();
                     mover.Width = 5;
                     mover.Height = 5;
@@ -261,6 +263,7 @@ namespace Interfaz
                     mover.MouseMove += Mover_MouseMove;
                     mover.MouseDown += Mover_MouseDown;
                     mover.MouseUp += Mover_MouseUp;
+                    cuadro.Click += Cuadro_Click;
                     pizarronEnUso.Controls.Add(cuadro);
                     Elemento.Point coord = new Elemento.Point(posActElemX, posActElemY);
                     Elemento el = new Elemento('I', cuadro.Height, cuadro.Width, new List<Comentario>(), coord, pizarron);
@@ -272,6 +275,46 @@ namespace Interfaz
             catch (Exception exc)
             {
                 MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido");
+            }
+        }
+
+        private void Cuadro_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == MouseButtons.Right)
+            {
+                if (sender is PictureBox)
+                {                    
+                    for (int i = 0; i < elementos.Count;i++)
+                    {
+                        if (elementos[i].Contenido == ((PictureBox)sender).ImageLocation)
+                        {
+                            if (pizarron.Elementos.Contains(elementos[i]))
+                            {
+                                pizarron.Elementos.Remove(elementos[i]);
+                            }
+                            elementos.Remove(elementos[i]);
+                            i--;
+                        }
+                    }
+                    pizarronEnUso.Controls.Remove((PictureBox)sender);
+                }
+                else
+                {                    
+                    for (int i = 0; i < elementos.Count; i++)
+                    {
+                        if (elementos[i].Contenido == ((TextBox)sender).Text)
+                        {
+                            if (pizarron.Elementos.Contains(elementos[i]))
+                            {
+                                pizarron.Elementos.Remove(elementos[i]);
+                            }
+                            elementos.Remove(pizarron.Elementos[i]);
+                            i--;
+                        }
+                    }
+                    pizarronEnUso.Controls.Remove((TextBox)sender);
+                }
             }
         }
 

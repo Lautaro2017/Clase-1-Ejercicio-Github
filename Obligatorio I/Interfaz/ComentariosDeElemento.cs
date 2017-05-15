@@ -55,13 +55,13 @@ namespace Interfaz
         {
             var selectedRow = lstComentarios.SelectedRows[0];
             string creador = selectedRow.Cells["Creador"].FormattedValue.ToString();
-            string fechaCreacion = selectedRow.Cells["Fecha de creación"].FormattedValue.ToString();
-            Usuario usuario = s.BuscarUsuarioPorMail(creador);
-            DateTime fecha = DateTime.Parse(fechaCreacion);
-            Comentario resuelto = s.BuscarComentarioPorUsuarioYFecha(usuario, fecha);
-            resuelto.Resolutivo = new Usuario();
-            resuelto.Resolutivo = usuarioLogueado;
-            resuelto.FechaResolucion = DateTime.Now;
+            string fechaCreacion = selectedRow.Cells["Fecha de creación"].FormattedValue.ToString();            
+            foreach (Comentario resuelto in elemento.Comentarios)
+            {
+                resuelto.Resolutivo = new Usuario();
+                resuelto.Resolutivo = usuarioLogueado;
+                resuelto.FechaResolucion = DateTime.Now;
+            }
             MessageBox.Show("Comentario resuelto!");
             InicializarLista();
         }

@@ -359,11 +359,12 @@ namespace Obligatorio_I
             {
                 if (this.Equipos[i].usuarios.Contains(u) && this.Equipos[i].usuarios.Count == 1)
                 {
-                    foreach (Pizarron p in this.Pizarrones)
+                    for (int j = 0; j < this.Pizarrones.Count; j++)
                     {
-                        if (p.EquipoPerteneciente == this.Equipos[i])
+                        if (this.Pizarrones[j].EquipoPerteneciente == this.Equipos[i])
                         {
-                            this.Pizarrones.Remove(p);
+                            this.Pizarrones.Remove(this.Pizarrones[j]);
+                            j--;
                         }
                     }
                     Equipos.Remove(this.Equipos[i]);

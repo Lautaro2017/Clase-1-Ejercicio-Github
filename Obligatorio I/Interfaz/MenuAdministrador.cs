@@ -182,7 +182,7 @@ namespace Interfaz
                 parent.Controls.Clear();
                 parent.Controls.Add(ventana);
             }
-            catch (ExcepcionNoHayUsuarios ex)
+            catch (ExcepcionNoHayEquipos ex)
             {
                 MessageBox.Show(ex.Message);
             }
