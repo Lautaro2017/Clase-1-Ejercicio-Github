@@ -33,6 +33,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\Users\Usuario\ORT\Diseño de Aplicaciones I\2017\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -60,9 +63,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
+      <Project>{3e2c101e-9280-490e-a342-f8483ae4d813}</Project>
+      <Name>Excepciones</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Interfaz\Interfaz.csproj">
       <Project>{01448140-8692-41A7-B7B8-7F1E69C4E8A0}</Project>
       <Name>Interfaz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lógica\Lógica.csproj">
+      <Project>{8964c169-97d0-473b-a4e6-c0d383ac53db}</Project>
+      <Name>Lógica</Name>
     </ProjectReference>
     <ProjectReference Include="..\Obligatorio I\Obligatorio I.csproj">
       <Project>{1DBB0C63-189C-4AA6-B317-57550DD3DCF2}</Project>

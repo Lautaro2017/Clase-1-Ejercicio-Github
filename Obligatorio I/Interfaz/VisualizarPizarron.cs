@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using Obligatorio_I;
 using Lógica;
 using Excepciones;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+
 
 namespace Interfaz
 {
@@ -398,6 +402,40 @@ namespace Interfaz
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             cantElementos = this.pizarron.Elementos.Count == 0 ? 0 : this.pizarron.Elementos.Count-1;
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Document doc = new Document();
+                PdfWriter.GetInstance(doc, new FileStream("C:/CrearPDF.pdf", FileMode.Create));
+                doc.Open();
+                Paragraph p1 = new Paragraph("Documento PDF de Pizarrón");
+                doc.Add(p1);
+
+                Graphics myGraphics = this.CreateGraphics();
+                Size s = this.Size;
+                Bitmap memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
+                Graphics memoryGraphics = Graphics.FromImage(memoryImage);
+
+                this.Parent.Location = new Point(0, 0);
+                this.FindForm().Location = new Point(0, 0);
+                memoryGraphics.CopyFromScreen(0, 0, 0, 0, memoryImage.Size);
+
+
+                System.Drawing.Image img = memoryImage;
+                img.Save("C:/img.png");
+
+                iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance("C:/img.png");
+                doc.Add(PNG);
+                doc.Close();
+                MessageBox.Show("Se crea el documento PDF correctamente! ver archivo en c:/");
+            }
+            catch(ExcepcionImprimirPizarron ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void MoverTextBox(TextBox caja)
