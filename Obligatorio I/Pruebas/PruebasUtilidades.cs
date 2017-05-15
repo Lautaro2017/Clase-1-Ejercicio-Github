@@ -185,9 +185,9 @@ namespace Pruebas
         {
             List<Comentario> comentarios = new List<Comentario>();
             Comentario c = utilidad.NuevoComentario();
-            c.FechaCreacion = new DateTime(2017, 15, 05);
+            c.FechaResolucion = new DateTime(2017, 05, 15);
             comentarios.Add(c);
-            bool condicion = utilidad.FiltrarComentariosPorFechaDeResolucion(comentarios, new DateTime(2017, 15, 05)).Contains(c);
+            bool condicion = utilidad.FiltrarComentariosPorFechaDeResolucion(comentarios, new DateTime(2017, 05, 15)).Contains(c);
             Assert.IsTrue(condicion);
         }
 
@@ -196,9 +196,9 @@ namespace Pruebas
         {
             List<Comentario> comentarios = new List<Comentario>();
             Comentario c = utilidad.NuevoComentario();
-            c.FechaCreacion = new DateTime(2017, 15, 06);
+            c.FechaResolucion = new DateTime(2017, 06, 15);
             comentarios.Add(c);
-            bool condicion = utilidad.FiltrarComentariosPorFechaDeResolucion(comentarios, new DateTime(2017, 15, 05)).Contains(c);
+            bool condicion = utilidad.FiltrarComentariosPorFechaDeResolucion(comentarios, new DateTime(2017, 05, 15)).Contains(c);
             Assert.IsFalse(condicion);
         }
     }

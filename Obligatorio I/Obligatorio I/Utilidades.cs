@@ -108,5 +108,57 @@ namespace Obligatorio_I
         {
             return !pizarrones.Contains(p);
         }
+
+        public List<Comentario> FiltrarComentariosPorUsuarioResolutor(List<Comentario> comentarios, Usuario u)
+        {
+            List<Comentario> nuevaLista = new List<Comentario>();
+            foreach (Comentario c in comentarios)
+            {
+                if (c.Resolutivo.Equals(u))
+                {
+                    nuevaLista.Add(c);
+                }
+            }
+            return nuevaLista;
+        }
+
+        public List<Comentario> FiltrarComentariosPorUsuarioCreador(List<Comentario> comentarios, Usuario u)
+        {
+            List<Comentario> nuevaLista = new List<Comentario>();
+            foreach (Comentario c in comentarios)
+            {
+                if (c.Creador.Equals(u))
+                {
+                    nuevaLista.Add(c);
+                }
+            }
+            return nuevaLista;
+        }
+
+        public List<Comentario> FiltrarComentariosPorFechaDeCreacion(List<Comentario> comentarios, DateTime fecha)
+        {
+            List<Comentario> nuevaLista = new List<Comentario>();
+            foreach (Comentario c in comentarios)
+            {
+                if (c.FechaCreacion.Equals(fecha))
+                {
+                    nuevaLista.Add(c);
+                }
+            }
+            return nuevaLista;
+        }
+
+        public List<Comentario> FiltrarComentariosPorFechaDeResolucion(List<Comentario> comentarios, DateTime fecha)
+        {
+            List<Comentario> nuevaLista = new List<Comentario>();
+            foreach (Comentario c in comentarios)
+            {
+                if (c.FechaResolucion.Equals(fecha))
+                {
+                    nuevaLista.Add(c);
+                }
+            }
+            return nuevaLista;
+        }
     }
 }
