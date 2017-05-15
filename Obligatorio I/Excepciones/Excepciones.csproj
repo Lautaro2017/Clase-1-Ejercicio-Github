@@ -63,6 +63,7 @@
     <Compile Include="ExcepcionPizarronSinEquipo.cs" />
     <Compile Include="ExcepcionSeleccionEquipo.cs" />
     <Compile Include="ExcepcionUsuarioSinEquipo.cs" />
+    <Compile Include="ExcepcionUsuarioSinEquipoConPizarrones.cs" />
     <Compile Include="ExcepcionUsuarioYaIngresado.cs" />
     <Compile Include="ExcepcionEquipoSinUsuarios.cs" />
     <Compile Include="ExcepcionUsuarioIncorrecto.cs" />

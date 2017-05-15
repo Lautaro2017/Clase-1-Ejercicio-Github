@@ -17,10 +17,13 @@ namespace Interfaz
     {
         private Usuario usuarioLogueado;
         private ControladorUsuarioSinEquipo controlador;
+        private ControladorUsuarioSinEquipoConPizarrones controlador2;
+        
         public MenuUsuario(Usuario u)
         {
             usuarioLogueado = u;
             controlador = new ControladorUsuarioSinEquipo();
+            controlador2 = new ControladorUsuarioSinEquipoConPizarrones();
             InitializeComponent();
         }
 
@@ -41,11 +44,24 @@ namespace Interfaz
 }
 
         private void btnVerPizarrón_Click(object sender, EventArgs e)
-        {            
-            Panel parent = this.Parent as Panel;
-            VisualizarPizarron verPizarron = new VisualizarPizarron(usuarioLogueado);
-            parent.Controls.Clear();
-            parent.Controls.Add(verPizarron);
+        {
+            try
+            {
+                controlador.UsuarioSinEquipo(usuarioLogueado);
+                controlador2.UsuarioSinEquipoConPizarrones(usuarioLogueado);
+                Panel parent = this.Parent as Panel;
+                VisualizarPizarron verPizarron = new VisualizarPizarron(usuarioLogueado);
+                parent.Controls.Clear();
+                parent.Controls.Add(verPizarron);
+            }
+            catch(ExcepcionUsuarioSinEquipo ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch(ExcepcionUsuarioSinEquipoConPizarrones ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

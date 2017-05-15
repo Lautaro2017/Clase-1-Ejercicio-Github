@@ -191,8 +191,16 @@ namespace Interfaz
         {
             Panel parent = this.Parent as Panel;
             parent.Controls.Clear();
-            MenuAdministrador nuevoMenuAdmin = new MenuAdministrador(usuarioLogueado);
-            parent.Controls.Add(nuevoMenuAdmin);
+            if (usuarioLogueado.EsAdministrador)
+            {
+                MenuAdministrador nuevoMenuAdmin = new MenuAdministrador(usuarioLogueado);
+                parent.Controls.Add(nuevoMenuAdmin);
+            }
+            else
+            {
+                MenuUsuario nuevoMenuUsuario = new MenuUsuario(usuarioLogueado);
+                parent.Controls.Add(nuevoMenuUsuario);
+            }                     
 
         }
 

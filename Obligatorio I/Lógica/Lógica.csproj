@@ -61,6 +61,7 @@
     <Compile Include="ControladorNombrePizarronRepetido.cs" />
     <Compile Include="ControladorNombrePizarronVacio.cs" />
     <Compile Include="ControladorUsuarioSinEquipo.cs" />
+    <Compile Include="ControladorUsuarioSinEquipoConPizarrones.cs" />
     <Compile Include="ControladorUsuarioYaIngresado.cs" />
     <Compile Include="ControladorValorNumerico.cs" />
     <Compile Include="ControladorFechaDeNacimiento.cs" />
