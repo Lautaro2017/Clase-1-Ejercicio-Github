@@ -43,8 +43,8 @@ namespace Interfaz
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            List<Pizarron> pizarrones = new List<Pizarron>();
-            var usuarios = new List<Pizarron>(lstPizarrones.SelectedRows.Count);
+            List<PizarronDeEquipo> pizarrones = new List<PizarronDeEquipo>();
+            var usuarios = new List<PizarronDeEquipo>(lstPizarrones.SelectedRows.Count);
             for (int index = 0; index < lstPizarrones.SelectedRows.Count; index++)
             {
                 var selectedRow = lstPizarrones.SelectedRows[index];

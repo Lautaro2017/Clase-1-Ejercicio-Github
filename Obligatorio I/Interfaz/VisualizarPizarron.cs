@@ -20,17 +20,21 @@ namespace Interfaz
         private PizarronDeEquipo pizarronEnUso;
         private Pizarron pizarron;
         private ControladorEquipoSinPizarrones controlador1;
+        private ControladorCambiosPendientesDeSalvar controlador2;
         private int posMouseFormX, posMouseFormY;
         private int posMouseElemX, posMouseElemY;
         private int posActElemX, posActElemY;
         private List<Elemento> elementos;
+        Elemento elementoEnUso;
         int cantElementos;
         bool elementoPresionado = false;
+        bool datosSalvados = true;
 
         public VisualizarPizarron(Usuario u)
         {
             usuarioLogueado = u;
             controlador1 = new ControladorEquipoSinPizarrones();
+            controlador2 = new ControladorCambiosPendientesDeSalvar();
             elementos = new List<Elemento>();
             InitializeComponent();
             InicializarCombos();
@@ -120,17 +124,51 @@ namespace Interfaz
                     caja.MouseDown += CuadroDeTexto_MouseDown;
                     caja.MouseUp += CuadroDeTexto_MouseUp;                    
                 }
-                caja.DoubleClick += Caja_DoubleClick;
+            }
+            foreach (Control c in pizarronEnUso.Controls)
+            {
+                c.DoubleClick += Caja_DoubleClick;
             }
         }
 
         private void Caja_DoubleClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (datosSalvados)
+            {
+                if (sender is PictureBox)
+                {
+                    foreach (Elemento el in elementos)
+                    {
+                        PictureBox img = (PictureBox)sender;
+                        if (el.Contenido == img.ImageLocation && el.PizarronContenedor == pizarron)
+                        {
+                            elementoEnUso = el;
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (Elemento el in elementos)
+                    {
+                        TextBox text = (TextBox)sender;
+                        if (el.Contenido == text.Text && el.PizarronContenedor == pizarron)
+                        {
+                            elementoEnUso = el;
+                        }
+                    }
+                }
+                Panel parent = this.Parent as Panel;
+                ComentarioDeElemento verComentarios = new ComentarioDeElemento(elementoEnUso, usuarioLogueado);
+                if (parent != null)
+                {
+                    parent.Controls.Clear();
+                    parent.Controls.Add(verComentarios);
+                }
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
-        {            
+        {
             foreach (Elemento el in elementos)
             {
                 for (int i = 0; i < pizarron.Elementos.Count; i++)
@@ -145,6 +183,7 @@ namespace Interfaz
                 }
                 pizarron.AgregarElemento(el);
             }
+            datosSalvados = true;
             MessageBox.Show("Datos salvados!");
         }
 
@@ -171,7 +210,12 @@ namespace Interfaz
                     cuadro.MouseDown += Cuadro_MouseDown;
                     cuadro.MouseUp += Cuadro_MouseUp;
                     cuadro.SizeMode = PictureBoxSizeMode.Normal;                    
+                    Elemento.Point coord = new Elemento.Point(posActElemX, posActElemY);
+                    Elemento el = new Elemento('I', cuadro.Height, cuadro.Width, new List<Comentario>(), coord, pizarron);
+                    el.Contenido = imagen;
+                    elementos.Add(el);                    
                     pizarronEnUso.Controls.Add(cuadro);
+                    cuadro.MouseDoubleClick += Caja_DoubleClick;
                 }
             }
             catch (Exception exc)
@@ -201,18 +245,20 @@ namespace Interfaz
             Elemento e = new Elemento('I', caja.Height, caja.Width, new List<Comentario>(), coord,pizarron);
             e.Contenido = caja.ImageLocation;
             bool yaIncluido = false;
-            for (int i = 0; i < elementos.Count; i++)
+            for (int i = 0; !yaIncluido && i < elementos.Count; i++)
             {
                 if (elementos[i].Equals(e))
                 {
+                    e.Comentarios = elementos[i].Comentarios;
                     elementos[i] = e;
                     yaIncluido = true;
                 }
             }
             if (!yaIncluido)
             {
-                elementos.Insert(cantElementos, e);                
-            }            
+                elementos.Insert(cantElementos, e);
+            }
+            datosSalvados = false;
         }
 
         private void Cuadro_MouseMove(object sender, MouseEventArgs e)
@@ -236,13 +282,20 @@ namespace Interfaz
                 cuadroDeTexto.MouseMove += CuadroDeTexto_MouseMove;
                 cuadroDeTexto.MouseDown += CuadroDeTexto_MouseDown;
                 cuadroDeTexto.MouseUp += CuadroDeTexto_MouseUp;
-                pizarronEnUso.Controls.Add(cuadroDeTexto);                
+                cuadroDeTexto.DoubleClick += Caja_DoubleClick;
+                Elemento.Point coord = new Elemento.Point(posActElemX, posActElemY);
+                Elemento el = new Elemento('T', cuadroDeTexto.Height, cuadroDeTexto.Width, new List<Comentario>(), coord, pizarron);
+                el.Contenido = cuadroDeTexto.Text;
+                elementos.Add(el);
+                pizarronEnUso.Controls.Add(cuadroDeTexto);
+                cuadroDeTexto.MouseDoubleClick += Caja_DoubleClick;                
             }
             catch (Exception exc)
             {
                 MessageBox.Show("ERROR!");
             }
         }
+
 
         private void CuadroDeTexto_MouseUp(object sender, MouseEventArgs e)
         {
@@ -270,10 +323,11 @@ namespace Interfaz
             Elemento e = new Elemento('T', caja.Height, caja.Width, new List<Comentario>(), coord, pizarron);
             e.Contenido = caja.Text;
             bool yaIncluido = false;
-            for (int i = 0; i < elementos.Count; i++)
+            for (int i = 0; !yaIncluido && i < elementos.Count; i++)
             {
                 if (elementos[i].Equals(e))
                 {
+                    e.Comentarios = elementos[i].Comentarios;
                     elementos[i] = e;
                     yaIncluido = true;
                 }
@@ -282,7 +336,7 @@ namespace Interfaz
             {
                 elementos.Insert(cantElementos, e);
             }
-
+            datosSalvados = false;
         }
 
         private void CuadroDeTexto_MouseDown(object sender, MouseEventArgs e)

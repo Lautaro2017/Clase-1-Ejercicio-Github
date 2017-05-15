@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -53,6 +54,18 @@
     </Compile>
     <Compile Include="AgregarUsuariosAEquipo.Designer.cs">
       <DependentUpon>AgregarUsuariosAEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComentarioDeElemento.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComentarioDeElemento.Designer.cs">
+      <DependentUpon>ComentarioDeElemento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComentariosDeElemento.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComentariosDeElemento.Designer.cs">
+      <DependentUpon>ComentariosDeElemento.cs</DependentUpon>
     </Compile>
     <Compile Include="CrearEquipo.cs">
       <SubType>UserControl</SubType>
@@ -108,6 +121,12 @@
     <Compile Include="MenuUsuario.Designer.cs">
       <DependentUpon>MenuUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="PizarronDeEquipo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PizarronDeEquipo.Designer.cs">
+      <DependentUpon>PizarronDeEquipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="VisualizarPizarron.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +141,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarUsuariosAEquipo.resx">
       <DependentUpon>AgregarUsuariosAEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComentarioDeElemento.resx">
+      <DependentUpon>ComentarioDeElemento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComentariosDeElemento.resx">
+      <DependentUpon>ComentariosDeElemento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearEquipo.resx">
       <DependentUpon>CrearEquipo.cs</DependentUpon>
@@ -149,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuUsuario.resx">
       <DependentUpon>MenuUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PizarronDeEquipo.resx">
+      <DependentUpon>PizarronDeEquipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VisualizarPizarron.resx">
       <DependentUpon>VisualizarPizarron.cs</DependentUpon>
