@@ -83,51 +83,67 @@ namespace Interfaz
                 cmbPizarron.Controls.Clear();
                 cmbPizarron.Items.AddRange(s.FiltroDePizarronesPorEquipo(equipo).ToArray());
                 cmbPizarron.SelectedIndex = 0;
+                btnCargarImagen.Enabled = true;
+                btnCargarCuadroTexto.Enabled = true;
             }
             catch(ExcepcionEquipoSinPizarrones ex)
             {
                 MessageBox.Show(ex.Message);
+                btnCargarImagen.Enabled = false;
+                btnCargarCuadroTexto.Enabled = false;
+                if (pnlPizarron.Controls != null)
+                {
+                    pnlPizarron.Controls.Clear();                    
+                }
+                if (cmbPizarron.Items.Count != 0)
+                {
+                    cmbPizarron.SelectedIndex = -1;
+                    cmbPizarron.Items.Clear();
+                }
             }
         }
 
         private void cmbPizarron_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pnlPizarron.Controls.Clear();
-            Pizarron p = (Pizarron)cmbPizarron.SelectedItem;
-            rtxtDescripcion.Text = p.Descripcion;
-            elementos = new List<Elemento>();
-            foreach (Elemento elem in p.Elementos)
+            if (cmbPizarron.SelectedIndex != -1)
             {
-                elementos.Add(elem);
-            }
-            cantElementos = p.Elementos.Count;
-            this.pizarron = p;            
-            PizarronDeEquipo pizarron = new PizarronDeEquipo(p.Elementos, p.Alto, p.Ancho);
-            pnlPizarron.Controls.Add(pizarron);
-            pizarron.Location = new Point(
-            pnlPizarron.ClientSize.Width / 2 - pnlPizarron.Size.Width / 2,
-            pnlPizarron.ClientSize.Height / 2 - pnlPizarron.Size.Height / 2);
-            pnlPizarron.Anchor = AnchorStyles.None;
-            pnlPizarron.BackColor = Color.Transparent;
-            pizarronEnUso = pizarron;      
-            foreach (Control caja in pizarron.Controls)
-            {
-                if (caja is PictureBox)
+                pnlPizarron.Controls.Clear();
+                Pizarron p = (Pizarron)cmbPizarron.SelectedItem;
+                rtxtDescripcion.Text = p.Descripcion;
+                elementos = new List<Elemento>();
+                foreach (Elemento elem in p.Elementos)
                 {
-                    caja.MouseMove += Cuadro_MouseMove;
-                    caja.MouseDown += Cuadro_MouseDown;
-                    caja.MouseUp += Cuadro_MouseUp;                    
+                    elementos.Add(elem);
                 }
-                if (caja is TextBox)
+                cantElementos = p.Elementos.Count;
+                this.pizarron = p;
+                PizarronDeEquipo pizarron = new PizarronDeEquipo(p.Elementos, p.Alto, p.Ancho);
+                pnlPizarron.Controls.Add(pizarron);
+                pizarron.Location = new Point(
+                pnlPizarron.ClientSize.Width / 2 - pnlPizarron.Size.Width / 2,
+                pnlPizarron.ClientSize.Height / 2 - pnlPizarron.Size.Height / 2);
+                pnlPizarron.Anchor = AnchorStyles.None;
+                pnlPizarron.BackColor = Color.Transparent;
+                pizarronEnUso = pizarron;
+                foreach (Control caja in pizarron.Controls)
                 {
-                    caja.MouseMove += CuadroDeTexto_MouseMove;
-                    caja.MouseDown += CuadroDeTexto_MouseDown;
-                    caja.MouseUp += CuadroDeTexto_MouseUp;                    
+                    if (caja is PictureBox)
+                    {
+                        caja.MouseMove += Cuadro_MouseMove;
+                        caja.MouseDown += Cuadro_MouseDown;
+                        caja.MouseUp += Cuadro_MouseUp;
+                    }
+                    if (caja is TextBox)
+                    {
+                        caja.MouseMove += CuadroDeTexto_MouseMove;
+                        caja.MouseDown += CuadroDeTexto_MouseDown;
+                        caja.MouseUp += CuadroDeTexto_MouseUp;
+                    }
                 }
-            }
-            foreach (Control c in pizarronEnUso.Controls)
-            {
-                c.DoubleClick += Caja_DoubleClick;
+                foreach (Control c in pizarronEnUso.Controls)
+                {
+                    c.DoubleClick += Caja_DoubleClick;
+                }
             }
         }
 
