@@ -519,7 +519,7 @@ namespace Pruebas
         {
             Equipo e = utilidad.NuevoEquipo();
             nuevoSistema.AgregarEquipo(e);
-            bool condicion = nuevoSistema.BuscarEquipoPorNombreOK("Equipo Rocket").Equals(e);
+            bool condicion = nuevoSistema.BuscarEquipoPorNombre("Equipo Rocket").Equals(e);
             Assert.IsTrue(condicion);
         }
 
@@ -528,7 +528,29 @@ namespace Pruebas
         {
             Equipo e = utilidad.NuevoEquipo();
             nuevoSistema.AgregarEquipo(e);
-            bool condicion = nuevoSistema.BuscarEquipoPorNombreOK("Equipo Rocket1") == null;
+            bool condicion = nuevoSistema.BuscarEquipoPorNombre("Equipo Rocket1") == null;
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void EliminarEquipoOK()
+        {
+            Equipo e = utilidad.NuevoEquipo();
+            nuevoSistema.AgregarEquipo(e);
+            nuevoSistema.EliminarEquipo(e);
+            bool condicion = !nuevoSistema.Equipos.Contains(e);
+            Assert.IsTrue(condicion);
+        }
+
+        [TestMethod]
+        public void EliminarEquipo2OK()
+        {
+            Equipo e = utilidad.NuevoEquipo();
+            Pizarron p = utilidad.NuevoPizarron();
+            nuevoSistema.AgregarEquipo(e);
+            nuevoSistema.AgregarPizarron(p);
+            nuevoSistema.EliminarEquipo(e);
+            bool condicion = !nuevoSistema.Equipos.Contains(e) && !nuevoSistema.Pizarrones.Contains(p);
             Assert.IsTrue(condicion);
         }
     }
