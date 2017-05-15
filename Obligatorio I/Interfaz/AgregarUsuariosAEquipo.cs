@@ -17,16 +17,20 @@ namespace Interfaz
     {
         Sistema s = Sistema.GetInstance();
         private Usuario usuarioLogueado;
+        private Equipo equipoAgregado;
         private List<Usuario> nuevosUsuarios;
         private List<Usuario> usuariosActuales;
         private ControladorCantidadMaxUsuarios controlador;
+        private ControladorEquipoSinUsuarios controlador2;
 
-        public AgregarUsuariosAEquipo(Usuario u)
+        public AgregarUsuariosAEquipo(Usuario u,Equipo e)
         {
             usuarioLogueado = u;
+            equipoAgregado = e;
             nuevosUsuarios = new List<Usuario>();
             usuariosActuales = new List<Usuario>();
             controlador = new ControladorCantidadMaxUsuarios();
+            controlador2 = new ControladorEquipoSinUsuarios();
             InitializeComponent();
             InicializarCombo();
             RefrescarListas();
@@ -35,7 +39,15 @@ namespace Interfaz
         public void InicializarCombo()
         {
             cmbEquipos.Items.AddRange(s.Equipos.ToArray());
-            cmbEquipos.SelectedIndex = 0;
+            if (equipoAgregado == null)
+            {
+                cmbEquipos.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbEquipos.SelectedItem = equipoAgregado;
+                cmbEquipos.Enabled = false;
+            }
         }
 
         public void RefrescarListas()
@@ -122,10 +134,21 @@ namespace Interfaz
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Panel parent = this.Parent as Panel;
-            MenuAdministrador ventana = new MenuAdministrador(usuarioLogueado);
-            parent.Controls.Clear();
-            parent.Controls.Add(ventana);
+            try
+            {
+                if (equipoAgregado != null)
+                {
+                    controlador2.EquipoSinUsuarios(equipoAgregado);
+                }                
+                Panel parent = this.Parent as Panel;
+                MenuAdministrador ventana = new MenuAdministrador(usuarioLogueado);
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
+            catch(ExcepcionEquipoSinUsuarios ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -134,7 +157,11 @@ namespace Interfaz
             {                
                 Equipo equipo = (Equipo)cmbEquipos.SelectedItem;
                 controlador.CantidadMaxUsuarios(equipo, usuariosActuales.Count);
-                equipo.usuarios = usuariosActuales;                
+                equipo.usuarios = usuariosActuales;
+                if (equipoAgregado != null)
+                {
+                    controlador2.EquipoSinUsuarios(equipoAgregado);
+                }
                 MessageBox.Show("Se han guardado los cambios correctamente!");
                 Panel parent = this.Parent as Panel;
                 MenuAdministrador ventana = new MenuAdministrador(usuarioLogueado);
@@ -142,6 +169,10 @@ namespace Interfaz
                 parent.Controls.Add(ventana);
             }
             catch(ExcepcionCantidadMaxUsuarios ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ExcepcionEquipoSinUsuarios ex)
             {
                 MessageBox.Show(ex.Message);
             }

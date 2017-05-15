@@ -14,7 +14,7 @@ namespace Interfaz
         {
             if (e.usuarios.Count == 0)
             {
-                throw new ExcepecionEquipoSinUsuarios();
+                throw new ExcepcionEquipoSinUsuarios();
             }
         }
     }

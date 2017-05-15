@@ -128,7 +128,7 @@ namespace Interfaz
             {
                 controlador1.NoHayEquipos();
                 Panel parent = this.Parent as Panel;
-                AgregarUsuariosAEquipo ventana = new AgregarUsuariosAEquipo(usuarioLogueado);
+                AgregarUsuariosAEquipo ventana = new AgregarUsuariosAEquipo(usuarioLogueado,null);
                 parent.Controls.Clear();
                 parent.Controls.Add(ventana);
             }

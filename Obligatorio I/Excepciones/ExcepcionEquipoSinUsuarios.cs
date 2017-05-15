@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Excepciones
 {
-    public class ExcepecionEquipoSinUsuarios : Exception
+    public class ExcepcionEquipoSinUsuarios : Exception
     {
-        public ExcepecionEquipoSinUsuarios() : base("El equipo debe tener al menos un usuario") { }
+        public ExcepcionEquipoSinUsuarios() : base("El equipo debe tener al menos un usuario") { }
     }
 }

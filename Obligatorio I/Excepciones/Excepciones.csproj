@@ -64,7 +64,7 @@
     <Compile Include="ExcepcionSeleccionEquipo.cs" />
     <Compile Include="ExcepcionUsuarioSinEquipo.cs" />
     <Compile Include="ExcepcionUsuarioYaIngresado.cs" />
-    <Compile Include="ExcepecionEquipoSinUsuarios.cs" />
+    <Compile Include="ExcepcionEquipoSinUsuarios.cs" />
     <Compile Include="ExcepcionUsuarioIncorrecto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

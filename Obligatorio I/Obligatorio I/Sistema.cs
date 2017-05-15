@@ -150,13 +150,16 @@ namespace Obligatorio_I
         public List<Comentario> FiltrarComentarioPorUsuarioResolutor(Usuario u)
         {
             List<Comentario> comentarios = new List<Comentario>();
-            foreach (Elemento e in this.Elementos)
+            foreach (Pizarron p in this.Pizarrones)
             {
-                foreach (Comentario c in e.Comentarios)
+                foreach (Elemento e in p.Elementos)
                 {
-                    if (c.Resolutivo == u)
+                    foreach (Comentario c in e.Comentarios)
                     {
-                        comentarios.Add(c);
+                        if (c.Resolutivo == u)
+                        {
+                            comentarios.Add(c);
+                        }
                     }
                 }
             }

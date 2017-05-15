@@ -67,14 +67,8 @@ namespace Interfaz
                 s.AgregarEquipo(equipo);
                 Panel parent = this.Parent as Panel;
                 parent.Controls.Clear();
-                if (usuarioLogueado.EsAdministrador)
-                {
-                    parent.Controls.Add(new MenuAdministrador(usuarioLogueado));
-                }
-                else
-                {
-                    parent.Controls.Add(new MenuUsuario(usuarioLogueado));
-                }
+                MessageBox.Show("Es obligatorio ingresar al menos un usuario al equipo!");
+                parent.Controls.Add(new AgregarUsuariosAEquipo(usuarioLogueado,equipo));
 
             }
             catch(ExcepcionNombreEquipoVacio ex)
@@ -89,7 +83,7 @@ namespace Interfaz
 
         private void btnAgregarUsuarios_Click(object sender, EventArgs e)
         {
-            AgregarUsuariosAEquipo ventana = new AgregarUsuariosAEquipo(usuarioLogueado);
+            AgregarUsuariosAEquipo ventana = new AgregarUsuariosAEquipo(usuarioLogueado,null);
             Panel parent = this.Parent as Panel;
             parent.Controls.Clear();
             parent.Controls.Add(ventana);
