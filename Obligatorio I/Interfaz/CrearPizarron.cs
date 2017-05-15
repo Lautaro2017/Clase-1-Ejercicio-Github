@@ -33,8 +33,16 @@ namespace Interfaz
 
         private void InicializarCombo()
         {
-            cmbEquipo.Items.AddRange(sistema.Equipos.ToArray());
-            cmbEquipo.SelectedIndex = 0;
+            if (usuarioLogueado.EsAdministrador)
+            {
+                cmbEquipo.Items.AddRange(sistema.Equipos.ToArray());
+                cmbEquipo.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbEquipo.Items.AddRange(sistema.EquiposDeUsuario(usuarioLogueado).ToArray());
+                cmbEquipo.SelectedIndex = 0;
+            }
         }
 
         private void cmbEquipo_SelectedIndexChanged(object sender, EventArgs e)

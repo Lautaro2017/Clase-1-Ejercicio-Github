@@ -38,7 +38,10 @@ namespace Interfaz
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            MenuAdministrador ventana = new MenuAdministrador(usuarioLogueado);
+            Panel parent = this.Parent as Panel;
+            parent.Controls.Clear();
+            parent.Controls.Add(ventana);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
