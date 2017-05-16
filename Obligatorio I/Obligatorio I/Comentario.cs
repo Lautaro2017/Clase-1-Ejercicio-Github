@@ -46,7 +46,7 @@ namespace Obligatorio_I
                 return false;
             }
 
-            return this.Creador.Equals(item.Creador) && this.FechaCreacion.Equals(item.FechaCreacion);
+            return this.Creador.Equals(item.Creador) && this.Resolutivo.Equals(item.Resolutivo) && this.FechaCreacion.Equals(item.FechaCreacion);
         }
     }
 }

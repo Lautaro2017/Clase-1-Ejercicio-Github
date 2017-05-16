@@ -136,6 +136,18 @@
     <Compile Include="MenuUsuario.Designer.cs">
       <DependentUpon>MenuUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarEquipo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModificarEquipo.Designer.cs">
+      <DependentUpon>ModificarEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarUsuario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModificarUsuario.Designer.cs">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="PizarronDeEquipo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -195,6 +207,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuUsuario.resx">
       <DependentUpon>MenuUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarEquipo.resx">
+      <DependentUpon>ModificarEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarUsuario.resx">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PizarronDeEquipo.resx">
       <DependentUpon>PizarronDeEquipo.cs</DependentUpon>

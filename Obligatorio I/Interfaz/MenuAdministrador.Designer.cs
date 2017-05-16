@@ -40,6 +40,8 @@
             this.btnEliminarPizarron = new System.Windows.Forms.Button();
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.btnEliminarEquipo = new System.Windows.Forms.Button();
+            this.btnModificarUsuario = new System.Windows.Forms.Button();
+            this.btnModificarEquipo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMenu
@@ -56,7 +58,7 @@
             // 
             // btnInformeComentario
             // 
-            this.btnInformeComentario.Location = new System.Drawing.Point(399, 200);
+            this.btnInformeComentario.Location = new System.Drawing.Point(399, 164);
             this.btnInformeComentario.Name = "btnInformeComentario";
             this.btnInformeComentario.Size = new System.Drawing.Size(127, 37);
             this.btnInformeComentario.TabIndex = 104;
@@ -66,7 +68,7 @@
             // 
             // btnInformePizarron
             // 
-            this.btnInformePizarron.Location = new System.Drawing.Point(399, 148);
+            this.btnInformePizarron.Location = new System.Drawing.Point(399, 112);
             this.btnInformePizarron.Name = "btnInformePizarron";
             this.btnInformePizarron.Size = new System.Drawing.Size(127, 37);
             this.btnInformePizarron.TabIndex = 103;
@@ -76,9 +78,9 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(339, 286);
+            this.btnSalir.Location = new System.Drawing.Point(478, 313);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(122, 37);
+            this.btnSalir.Size = new System.Drawing.Size(95, 27);
             this.btnSalir.TabIndex = 102;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -86,7 +88,7 @@
             // 
             // btnVerPizarrón
             // 
-            this.btnVerPizarrón.Location = new System.Drawing.Point(256, 200);
+            this.btnVerPizarrón.Location = new System.Drawing.Point(256, 164);
             this.btnVerPizarrón.Name = "btnVerPizarrón";
             this.btnVerPizarrón.Size = new System.Drawing.Size(127, 37);
             this.btnVerPizarrón.TabIndex = 101;
@@ -96,7 +98,7 @@
             // 
             // btnCrearPizarron
             // 
-            this.btnCrearPizarron.Location = new System.Drawing.Point(256, 148);
+            this.btnCrearPizarron.Location = new System.Drawing.Point(256, 112);
             this.btnCrearPizarron.Name = "btnCrearPizarron";
             this.btnCrearPizarron.Size = new System.Drawing.Size(127, 37);
             this.btnCrearPizarron.TabIndex = 100;
@@ -106,7 +108,7 @@
             // 
             // btnCrearEquipo
             // 
-            this.btnCrearEquipo.Location = new System.Drawing.Point(100, 200);
+            this.btnCrearEquipo.Location = new System.Drawing.Point(100, 164);
             this.btnCrearEquipo.Name = "btnCrearEquipo";
             this.btnCrearEquipo.Size = new System.Drawing.Size(127, 37);
             this.btnCrearEquipo.TabIndex = 99;
@@ -116,7 +118,7 @@
             // 
             // btnCrearUsuario
             // 
-            this.btnCrearUsuario.Location = new System.Drawing.Point(100, 148);
+            this.btnCrearUsuario.Location = new System.Drawing.Point(100, 112);
             this.btnCrearUsuario.Name = "btnCrearUsuario";
             this.btnCrearUsuario.Size = new System.Drawing.Size(127, 37);
             this.btnCrearUsuario.TabIndex = 98;
@@ -126,7 +128,7 @@
             // 
             // btnAgregarUsuario
             // 
-            this.btnAgregarUsuario.Location = new System.Drawing.Point(100, 243);
+            this.btnAgregarUsuario.Location = new System.Drawing.Point(100, 207);
             this.btnAgregarUsuario.Name = "btnAgregarUsuario";
             this.btnAgregarUsuario.Size = new System.Drawing.Size(127, 37);
             this.btnAgregarUsuario.TabIndex = 105;
@@ -136,7 +138,7 @@
             // 
             // btnEliminarPizarron
             // 
-            this.btnEliminarPizarron.Location = new System.Drawing.Point(256, 243);
+            this.btnEliminarPizarron.Location = new System.Drawing.Point(256, 207);
             this.btnEliminarPizarron.Name = "btnEliminarPizarron";
             this.btnEliminarPizarron.Size = new System.Drawing.Size(127, 37);
             this.btnEliminarPizarron.TabIndex = 106;
@@ -146,7 +148,7 @@
             // 
             // btnEliminarUsuario
             // 
-            this.btnEliminarUsuario.Location = new System.Drawing.Point(399, 243);
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(399, 207);
             this.btnEliminarUsuario.Name = "btnEliminarUsuario";
             this.btnEliminarUsuario.Size = new System.Drawing.Size(127, 37);
             this.btnEliminarUsuario.TabIndex = 107;
@@ -156,7 +158,7 @@
             // 
             // btnEliminarEquipo
             // 
-            this.btnEliminarEquipo.Location = new System.Drawing.Point(173, 286);
+            this.btnEliminarEquipo.Location = new System.Drawing.Point(100, 250);
             this.btnEliminarEquipo.Name = "btnEliminarEquipo";
             this.btnEliminarEquipo.Size = new System.Drawing.Size(127, 37);
             this.btnEliminarEquipo.TabIndex = 108;
@@ -164,10 +166,32 @@
             this.btnEliminarEquipo.UseVisualStyleBackColor = true;
             this.btnEliminarEquipo.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnModificarUsuario
+            // 
+            this.btnModificarUsuario.Location = new System.Drawing.Point(256, 250);
+            this.btnModificarUsuario.Name = "btnModificarUsuario";
+            this.btnModificarUsuario.Size = new System.Drawing.Size(127, 37);
+            this.btnModificarUsuario.TabIndex = 109;
+            this.btnModificarUsuario.Text = "Modificar usuario";
+            this.btnModificarUsuario.UseVisualStyleBackColor = true;
+            this.btnModificarUsuario.Click += new System.EventHandler(this.btnModificarUsuario_Click);
+            // 
+            // btnModificarEquipo
+            // 
+            this.btnModificarEquipo.Location = new System.Drawing.Point(399, 250);
+            this.btnModificarEquipo.Name = "btnModificarEquipo";
+            this.btnModificarEquipo.Size = new System.Drawing.Size(127, 37);
+            this.btnModificarEquipo.TabIndex = 110;
+            this.btnModificarEquipo.Text = "Modificar equipo";
+            this.btnModificarEquipo.UseVisualStyleBackColor = true;
+            this.btnModificarEquipo.Click += new System.EventHandler(this.btnModificarEquipo_Click);
+            // 
             // MenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnModificarEquipo);
+            this.Controls.Add(this.btnModificarUsuario);
             this.Controls.Add(this.btnEliminarEquipo);
             this.Controls.Add(this.btnEliminarUsuario);
             this.Controls.Add(this.btnEliminarPizarron);
@@ -200,5 +224,7 @@
         private System.Windows.Forms.Button btnEliminarPizarron;
         private System.Windows.Forms.Button btnEliminarUsuario;
         private System.Windows.Forms.Button btnEliminarEquipo;
+        private System.Windows.Forms.Button btnModificarUsuario;
+        private System.Windows.Forms.Button btnModificarEquipo;
     }
 }

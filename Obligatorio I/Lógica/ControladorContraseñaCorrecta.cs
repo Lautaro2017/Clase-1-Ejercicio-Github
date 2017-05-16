@@ -14,7 +14,7 @@ namespace Lógica
 
         public void ContraseñaCorrectaOK(string email, string contraseña)
         {
-            if (!s.ContraseñaIncorrecta(email, contraseña))
+            if (s.ContraseñaIncorrecta(email, contraseña))
             {
                 throw new ExcepcionContraseñaIncorrecta();
             }

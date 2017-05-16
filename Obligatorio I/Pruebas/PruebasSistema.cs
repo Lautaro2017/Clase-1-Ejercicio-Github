@@ -210,6 +210,7 @@ namespace Pruebas
         [TestMethod]
         public void FiltroComentariosPorUsuarioResolutorOK()
         {
+            Pizarron p = utilidad.NuevoPizarron();
             Elemento e = utilidad.NuevoElemento();
             e.Comentarios = new List<Comentario>();         
             Comentario c1 = utilidad.NuevoComentario();
@@ -221,6 +222,8 @@ namespace Pruebas
             e.AgregarComentario(c1);
             e.AgregarComentario(c2);
             nuevoSistema.AgregarElemento(e);
+            p.AgregarElemento(e);
+            nuevoSistema.AgregarPizarron(p);
             List<Comentario> comentarios = nuevoSistema.FiltrarComentarioPorUsuarioResolutor(u2);
             bool condicion = comentarios.Contains(c2) && !comentarios.Contains(c1);
             Assert.IsTrue(condicion);
@@ -283,6 +286,7 @@ namespace Pruebas
         public void EmailPerteneceAUsuarioOK()
         {
             Usuario u = utilidad.NuevoUsuario();
+            nuevoSistema.AgregarUsuario(u);
             Assert.IsTrue(nuevoSistema.EmailCorrecto("lautarogutierrez4@gmail.com"));
         }
 
@@ -290,7 +294,8 @@ namespace Pruebas
         public void EmailPerteneceAUsuarioNotOK()
         {
             Usuario u = utilidad.NuevoUsuario();
-            Assert.IsTrue(nuevoSistema.EmailCorrecto("lautarogutierrez4@gmail.com.uy"));
+            nuevoSistema.AgregarUsuario(u);
+            Assert.IsFalse(nuevoSistema.EmailCorrecto("lautarogutierrez4@gmail.com.uy"));
         }
 
         [TestMethod]
@@ -298,7 +303,7 @@ namespace Pruebas
         {
             Usuario u = utilidad.NuevoUsuario();
             nuevoSistema.AgregarUsuario(u);
-            Assert.IsTrue(nuevoSistema.DatosDeUsuarioCorrectos("lautarogutierrez4@gmail.com.uy","lautaro1994"));
+            Assert.IsTrue(nuevoSistema.DatosDeUsuarioCorrectos("lautarogutierrez4@gmail.com","lautaro1994"));
         }
 
         [TestMethod]
@@ -314,7 +319,7 @@ namespace Pruebas
         {
             Usuario u = utilidad.NuevoUsuario();
             nuevoSistema.AgregarUsuario(u);
-            Assert.IsTrue(nuevoSistema.ContraseñaIncorrecta("lautarogutierrez4@gmail.com.uy", "lautaro94"));
+            Assert.IsTrue(nuevoSistema.ContraseñaIncorrecta("lautarogutierrez4@gmail.com", "lautaro94"));
         }
 
         [TestMethod]
@@ -322,14 +327,15 @@ namespace Pruebas
         {
             Usuario u = utilidad.NuevoUsuario();
             nuevoSistema.AgregarUsuario(u);
-            Assert.IsFalse(nuevoSistema.ContraseñaIncorrecta("lautarogutierrez4@gmail.com.uy", "lautaro1994"));
+            Assert.IsFalse(nuevoSistema.ContraseñaIncorrecta("lautarogutierrez4@gmail.com", "lautaro1994"));
         }
 
         [TestMethod]
         public void BuscarUsuarioPorMailOK()
         {
             Usuario u = utilidad.NuevoUsuario();
-            bool condicion = nuevoSistema.BuscarUsuarioPorMail("lautarogutierrez4@gmail.com") == u;
+            nuevoSistema.AgregarUsuario(u);
+            bool condicion = nuevoSistema.BuscarUsuarioPorMail("lautarogutierrez4@gmail.com").Equals(u);
             Assert.IsTrue(condicion);
         }
 
@@ -338,7 +344,7 @@ namespace Pruebas
         {
             Usuario u = utilidad.NuevoUsuario();
             bool condicion = nuevoSistema.BuscarUsuarioPorMail("lautarogutierrez@gmail.com") == null;
-            Assert.IsFalse(condicion);
+            Assert.IsTrue(condicion);
         }
 
         [TestMethod]
@@ -387,6 +393,7 @@ namespace Pruebas
         {
             Equipo e = utilidad.NuevoEquipo();
             Usuario u = utilidad.NuevoUsuario();
+            nuevoSistema.AgregarEquipo(e);
             List<Equipo> equipos = nuevoSistema.EquiposDeUsuario(u);
             Assert.IsTrue(equipos.Contains(e));
         }
@@ -414,7 +421,7 @@ namespace Pruebas
         {
             Equipo e = utilidad.NuevoEquipo();
             nuevoSistema.AgregarEquipo(e);
-            Assert.IsTrue(nuevoSistema.NombreEquipoRepetido("EquipoRocket"));
+            Assert.IsFalse(nuevoSistema.NombreEquipoRepetido("EquipoRocket"));
         }
 
         [TestMethod]
@@ -424,10 +431,10 @@ namespace Pruebas
             Usuario u1 = utilidad.OtroUsuario();
             Usuario u2 = utilidad.NuevoUsuario();
             nuevoSistema.AgregarUsuario(u1);
-            nuevoSistema.AgregarUsuario(u1);
+            nuevoSistema.AgregarUsuario(u2);
             nuevoSistema.AgregarEquipo(e);
             List<Usuario> usuarios = nuevoSistema.UsuariosNoAgregadosEnEquipo(e);
-            bool condicion = !usuarios.Contains(u1) && usuarios.Contains(u2);
+            bool condicion = usuarios.Contains(u1) && !usuarios.Contains(u2);
             Assert.IsTrue(condicion);
         }
 
@@ -445,13 +452,19 @@ namespace Pruebas
         [TestMethod]
         public void BuscarComentarioPorUsuarioYFechaOK()
         {
-            DateTime fecha = new DateTime();
+            DateTime fecha = new DateTime(2017, 2, 2);
+            DateTime fecha2 = new DateTime(2017, 3, 2);
+            Pizarron p = utilidad.NuevoPizarron();
+            Elemento e = utilidad.NuevoElemento();
             Comentario c = utilidad.NuevoComentario();
             Usuario u = utilidad.NuevoUsuario();
             c.FechaCreacion = fecha;
             c.Creador = u;
-            Comentario buscar = nuevoSistema.BuscarComentarioPorUsuarioYFecha(u,fecha);
-            bool condicion = c.Equals(u);
+            p.AgregarElemento(e);
+            e.AgregarComentario(c);
+            nuevoSistema.AgregarPizarron(p);
+            Comentario buscar = nuevoSistema.BuscarComentarioPorUsuarioYFecha(u, fecha);
+            bool condicion = buscar.Equals(c);
             Assert.IsTrue(condicion);
         }
 
@@ -460,12 +473,17 @@ namespace Pruebas
         {
             DateTime fecha = new DateTime(2017,2,2);
             DateTime fecha2 = new DateTime(2017, 3, 2);
+            Pizarron p = utilidad.NuevoPizarron();
+            Elemento e = utilidad.NuevoElemento();
             Comentario c = utilidad.NuevoComentario();
             Usuario u = utilidad.NuevoUsuario();
             c.FechaCreacion = fecha;
             c.Creador = u;
+            p.AgregarElemento(e);
+            e.AgregarComentario(c);
+            nuevoSistema.AgregarPizarron(p);
             Comentario buscar = nuevoSistema.BuscarComentarioPorUsuarioYFecha(u,fecha2);
-            bool condicion = c.Equals(null);
+            bool condicion = buscar == null;
             Assert.IsTrue(condicion);
         }
 

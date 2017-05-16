@@ -39,21 +39,6 @@ namespace Obligatorio_I
             this.UltimaModificacion = DateTime.Now;
         }
 
-        public bool SeAgregaElemento(Elemento e, Pizarron p)
-        {
-            if (p.Alto > e.Alto + e.PuntoOrigen.y)
-            {
-                return false;
-            }
-
-            if (p.Ancho > e.Ancho + e.PuntoOrigen.x)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
         public void AgregarElemento(Elemento e)
         {
             if (!this.Elementos.Contains(e))

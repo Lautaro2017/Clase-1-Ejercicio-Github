@@ -205,7 +205,7 @@ namespace Obligatorio_I
             {
                 if (u.Email == email)
                 {
-                    return true;
+                    return u.Contraseña == contraseña;
                 }
             }
             return false;
@@ -215,12 +215,12 @@ namespace Obligatorio_I
         {
             foreach (Usuario u in this.Usuarios)
             {
-                if (u.Contraseña == contraseña)
+                if (u.Email == email)
                 {
-                    return true;
+                    return u.Contraseña != contraseña;
                 }
             }
-            return false;
+            return true;
         }
 
         public Usuario BuscarUsuarioPorMail(string email)
@@ -239,7 +239,7 @@ namespace Obligatorio_I
         {
             foreach (Pizarron p in this.Pizarrones)
             {
-                if (p.EquipoPerteneciente == e)
+                if (p.EquipoPerteneciente.Equals(e))
                 {
                     return p.Nombre == nombre;
                 }

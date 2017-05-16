@@ -33,6 +33,18 @@ namespace Obligatorio_I
             }
         }
 
+        public DateTime FechaNacimiento
+        {
+            get
+            {
+                return FechaDeNacimiento;
+            }
+            set
+            {
+                this.FechaDeNacimiento = value;
+            }
+        }
+
         public string Contraseña
         {
             get

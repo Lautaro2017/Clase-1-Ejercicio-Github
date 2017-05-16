@@ -187,5 +187,37 @@ namespace Interfaz
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnModificarUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                controlador4.NoHayUsuarios();
+                Panel parent = this.Parent as Panel;
+                ModificarUsuario ventana = new ModificarUsuario(usuarioLogueado);
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
+            catch (ExcepcionNoHayUsuarios ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnModificarEquipo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                controlador1.NoHayEquipos();
+                Panel parent = this.Parent as Panel;
+                ModificarEquipo ventana = new ModificarEquipo(usuarioLogueado);
+                parent.Controls.Clear();
+                parent.Controls.Add(ventana);
+            }
+            catch (ExcepcionNoHayEquipos ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
